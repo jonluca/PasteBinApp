@@ -44,6 +44,7 @@
                                 <items>
                                     <navigationItem id="3aN-Xi-Mtx">
                                         <barButtonItem key="leftBarButtonItem" title="About" id="rvR-gi-DiJ"/>
+                                        <barButtonItem key="rightBarButtonItem" title="Item" id="ppJ-ui-rag"/>
                                     </navigationItem>
                                 </items>
                             </navigationBar>

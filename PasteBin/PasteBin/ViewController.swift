@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AFNetworking
 
 class ViewController: UIViewController {
     
@@ -24,7 +25,7 @@ class ViewController: UIViewController {
     
     @IBAction func quickSubmit(_ sender: Any) {
         if let text = UIPasteboard.general.string {
-            if(text.isEmpty)!{
+            if(text.isEmpty){
                 let alertController = UIAlertController(title: "Error!", message: "Text cannot be empty!", preferredStyle: .alert)
                 let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
                     // handle response here.
@@ -41,7 +42,7 @@ class ViewController: UIViewController {
                     let api_paste_expire_date = "&api_paste_expire_date=" + "N";
                     let api_paste_format = "&api_paste_format=" + "text";
                     let api_user_key = "&api_user_key=" + ""; // if an invalid api_user_key or no key is used, the paste will be create as a guest
-                    let encoded_text = "&api_paste_code=" + (text?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed))!;
+                    let encoded_text = "&api_paste_code=" + (text.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed))!;
                     let encoded_title = api_paste_name.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed);
                     
                     
@@ -104,11 +105,33 @@ class ViewController: UIViewController {
             }
         }
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    //credit to http://stackoverflow.com/questions/39558868/check-internet-connection-ios-10
+    func isInternetAvailable() -> Bool
+    {
+        var zeroAddress = sockaddr_in()
+        zeroAddress.sin_len = UInt8(MemoryLayout.size(ofValue: zeroAddress))
+        zeroAddress.sin_family = sa_family_t(AF_INET)
+        
+        let defaultRouteReachability = withUnsafePointer(to: &zeroAddress) {
+            $0.withMemoryRebound(to: sockaddr.self, capacity: 1) {zeroSockAddress in
+                SCNetworkReachabilityCreateWithAddress(nil, zeroSockAddress)
+            }
+        }
+        
+        var flags = SCNetworkReachabilityFlags()
+        if !SCNetworkReachabilityGetFlags(defaultRouteReachability!, &flags) {
+            return false
+        }
+        let isReachable = (flags.rawValue & UInt32(kSCNetworkFlagsReachable)) != 0
+        let needsConnection = (flags.rawValue & UInt32(kSCNetworkFlagsConnectionRequired)) != 0
+        return (isReachable && !needsConnection)
+    }
     
 }
 
