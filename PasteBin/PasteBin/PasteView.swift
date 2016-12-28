@@ -8,12 +8,15 @@
 
 import UIKit
 
-class PasteView: UIViewController, UITextViewDelegate {
+class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         doneButton.isEnabled = false;
         doneButton.title = nil;
+        let tapOutTextField: UITapGestureRecognizer = UITapGestureRecognizer(target: textView, action: #selector(edit));
         textView.delegate = self;
+        textView.addGestureRecognizer(tapOutTextField);
+        view.addGestureRecognizer(tapOutTextField)
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -28,6 +31,13 @@ class PasteView: UIViewController, UITextViewDelegate {
         submitButton.title = "Submit";
 
     }
+    func edit(){
+        submitButton.isEnabled = false;
+        submitButton.title = nil;
+        
+        doneButton.title = "Done";
+        doneButton.isEnabled = true;
+    }
     
     @IBOutlet weak var textView: UITextView!
     
@@ -40,11 +50,19 @@ class PasteView: UIViewController, UITextViewDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        edit();
+    }
     func textViewDidChange(_ textView: UITextView) {
         submitButton.isEnabled = false;
         submitButton.title = nil;
         
         doneButton.title = "Done";
         doneButton.isEnabled = true;
+    }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        
+        return true
     }
 }
