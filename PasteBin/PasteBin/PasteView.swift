@@ -56,9 +56,22 @@ class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelega
         }else{
             if(isInternetAvailable()){
                 let devKey = "71788ef035e5bf63bbbd11945bd8441c";
+                let api_paste_private = "1"; // 0=public 1=unlisted 2=private
+                let api_paste_name = "testTitle"; // name or title of your paste
+                let api_paste_expire_date = "N";
+                let api_paste_format = "text";
+                let api_user_key = ""; // if an invalid api_user_key or no key is used, the paste will be create as a guest
+                let encoded_text = text.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed);
+                let encoded_title = api_paste_name.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed);
+                
+
                 var request = URLRequest(url: URL(string: "http://pastebin.com/api/api_post.php")!)
                 request.httpMethod = "POST"
-                let postString = "id=13&name=Jack"
+                //convoluted but necessary for their post api
+                let postString = "api_option=paste" + "&api_user_key=" + api_user_key + "&api_paste_private=" + api_paste_private + "&api_paste_name=" +
+                 encoded_title + "&api_paste_expire_date=" + api_paste_expire_date + "&api_paste_format=" + api_paste_format + "&api_dev_key=" + api_dev_key +
+                    "&api_paste_code=" + encoded_text;
+
                 request.httpBody = postString.data(using: .utf8)
                 let task = URLSession.shared.dataTask(with: request) { data, response, error in
                     guard let data = data, error == nil else {
@@ -119,7 +132,7 @@ class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelega
         zeroAddress.sin_family = sa_family_t(AF_INET)
         
         let defaultRouteReachability = withUnsafePointer(to: &zeroAddress) {
-            $0.withMemoryRebound(to: sockaddr.self, capacity: 1) {zeroSockAddress in
+            let 0.withMemoryRebound(to: sockaddr.self, capacity: 1) {zeroSockAddress in
                 SCNetworkReachabilityCreateWithAddress(nil, zeroSockAddress)
             }
         }
