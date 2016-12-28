@@ -13,11 +13,11 @@ class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelega
         super.viewDidLoad()
         doneButton.isEnabled = false;
         doneButton.title = nil;
+        //Don't judge for the following code - fairly redudant but works
         let tapOutTextField: UITapGestureRecognizer = UITapGestureRecognizer(target: textView, action: #selector(edit));
         textView.delegate = self;
         textView.addGestureRecognizer(tapOutTextField);
         view.addGestureRecognizer(tapOutTextField)
-        // Do any additional setup after loading the view, typically from a nib.
     }
     
     @IBOutlet weak var submitButton: UIBarButtonItem!
@@ -42,6 +42,19 @@ class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelega
     @IBOutlet weak var textView: UITextView!
     
     @IBAction func submit(_ sender: Any) {
+        let text = textView.text;
+        if(text?.isEmpty)!{
+            let alertController = UIAlertController(title: "Error!", message: "Text cannot be empty!", preferredStyle: .alert)
+            let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
+                // handle response here.
+            }
+            alertController.addAction(OKAction)
+            self.present(alertController, animated: true){
+                
+            }
+        }else{
+            
+        }
         
     }
     
