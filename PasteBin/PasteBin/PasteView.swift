@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  PasteView.swift
 //  PasteBin
 //
 //  Created by JonLuca De Caro on 12/28/16.
@@ -8,25 +8,25 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
-    @IBOutlet weak var create: UIButton!
-    
-    @IBAction func createPaste(_ sender: Any) {
-        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let pasteViewController : PasteView = mainStoryboard.instantiateViewController(withIdentifier: "pasteVC") as! PasteView
-        self.present(pasteViewController, animated: true, completion: nil)
-    }
+class PasteView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
+    
+    @IBOutlet weak var submitButton: UIBarButtonItem!
+    @IBOutlet weak var doneButton: UIBarButtonItem!
+    @IBAction func done(_ sender: Any) {
+        doneButton.title = nil;
+        doneButton.isEnabled = false;
+        view.endEditing(true)
 
+    }
+    @IBAction func submit(_ sender: Any) {
+        
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
 }
-
