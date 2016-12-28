@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AFNetworking
 
 class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelegate {
     override func viewDidLoad() {
@@ -29,7 +30,7 @@ class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelega
         view.endEditing(true);
         submitButton.isEnabled = true;
         submitButton.title = "Submit";
-
+        
     }
     func edit(){
         submitButton.isEnabled = false;
@@ -53,6 +54,8 @@ class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelega
                 
             }
         }else{
+            let devKey = "71788ef035e5bf63bbbd11945bd8441c";
+            
             
         }
         

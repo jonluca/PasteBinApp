@@ -6,5 +6,6 @@ target 'PasteBin' do
   use_frameworks!
 
   # Pods for PasteBin
+  pod 'AFNetworking'
 
 end
