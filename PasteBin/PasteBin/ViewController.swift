@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var create: UIButton!
     
     @IBAction func createPaste(_ sender: Any) {
@@ -21,12 +21,94 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-
+    
+    @IBAction func quickSubmit(_ sender: Any) {
+        if let text = UIPasteboard.general.string {
+            if(text.isEmpty)!{
+                let alertController = UIAlertController(title: "Error!", message: "Text cannot be empty!", preferredStyle: .alert)
+                let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
+                    // handle response here.
+                }
+                alertController.addAction(OKAction)
+                self.present(alertController, animated: true){
+                    
+                }
+            }else{
+                if(isInternetAvailable()){
+                    let api_dev_key = "&api_dev_key=" + "71788ef035e5bf63bbbd11945bd8441c";
+                    let api_paste_private = "&api_paste_private=" + "1"; // 0=public 1=unlisted 2=private
+                    let api_paste_name = "&api_paste_name=" + "testTitle"; // name or title of your paste
+                    let api_paste_expire_date = "&api_paste_expire_date=" + "N";
+                    let api_paste_format = "&api_paste_format=" + "text";
+                    let api_user_key = "&api_user_key=" + ""; // if an invalid api_user_key or no key is used, the paste will be create as a guest
+                    let encoded_text = "&api_paste_code=" + (text?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed))!;
+                    let encoded_title = api_paste_name.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed);
+                    
+                    
+                    var request = URLRequest(url: URL(string: "http://pastebin.com/api/api_post.php")!)
+                    request.httpMethod = "POST"
+                    
+                    //convoluted but necessary for their post api
+                    var postString = "api_option=paste";
+                    postString +=  api_user_key;
+                    postString += api_paste_private;
+                    postString += encoded_title!;
+                    postString += api_paste_expire_date;
+                    postString += api_paste_format;
+                    postString += api_dev_key + encoded_text;
+                    
+                    request.httpBody = postString.data(using: .utf8)
+                    let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                        guard let data = data, error == nil else {
+                            //if not connected to internet
+                            print("error=\(error)")
+                            return
+                        }
+                        
+                        if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {           // check for http errors
+                            print("statusCode should be 200, but is \(httpStatus.statusCode)")
+                            print("response = \(response)")
+                            let alertController = UIAlertController(title: "Error!", message: "Unknown error - HTTP Code" + String(httpStatus.statusCode), preferredStyle: .alert)
+                            let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
+                                // handle response here.
+                            }
+                            alertController.addAction(OKAction)
+                            self.present(alertController, animated: true){
+                                
+                            }
+                        }
+                        
+                        let responseString = String(data: data, encoding: .utf8)
+                        print("responseString = \(responseString)")
+                        UIPasteboard.general.string = responseString;
+                        let alertController = UIAlertController(title: "Success!", message: responseString! + "\nSuccesfully copied to clipboard!", preferredStyle: .alert)
+                        let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
+                            // handle response here.
+                        }
+                        alertController.addAction(OKAction)
+                        self.present(alertController, animated: true){
+                            
+                        }
+                    }
+                    task.resume()
+                }else{
+                    let alertController = UIAlertController(title: "Error!", message: "Not connected to the internet!", preferredStyle: .alert)
+                    let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
+                        // handle response here.
+                    }
+                    alertController.addAction(OKAction)
+                    self.present(alertController, animated: true){
+                        
+                    }
+                }
+            }
+        }
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    
 }
 
