@@ -50,7 +50,7 @@ class ViewController: UIViewController {
                 if(isInternetAvailable()){
                     let api_dev_key = "&api_dev_key=" + "71788ef035e5bf63bbbd11945bd8441c";
                     let api_paste_private = "&api_paste_private=" + "1"; // 0=public 1=unlisted 2=private
-                    let api_paste_name = "&api_paste_name=" + "testTitle"; // name or title of your paste
+                    let api_paste_name = "&api_paste_name=" + "pasted using pastebin for iOS"; // name or title of your paste
                     let api_paste_expire_date = "&api_paste_expire_date=" + "N";
                     let api_paste_format = "&api_paste_format=" + "text";
                     let api_user_key = "&api_user_key=" + ""; // if an invalid api_user_key or no key is used, the paste will be create as a guest
