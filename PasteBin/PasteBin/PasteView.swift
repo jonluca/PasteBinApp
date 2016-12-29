@@ -10,10 +10,10 @@ import UIKit
 import AFNetworking
 
 class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelegate {
+    var isCurrentlyEditing = false;
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        doneButton.isEnabled = false;
-        doneButton.title = nil;
         //Don't judge for the following code - fairly redudant but works
         let tapOutTextField: UITapGestureRecognizer = UITapGestureRecognizer(target: textView, action: #selector(edit));
         textView.delegate = self;
@@ -21,23 +21,51 @@ class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelega
         view.addGestureRecognizer(tapOutTextField)
     }
     
+    @IBOutlet weak var titleText: UITextField!
+    
+    @IBAction func editAction(_ sender: Any) {
+        titleText.text = "";
+    }
     @IBOutlet weak var submitButton: UIBarButtonItem!
     @IBOutlet weak var doneButton: UIBarButtonItem!
     
     @IBAction func done(_ sender: Any) {
-        doneButton.title = nil;
-        doneButton.isEnabled = false;
-        view.endEditing(true);
-        submitButton.isEnabled = true;
-        submitButton.title = "Submit";
-        
+        if(!isCurrentlyEditing){
+            if(textView.text?.isEmpty)!{
+                let mainStoryboard = UIStoryboard(name: "Main", bundle: nil);
+                let vC : ViewController = mainStoryboard.instantiateViewController(withIdentifier: "mainView") as! ViewController;
+                self.present(vC, animated: false, completion: nil);
+            }else{
+                let alertController = UIAlertController(title: "Are you sure?", message: "You'll lose all text currently in the editor", preferredStyle: .alert)
+                let OKAction = UIAlertAction(title: "Go Back", style: .default) { (action) in
+                    let mainStoryboard = UIStoryboard(name: "Main", bundle: nil);
+                    let vC : ViewController = mainStoryboard.instantiateViewController(withIdentifier: "mainView") as! ViewController;
+                    self.present(vC, animated: false, completion: nil);                }
+                alertController.addAction(OKAction)
+                let NoActions = UIAlertAction(title: "Stay", style: .default) { (action) in
+                    
+                }
+                alertController.addAction(NoActions)
+                
+                self.present(alertController, animated: true){
+                    
+                }
+            }
+            
+        }else{
+            isCurrentlyEditing = false;
+            doneButton.title = "Back";
+            view.endEditing(true);
+            submitButton.isEnabled = true;
+            submitButton.title = "Submit";
+        }
     }
     func edit(){
+        isCurrentlyEditing = true;
         submitButton.isEnabled = false;
         submitButton.title = nil;
         
         doneButton.title = "Done";
-        doneButton.isEnabled = true;
     }
     
     @IBOutlet weak var textView: UITextView!
@@ -133,11 +161,11 @@ class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelega
         edit();
     }
     func textViewDidChange(_ textView: UITextView) {
+        isCurrentlyEditing = true;
         submitButton.isEnabled = false;
         submitButton.title = nil;
         
         doneButton.title = "Done";
-        doneButton.isEnabled = true;
     }
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
@@ -147,6 +175,7 @@ class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelega
     
     
     //credit to http://stackoverflow.com/questions/39558868/check-internet-connection-ios-10
+    //Simple check if internet is available
     func isInternetAvailable() -> Bool
     {
         var zeroAddress = sockaddr_in()

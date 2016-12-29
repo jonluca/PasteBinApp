@@ -14,15 +14,27 @@ class ViewController: UIViewController {
     @IBOutlet weak var create: UIButton!
     
     @IBAction func createPaste(_ sender: Any) {
-        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let pasteViewController : PasteView = mainStoryboard.instantiateViewController(withIdentifier: "pasteVC") as! PasteView
-        self.present(pasteViewController, animated: true, completion: nil)
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil);
+        let pasteViewController : PasteView = mainStoryboard.instantiateViewController(withIdentifier: "pasteVC") as! PasteView;
+        self.present(pasteViewController, animated: false, completion: nil);
     }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
+    @IBAction func about(_ sender: Any) {
+        let alertController = UIAlertController(title: "About", message: "© JonLuca De Caro 2017\n© pastebin.com", preferredStyle: .alert)
+        let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
+            // handle response here.
+        }
+        alertController.addAction(OKAction)
+        self.present(alertController, animated: true){
+            
+        }
+    }
     
+    @IBAction func helpButton(_ sender: Any) {
+    }
     @IBAction func quickSubmit(_ sender: Any) {
         if let text = UIPasteboard.general.string {
             if(text.isEmpty){
