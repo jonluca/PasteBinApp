@@ -157,7 +157,6 @@ class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelega
                     self.present(alertController, animated: true){
                         
                     }
-                    self.textView.text = "Success! Your paste is at " + responseString!;
                 }
                 task.resume()
             }else{
