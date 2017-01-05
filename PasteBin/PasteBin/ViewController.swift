@@ -24,20 +24,20 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // background blur
-        let darkBlur = UIBlurEffect(style: UIBlurEffectStyle.dark)
-        let blurView = UIVisualEffectView(effect: darkBlur)
-        blurView.frame = codeBackground.bounds
-        blurView.alpha = 0.9;
-        codeBackground.addSubview(blurView)
-        //call movement
+//        let darkBlur = UIBlurEffect(style: UIBlurEffectStyle.dark)
+//        let blurView = UIVisualEffectView(effect: darkBlur)
+//        blurView.frame = codeBackground.bounds
+//        blurView.alpha = 0.9;
+//        codeBackground.addSubview(blurView)
+//        //call movement
         backgroundInfinite()
-        // Do any additional setup after loading the view, typically from a nib.
+
     }
     
     func backgroundInfinite(){
+        let bounds = UIScreen.main.bounds
+        let width = bounds.size.width
         UIView.animate(withDuration: 10.0, delay: 0, options: [.repeat, .autoreverse], animations: {
-            let bounds = UIScreen.main.bounds
-            let width = bounds.size.width
             self.codeBackground.frame.origin.x += width;
             
         }, completion: nil)

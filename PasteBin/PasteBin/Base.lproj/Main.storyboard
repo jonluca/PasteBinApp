@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -78,26 +77,25 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Quick Paste Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VTB-UL-Btb">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Created by Pastebin App" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LnY-YB-4R0">
+                                                    <rect key="frame" x="187" y="8" width="219" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                                </textField>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quick Paste Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VTB-UL-Btb">
                                                     <rect key="frame" x="8" y="12" width="129" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Created by Pastebin App" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LnY-YB-4R0">
-                                                    <rect key="frame" x="187" y="8" width="219" height="30"/>
-                                                    <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <textInputTraits key="textInputTraits" autocorrectionType="no"/>
-                                                </textField>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="LnY-YB-4R0" firstAttribute="trailing" secondItem="aDI-rc-JP0" secondAttribute="trailingMargin" id="7rx-jr-N4Y"/>
-                                                <constraint firstItem="VTB-UL-Btb" firstAttribute="baseline" secondItem="LnY-YB-4R0" secondAttribute="baseline" id="8vW-Wv-r5F"/>
+                                                <constraint firstItem="VTB-UL-Btb" firstAttribute="leading" secondItem="aDI-rc-JP0" secondAttribute="leadingMargin" id="4N0-uu-lbW"/>
                                                 <constraint firstItem="VTB-UL-Btb" firstAttribute="leading" secondItem="aDI-rc-JP0" secondAttribute="leadingMargin" id="ALO-97-S4R"/>
-                                                <constraint firstItem="LnY-YB-4R0" firstAttribute="top" secondItem="aDI-rc-JP0" secondAttribute="topMargin" id="DtF-Xm-j6d"/>
-                                                <constraint firstItem="LnY-YB-4R0" firstAttribute="leading" secondItem="VTB-UL-Btb" secondAttribute="trailing" constant="24" id="GvF-Cx-31j"/>
-                                                <constraint firstItem="VTB-UL-Btb" firstAttribute="centerY" secondItem="LnY-YB-4R0" secondAttribute="centerY" id="RYH-lr-o4Z"/>
+                                                <constraint firstItem="VTB-UL-Btb" firstAttribute="top" secondItem="aDI-rc-JP0" secondAttribute="topMargin" constant="4" id="Re8-gN-z9P"/>
+                                                <constraint firstItem="VTB-UL-Btb" firstAttribute="leading" secondItem="aDI-rc-JP0" secondAttribute="leadingMargin" id="rQM-oF-cTN"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -119,8 +117,8 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M79-HF-5Xy">
-                                                    <rect key="frame" x="271" y="5" width="135" height="33"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M79-HF-5Xy">
+                                                    <rect key="frame" x="283" y="4" width="123" height="33"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <state key="normal" title="@jonlucadecaro"/>
                                                     <connections>
@@ -223,7 +221,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YGr-VN-KAN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1042.0289855072465" y="-540.48913043478262"/>
+            <point key="canvasLocation" x="1040.8" y="-541.07946026986508"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -238,7 +236,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="code.png" translatesAutoresizingMaskIntoConstraints="NO" id="E5I-c2-mpj">
-                                <rect key="frame" x="-997" y="20" width="1795" height="797"/>
+                                <rect key="frame" x="-1400" y="20" width="2198" height="797"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ldC-xO-kaa">
@@ -253,23 +251,9 @@
                                     <segue destination="S5L-tu-tXC" kind="presentation" id="hYJ-1R-SSw"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="db5-2C-0eO">
-                                <rect key="frame" x="114" y="424" width="187" height="33.666666666666686"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XTG-OU-6Nb">
-                                        <rect key="frame" x="0.0" y="0.0" width="187" height="33.666666666666686"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="XTG-OU-6Nb" secondAttribute="height" multiplier="83:15" id="aAF-eD-sp3"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                        <state key="normal" title="Quick Paste And Submit">
-                                            <color key="titleColor" red="0.48002347797927458" green="0.48002347797927458" blue="0.48002347797927458" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="quickSubmit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XGB-aM-0dJ"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="db5-2C-0eO">
+                                <rect key="frame" x="200" y="333" width="269" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </stackView>
                             <navigationBar contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="tgE-Ln-tKC">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -293,47 +277,39 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Qa7-MQ-fa1">
-                                <rect key="frame" x="72" y="277" width="252" height="91"/>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="FBw-WI-lbq">
-                                <rect key="frame" x="73" y="339" width="269" height="59"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="L2F-kU-Bxc">
-                                        <rect key="frame" x="0.0" y="0.0" width="269" height="59"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7iR-Lc-zGM">
-                                                <rect key="frame" x="0.0" y="0.0" width="269" height="59"/>
-                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="40"/>
-                                                <state key="normal" title="Create A Paste">
-                                                    <color key="titleColor" red="0.68332784660172363" green="0.67982360123453522" blue="0.68683209196891193" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="createPaste:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QCq-9v-rKZ"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                            </stackView>
+                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7iR-Lc-zGM">
+                                <rect key="frame" x="72.666666666666686" y="338.66666666666669" width="269" height="59"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="40"/>
+                                <state key="normal" title="Create A Paste">
+                                    <color key="titleColor" red="0.68332784660172363" green="0.67982360123453522" blue="0.68683209196891193" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="createPaste:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QCq-9v-rKZ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XTG-OU-6Nb">
+                                <rect key="frame" x="113.66666666666669" y="405.66666666666669" width="187" height="32"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <state key="normal" title="Quick Paste And Submit">
+                                    <color key="titleColor" red="0.48002347797927458" green="0.48002347797927458" blue="0.48002347797927458" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="quickSubmit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XGB-aM-0dJ"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.12561224400997162" green="0.12560586631298065" blue="0.12561018764972687" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="tgE-Ln-tKC" firstAttribute="centerX" secondItem="FBw-WI-lbq" secondAttribute="centerX" id="1XO-Ha-9OW"/>
-                            <constraint firstItem="FBw-WI-lbq" firstAttribute="centerX" secondItem="db5-2C-0eO" secondAttribute="centerX" id="3pZ-7s-vcG"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ldC-xO-kaa" secondAttribute="trailing" constant="-4" id="DSk-jL-mue"/>
-                            <constraint firstAttribute="trailing" secondItem="ldC-xO-kaa" secondAttribute="trailing" constant="16" id="E2X-RR-tvk"/>
-                            <constraint firstItem="FBw-WI-lbq" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="GEP-Ji-byd"/>
                             <constraint firstItem="tgE-Ln-tKC" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Kh2-6d-hnw"/>
+                            <constraint firstItem="7iR-Lc-zGM" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Nm4-i6-DgA"/>
                             <constraint firstItem="tgE-Ln-tKC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Rcc-aI-7kI"/>
+                            <constraint firstItem="7iR-Lc-zGM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="SKa-Cs-mY9"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ldC-xO-kaa" secondAttribute="bottom" constant="8" symbolic="YES" id="g1x-wX-NcW"/>
                             <constraint firstAttribute="trailing" secondItem="tgE-Ln-tKC" secondAttribute="trailing" id="gba-Tf-tfy"/>
-                            <constraint firstItem="Qa7-MQ-fa1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="52" id="gqh-Zu-cyi"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Qa7-MQ-fa1" secondAttribute="trailing" constant="70" id="iD9-lB-oZE"/>
-                            <constraint firstItem="db5-2C-0eO" firstAttribute="top" secondItem="FBw-WI-lbq" secondAttribute="bottom" constant="26" id="tNN-X6-c5E"/>
-                            <constraint firstItem="Qa7-MQ-fa1" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="277" id="tQm-EY-uat"/>
+                            <constraint firstItem="XTG-OU-6Nb" firstAttribute="top" secondItem="7iR-Lc-zGM" secondAttribute="bottom" constant="8" id="h97-b8-bmP"/>
+                            <constraint firstItem="XTG-OU-6Nb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qPe-As-WgR"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ldC-xO-kaa" secondAttribute="bottom" constant="8" id="vkw-Sg-Gal"/>
-                            <constraint firstItem="db5-2C-0eO" firstAttribute="top" secondItem="Qa7-MQ-fa1" secondAttribute="bottom" constant="56" id="y4Z-Bn-8Av"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
@@ -344,7 +320,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.23188405797103" y="138.58695652173915"/>
+            <point key="canvasLocation" x="134.48275862068968" y="136.80000000000001"/>
         </scene>
         <!--Help View Controller-->
         <scene sceneID="RQL-s4-863">
@@ -359,7 +335,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yHT-uW-2D8">
-                                <rect key="frame" x="16" y="64" width="349" height="595"/>
+                                <rect key="frame" x="10" y="64" width="355" height="595"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Pastebin App is meant to be a lightweight, portable application to quickly share text.  Select Create a Paste to use the editor, and modify your upload.   Quick Paste and Submit will take whatever is currently in your clipboard, upload it to pastebin, and copy the link to your clipboard (please note - it will overwrite whatever is in your clipboard)</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -381,20 +357,21 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="yHT-uW-2D8" firstAttribute="leading" secondItem="a0E-N8-bSo" secondAttribute="leading" constant="16" id="Gal-45-xQc"/>
+                            <constraint firstAttribute="trailing" secondItem="yHT-uW-2D8" secondAttribute="trailing" constant="10" id="8RG-GU-nW9"/>
                             <constraint firstItem="1Nk-cu-FgZ" firstAttribute="top" secondItem="ymG-Yf-kqM" secondAttribute="bottom" id="I6l-6E-2rL"/>
                             <constraint firstItem="1Nk-cu-FgZ" firstAttribute="leading" secondItem="a0E-N8-bSo" secondAttribute="leading" id="Kto-5h-s1l"/>
                             <constraint firstItem="rrY-C1-nL4" firstAttribute="top" secondItem="yHT-uW-2D8" secondAttribute="bottom" constant="8" id="RTk-aW-vXh"/>
+                            <constraint firstItem="rrY-C1-nL4" firstAttribute="top" secondItem="yHT-uW-2D8" secondAttribute="bottom" constant="8" id="Z6H-s3-ref"/>
                             <constraint firstAttribute="trailing" secondItem="1Nk-cu-FgZ" secondAttribute="trailing" id="ZRF-yx-Lqs"/>
+                            <constraint firstItem="yHT-uW-2D8" firstAttribute="leading" secondItem="a0E-N8-bSo" secondAttribute="leading" constant="10" id="cBw-Ig-QIA"/>
                             <constraint firstItem="yHT-uW-2D8" firstAttribute="top" secondItem="1Nk-cu-FgZ" secondAttribute="bottom" id="czJ-HN-EHI"/>
-                            <constraint firstItem="yHT-uW-2D8" firstAttribute="leading" secondItem="a0E-N8-bSo" secondAttribute="leading" constant="16" id="nw1-NR-RMF"/>
                             <constraint firstAttribute="trailing" secondItem="yHT-uW-2D8" secondAttribute="trailing" constant="10" id="wuB-NK-TCi"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g8v-GX-2jR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="129.71014492753625" y="818.88586956521749"/>
+            <point key="canvasLocation" x="134" y="1196"/>
         </scene>
         <!--Paste View-->
         <scene sceneID="Oog-fG-vHP">
@@ -409,7 +386,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ecF-dC-aYm">
-                                <rect key="frame" x="16" y="64" width="343" height="595"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="664"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" hint="Title"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -447,15 +424,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ecF-dC-aYm" firstAttribute="trailing" secondItem="EFX-Ye-Akj" secondAttribute="trailingMargin" constant="-35" id="7ae-6u-xm1"/>
+                            <constraint firstItem="ecF-dC-aYm" firstAttribute="top" secondItem="A4n-QH-sDK" secondAttribute="bottom" id="8Zg-uM-ZUS"/>
+                            <constraint firstItem="A4n-QH-sDK" firstAttribute="trailing" secondItem="ecF-dC-aYm" secondAttribute="trailing" id="Aae-w9-vcs"/>
+                            <constraint firstItem="Di9-jy-Fl4" firstAttribute="top" secondItem="ecF-dC-aYm" secondAttribute="bottom" constant="8" id="Crl-oK-PhZ"/>
                             <constraint firstItem="A4n-QH-sDK" firstAttribute="leading" secondItem="EFX-Ye-Akj" secondAttribute="leading" id="DUP-ID-EZW"/>
-                            <constraint firstItem="ecF-dC-aYm" firstAttribute="leading" secondItem="EFX-Ye-Akj" secondAttribute="leadingMargin" constant="-4" id="FNj-dO-wMT"/>
+                            <constraint firstAttribute="trailing" secondItem="ecF-dC-aYm" secondAttribute="trailing" id="GHp-um-uVb"/>
                             <constraint firstItem="A4n-QH-sDK" firstAttribute="top" secondItem="bwF-P1-LC9" secondAttribute="bottom" id="U7x-cC-NHb"/>
-                            <constraint firstItem="ecF-dC-aYm" firstAttribute="centerY" secondItem="EFX-Ye-Akj" secondAttribute="centerY" constant="-6.5" id="V6v-cg-fXK"/>
-                            <constraint firstItem="A4n-QH-sDK" firstAttribute="bottom" secondItem="ecF-dC-aYm" secondAttribute="top" id="cIS-qq-hFb"/>
-                            <constraint firstAttribute="trailing" secondItem="A4n-QH-sDK" secondAttribute="trailing" id="nQj-xp-siE"/>
-                            <constraint firstItem="Di9-jy-Fl4" firstAttribute="top" secondItem="ecF-dC-aYm" secondAttribute="bottom" constant="77" id="qrY-pO-YcD"/>
-                            <constraint firstItem="ecF-dC-aYm" firstAttribute="centerX" secondItem="EFX-Ye-Akj" secondAttribute="centerX" constant="-19.5" id="uvI-gp-PuF"/>
+                            <constraint firstItem="ecF-dC-aYm" firstAttribute="leading" secondItem="EFX-Ye-Akj" secondAttribute="leading" id="ZO5-pE-44b"/>
                         </constraints>
                     </view>
                     <connections>
@@ -467,7 +442,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iWo-1Z-8b6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="804" y="138.98050974512745"/>
+            <point key="canvasLocation" x="803.74812593703155" y="138.40000000000001"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="VvC-GU-lYu">
