@@ -42,6 +42,10 @@ class ViewController: UIViewController {
         
     }
     
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
+    
     override func viewDidDisappear(_ animated: Bool) {
         self.last = self.codeBackground.frame.origin.x;
     }

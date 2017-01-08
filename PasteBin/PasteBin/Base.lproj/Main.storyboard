@@ -28,18 +28,18 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FFC-9n-v5z">
-                                                    <rect key="frame" x="357" y="6" width="51" height="31"/>
-                                                    <connections>
-                                                        <action selector="unlistedChange:" destination="g67-IV-A3s" eventType="valueChanged" id="ObV-xW-EvM"/>
-                                                    </connections>
-                                                </switch>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unlisted" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vdQ-Zr-gIR">
                                                     <rect key="frame" x="8" y="11" width="63" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FFC-9n-v5z">
+                                                    <rect key="frame" x="357" y="6" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="unlistedChange:" destination="g67-IV-A3s" eventType="valueChanged" id="ObV-xW-EvM"/>
+                                                    </connections>
+                                                </switch>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="vdQ-Zr-gIR" firstAttribute="centerY" secondItem="FFC-9n-v5z" secondAttribute="centerY" id="GwQ-cd-fBb"/>
@@ -351,7 +351,7 @@
                                 <color key="barTintColor" red="1" green="0.99997591972351074" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <items>
                                     <navigationItem id="WPY-hI-wb3">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="qzL-Ws-JeZ">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="qzL-Ws-JeZ">
                                             <connections>
                                                 <action selector="done:" destination="Ikl-lD-v4I" id="hDA-F2-1No"/>
                                             </connections>
@@ -391,14 +391,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ecF-dC-aYm">
-                                <rect key="frame" x="0.0" y="64" width="414" height="664"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="684"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration" hint="Title"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" enablesReturnKeyAutomatically="YES"/>
                             </textView>
                             <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A4n-QH-sDK">
-                                <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                 <items>
                                     <navigationItem id="Z0u-IU-nVv">
                                         <nil key="title"/>
@@ -438,6 +438,7 @@
                             <constraint firstItem="ecF-dC-aYm" firstAttribute="leading" secondItem="EFX-Ye-Akj" secondAttribute="leading" id="ZO5-pE-44b"/>
                         </constraints>
                     </view>
+                    <nil key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="doneButton" destination="dIc-Qm-yY1" id="lG1-W9-VlI"/>
                         <outlet property="submitButton" destination="BYv-lJ-a8D" id="Eo9-pM-OPF"/>
