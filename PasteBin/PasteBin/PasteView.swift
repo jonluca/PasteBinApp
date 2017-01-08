@@ -152,7 +152,7 @@ class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelega
                     let alertController = UIAlertController(title: "Success!", message: responseString! + "\nSuccesfully copied to clipboard!", preferredStyle: .alert)
                     let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
                         // handle response here.
-                        self.textView.text = "";
+                        self.textView.text = responseString;
                     }
                     alertController.addAction(OKAction)
                     self.present(alertController, animated: true){

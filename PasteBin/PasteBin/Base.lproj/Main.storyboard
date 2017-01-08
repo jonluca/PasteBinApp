@@ -77,24 +77,29 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Created by Pastebin App" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LnY-YB-4R0">
-                                                    <rect key="frame" x="187" y="8" width="219" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <textInputTraits key="textInputTraits" autocorrectionType="no"/>
-                                                </textField>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quick Paste Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VTB-UL-Btb">
                                                     <rect key="frame" x="8" y="12" width="129" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Created by Pastebin App" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LnY-YB-4R0" userLabel="Quick Paste Field">
+                                                    <rect key="frame" x="212" y="8" width="194" height="30"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                                </textField>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="VTB-UL-Btb" firstAttribute="leading" secondItem="aDI-rc-JP0" secondAttribute="leadingMargin" id="4N0-uu-lbW"/>
+                                                <constraint firstItem="LnY-YB-4R0" firstAttribute="centerY" secondItem="VTB-UL-Btb" secondAttribute="centerY" id="741-gW-EyX"/>
                                                 <constraint firstItem="VTB-UL-Btb" firstAttribute="leading" secondItem="aDI-rc-JP0" secondAttribute="leadingMargin" id="ALO-97-S4R"/>
+                                                <constraint firstItem="LnY-YB-4R0" firstAttribute="top" secondItem="aDI-rc-JP0" secondAttribute="top" constant="8" id="AWh-2R-LPm"/>
+                                                <constraint firstAttribute="bottom" secondItem="LnY-YB-4R0" secondAttribute="bottom" constant="5" id="E5c-hh-SdW"/>
                                                 <constraint firstItem="VTB-UL-Btb" firstAttribute="top" secondItem="aDI-rc-JP0" secondAttribute="topMargin" constant="4" id="Re8-gN-z9P"/>
+                                                <constraint firstItem="LnY-YB-4R0" firstAttribute="baseline" secondItem="VTB-UL-Btb" secondAttribute="baseline" id="Xqt-u2-hXV"/>
+                                                <constraint firstAttribute="trailing" secondItem="LnY-YB-4R0" secondAttribute="trailing" constant="8" id="a3q-DI-f16"/>
+                                                <constraint firstAttribute="trailing" secondItem="LnY-YB-4R0" secondAttribute="trailing" constant="8" id="oSG-Az-TtV"/>
                                                 <constraint firstItem="VTB-UL-Btb" firstAttribute="leading" secondItem="aDI-rc-JP0" secondAttribute="leadingMargin" id="rQM-oF-cTN"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -221,7 +226,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YGr-VN-KAN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="803" y="-540"/>
+            <point key="canvasLocation" x="802.734375" y="-540.26354319180086"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -256,7 +261,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </stackView>
                             <navigationBar contentMode="scaleToFill" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="tgE-Ln-tKC">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="0.0" width="412.66666666666669" height="44"/>
                                 <items>
                                     <navigationItem id="3aN-Xi-Mtx">
                                         <barButtonItem key="leftBarButtonItem" title="About" id="rvR-gi-DiJ">
@@ -300,16 +305,16 @@
                         </subviews>
                         <color key="backgroundColor" red="0.12561224400997162" green="0.12560586631298065" blue="0.12561018764972687" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="tgE-Ln-tKC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="2Wv-mz-NRg"/>
+                            <constraint firstItem="tgE-Ln-tKC" firstAttribute="centerX" secondItem="7iR-Lc-zGM" secondAttribute="centerX" id="DRE-Nd-xaN"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ldC-xO-kaa" secondAttribute="trailing" constant="-4" id="DSk-jL-mue"/>
-                            <constraint firstItem="tgE-Ln-tKC" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Kh2-6d-hnw"/>
                             <constraint firstItem="7iR-Lc-zGM" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Nm4-i6-DgA"/>
-                            <constraint firstItem="tgE-Ln-tKC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Rcc-aI-7kI"/>
                             <constraint firstItem="7iR-Lc-zGM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="SKa-Cs-mY9"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ldC-xO-kaa" secondAttribute="bottom" constant="8" symbolic="YES" id="g1x-wX-NcW"/>
-                            <constraint firstAttribute="trailing" secondItem="tgE-Ln-tKC" secondAttribute="trailing" id="gba-Tf-tfy"/>
                             <constraint firstItem="XTG-OU-6Nb" firstAttribute="top" secondItem="7iR-Lc-zGM" secondAttribute="bottom" constant="8" id="h97-b8-bmP"/>
                             <constraint firstItem="XTG-OU-6Nb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qPe-As-WgR"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ldC-xO-kaa" secondAttribute="bottom" constant="8" id="vkw-Sg-Gal"/>
+                            <constraint firstItem="tgE-Ln-tKC" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="ytN-5c-sP9"/>
                         </constraints>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
@@ -447,7 +452,7 @@
         <!--Navigation Controller-->
         <scene sceneID="VvC-GU-lYu">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="S5L-tu-tXC" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalTransitionStyle="crossDissolve" id="S5L-tu-tXC" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="c5Q-Yk-70a">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>

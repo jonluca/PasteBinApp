@@ -15,34 +15,51 @@ class ViewController: UIViewController {
     @IBOutlet weak var create: UIButton!
     
     @IBAction func createPaste(_ sender: Any) {
+        self.last = self.codeBackground.frame.origin.x;
+
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil);
         let pasteViewController : PasteView = mainStoryboard.instantiateViewController(withIdentifier: "pasteVC") as! PasteView;
         self.present(pasteViewController, animated: false, completion: nil);
     }
     @IBOutlet weak var codeBackground: UIImageView!
     
+    //init view vars
+    var width = CGFloat(0);
+    var last = CGFloat(-1400);
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // background blur
-//        let darkBlur = UIBlurEffect(style: UIBlurEffectStyle.dark)
-//        let blurView = UIVisualEffectView(effect: darkBlur)
-//        blurView.frame = codeBackground.bounds
-//        blurView.alpha = 0.9;
-//        codeBackground.addSubview(blurView)
-//        //call movement
+        // background blur - deprecated
+        //        let darkBlur = UIBlurEffect(style: UIBlurEffectStyle.dark)
+        //        let blurView = UIVisualEffectView(effect: darkBlur)
+        //        blurView.frame = codeBackground.bounds
+        //        blurView.alpha = 0.9;
+        //        codeBackground.addSubview(blurView)
+        //        call movement
+        let bounds = UIScreen.main.bounds;
+        self.width = bounds.size.width;
         backgroundInfinite()
-
+        
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        self.last = self.codeBackground.frame.origin.x;
     }
     
     func backgroundInfinite(){
-        let bounds = UIScreen.main.bounds
-        let width = bounds.size.width
+        
+        self.codeBackground.frame.origin.x = self.last;
+        
         UIView.animate(withDuration: 10.0, delay: 0, options: [.repeat, .autoreverse], animations: {
-            self.codeBackground.frame.origin.x += width;
+            self.codeBackground.frame.origin.x += self.width;
             
         }, completion: nil)
     }
+    
     @IBAction func about(_ sender: Any) {
+        
+        self.last = self.codeBackground.frame.origin.x;
+        
         let alertController = UIAlertController(title: "About", message: "© JonLuca De Caro 2017\n© pastebin.com", preferredStyle: .alert)
         let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
             // handle response here.
@@ -54,6 +71,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func helpButton(_ sender: Any) {
+        self.last = self.codeBackground.frame.origin.x;
+
     }
     @IBAction func quickSubmit(_ sender: Any) {
         if let text = UIPasteboard.general.string {
