@@ -26,6 +26,7 @@ class ViewController: UIViewController {
     //init view vars
     var width = CGFloat(0);
     var last = CGFloat(-1400);
+    var result = "null";
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -156,6 +157,7 @@ class ViewController: UIViewController {
                         }
                         
                         let responseString = String(data: data, encoding: .utf8)
+                        self.result = responseString!;
                         print("responseString = \(responseString)")
                         UIPasteboard.general.string = responseString;
                         let alertController = UIAlertController(title: "Success!", message: responseString! + "\nSuccesfully copied to clipboard!", preferredStyle: .alert)

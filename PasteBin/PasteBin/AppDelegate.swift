@@ -46,8 +46,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
         
         if(shortcutItem.type == "com.jonluca.pastebinapp.quickpaste" ) {
-            let vc = quickSumbit();
-            vc.quickSubmit();
+            let mainStoryboard = UIStoryboard(name: "Main", bundle: nil);
+            let vc : ViewController = mainStoryboard.instantiateViewController(withIdentifier: "mainView") as! ViewController;
+            vc.quickSubmit(self);
+            let alertController = UIAlertController(title: "Success!", message:"\nSuccesfully copied to clipboard!", preferredStyle: .alert)
+            let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
+                // handle response here.
+            }
+            alertController.addAction(OKAction)
+            self.window?.rootViewController?.present(alertController, animated: true){
+                
+            }
+
         }
     }
     
