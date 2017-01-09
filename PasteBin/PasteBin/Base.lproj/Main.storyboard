@@ -63,9 +63,18 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XeF-tm-6po">
+                                                    <rect key="frame" x="348" y="11" width="33" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="XeF-tm-6po" secondAttribute="bottom" constant="11" id="Med-XN-uhC"/>
                                                 <constraint firstItem="q3D-EI-9LA" firstAttribute="leading" secondItem="pyL-6m-S6R" secondAttribute="leadingMargin" id="Z5Q-cT-Jfq"/>
+                                                <constraint firstItem="XeF-tm-6po" firstAttribute="top" secondItem="pyL-6m-S6R" secondAttribute="top" constant="11" id="d3a-gx-6iv"/>
+                                                <constraint firstAttribute="trailing" secondItem="XeF-tm-6po" secondAttribute="trailing" id="hke-ln-e4A"/>
                                                 <constraint firstItem="q3D-EI-9LA" firstAttribute="centerY" secondItem="pyL-6m-S6R" secondAttribute="centerY" id="lhz-vA-xxX"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -224,6 +233,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="quickPasteTitle" destination="LnY-YB-4R0" id="1Ta-Lc-KXm"/>
+                        <outlet property="textLabel" destination="XeF-tm-6po" id="Zdh-d0-kTc"/>
                         <outlet property="unlistedSwitch" destination="FFC-9n-v5z" id="bcV-yA-kd7"/>
                     </connections>
                 </tableViewController>

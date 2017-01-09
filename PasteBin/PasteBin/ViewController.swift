@@ -30,13 +30,12 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // background blur - deprecated
-        //        let darkBlur = UIBlurEffect(style: UIBlurEffectStyle.dark)
-        //        let blurView = UIVisualEffectView(effect: darkBlur)
-        //        blurView.frame = codeBackground.bounds
-        //        blurView.alpha = 0.9;
-        //        codeBackground.addSubview(blurView)
-        //        call movement
+        
+        let defaults = UserDefaults.standard;
+        if (defaults.object(forKey: "selectedText") == nil) {
+            defaults.set(145, forKey: "selectedText");
+        }
+        
         let bounds = UIScreen.main.bounds;
         self.width = bounds.size.width;
         backgroundInfinite()
