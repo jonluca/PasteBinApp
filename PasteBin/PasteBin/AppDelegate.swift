@@ -45,6 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //Guide from https://the-nerd.be/2015/09/30/add-3d-touch-quick-actions-tutorial/
     func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
         
+        //3D touch quick action for quick paste
         if(shortcutItem.type == "com.jonluca.pastebinapp.quickpaste" ) {
             let mainStoryboard = UIStoryboard(name: "Main", bundle: nil);
             let vc : ViewController = mainStoryboard.instantiateViewController(withIdentifier: "mainView") as! ViewController;

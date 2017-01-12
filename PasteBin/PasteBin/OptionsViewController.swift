@@ -41,29 +41,34 @@ class OptionsViewController: UITableViewController {
             defaults.set(false, forKey: "SwitchState")
         }
     }
+    //Twitter
     @IBAction func twitterHandle(_ sender: Any) {
         UIApplication.shared.openURL(URL(string: "http://www.twitter.com/jonlucadecaro")!)
     }
-    
+    //Donate
     @IBAction func donate(_ sender: Any) {
         UIApplication.shared.openURL(URL(string: "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TV28RGXB52DUA")!)
     }
+    //Pastebin
     @IBAction func pastebin(_ sender: Any) {
         UIApplication.shared.openURL(URL(string: "http://www.pastebin.com")!)
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad();
         let defaults = UserDefaults.standard
-        
+        //Set Unlisted
         if (defaults.object(forKey: "SwitchState") != nil) {
             unlistedSwitch.isOn = defaults.bool(forKey: "SwitchState")
         }
+        //Set language
         if (defaults.object(forKey: "selectedText") != nil) {
             textLabel.text = languages[defaults.integer(forKey: "selectedText")]
         }else{
             textLabel.text = "None";
             defaults.set(145, forKey: "selectedText");
         }
+        //Set quickpaste title
         if(quickPasteTitle.text != nil){
             quickPasteTitle.text = defaults.string(forKey: "quickPasteTitle");
         }
@@ -76,6 +81,7 @@ class OptionsViewController: UITableViewController {
         if (defaults.object(forKey: "SwitchState") != nil) {
             unlistedSwitch.isOn = defaults.bool(forKey: "SwitchState")
         }
+        //Populates text before it shows, to prevent animation lags
         if (defaults.object(forKey: "selectedText") != nil) {
             textLabel.text = languages[defaults.integer(forKey: "selectedText")]
         }else{
