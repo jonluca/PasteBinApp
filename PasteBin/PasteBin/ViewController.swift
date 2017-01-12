@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     @IBAction func createPaste(_ sender: Any) {
         self.last = self.codeBackground.frame.origin.x;
 
+        //Show main paste view
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil);
         let pasteViewController : PasteView = mainStoryboard.instantiateViewController(withIdentifier: "pasteVC") as! PasteView;
         self.present(pasteViewController, animated: false, completion: nil);
@@ -31,21 +32,27 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //If no defaults exist in save, create them
         let defaults = UserDefaults.standard;
         if (defaults.object(forKey: "selectedText") == nil) {
             defaults.set(145, forKey: "selectedText");
         }
         
+        //TODO - Make an array in save file, populate into options view with title "Previous Pastes" and save all response strings into it
+        
+        //Get screen size for animated background
         let bounds = UIScreen.main.bounds;
         self.width = bounds.size.width;
         backgroundInfinite()
         
     }
     
+    //Hide top bar
     override var prefersStatusBarHidden: Bool {
         return true
     }
     
+    //Remmebers the last position of scrolling background
     override func viewDidDisappear(_ animated: Bool) {
         self.last = self.codeBackground.frame.origin.x;
     }
@@ -54,6 +61,7 @@ class ViewController: UIViewController {
         
         self.codeBackground.frame.origin.x = self.last;
         
+        //10s animation, moves horizontally and back again
         UIView.animate(withDuration: 10.0, delay: 0, options: [.repeat, .autoreverse], animations: {
             self.codeBackground.frame.origin.x += self.width;
             
@@ -62,11 +70,13 @@ class ViewController: UIViewController {
     
     @IBAction func about(_ sender: Any) {
         
+        //Yet again saves the position
         self.last = self.codeBackground.frame.origin.x;
         
+        //About Information
         let alertController = UIAlertController(title: "About", message: "© JonLuca De Caro 2017\n© pastebin.com", preferredStyle: .alert)
         let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
-            // handle response here.
+            // Do nothing
         }
         alertController.addAction(OKAction)
         self.present(alertController, animated: true){
@@ -80,7 +90,9 @@ class ViewController: UIViewController {
     }
     @IBAction func quickSubmit(_ sender: Any) {
         if let text = UIPasteboard.general.string {
+            //Don't allow empty paste
             if(text.isEmpty){
+                
                 let alertController = UIAlertController(title: "Error!", message: "Text cannot be empty!", preferredStyle: .alert)
                 let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
                     // handle response here.
@@ -90,13 +102,16 @@ class ViewController: UIViewController {
                     
                 }
             }else{
+                //Make sure internet is available
                 if(isInternetAvailable()){
                     
                     let defaults = UserDefaults.standard
                     
+                    //Our dev key
                     let api_dev_key = "&api_dev_key=" + "71788ef035e5bf63bbbd11945bd8441c";
                     var api_paste_private = "&api_paste_private=";
                     
+                    //Unlisted or not?
                     if(defaults.bool(forKey: "SwitchState")){
                         api_paste_private += "1"; // 0=public 1=unlisted 2=private
                     }else{
@@ -114,11 +129,13 @@ class ViewController: UIViewController {
                     
                     let api_paste_expire_date = "&api_paste_expire_date=" + "N";
                     
+                    //Default to always text for quick paste, no lang
                     let api_paste_format = "&api_paste_format=" + "text";
                     
                     let api_user_key = "&api_user_key=" + ""; // if an invalid api_user_key or no key is used, the paste will be create as a guest
                     let encoded_text = "&api_paste_code=" + (text.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed))!;
                     
+                    //URL Acceptable string
                     let encoded_title = api_paste_name.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed);
                     
                     
@@ -135,6 +152,7 @@ class ViewController: UIViewController {
                     postString += api_dev_key + encoded_text;
                     
                     request.httpBody = postString.data(using: .utf8)
+                    //POST request
                     let task = URLSession.shared.dataTask(with: request) { data, response, error in
                         guard let data = data, error == nil else {
                             //if not connected to internet
@@ -157,6 +175,7 @@ class ViewController: UIViewController {
                         
                         let responseString = String(data: data, encoding: .utf8)
                         self.result = responseString!;
+                        //Get response
                         print("responseString = \(responseString)")
                         UIPasteboard.general.string = responseString;
                         let alertController = UIAlertController(title: "Success!", message: responseString! + "\nSuccesfully copied to clipboard!", preferredStyle: .alert)
@@ -188,7 +207,7 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         backgroundInfinite();
     }
     
