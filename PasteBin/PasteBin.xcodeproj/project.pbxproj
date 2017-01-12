@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		080880471E2841D800D22074 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 080880461E2841D800D22074 /* Default-568h@2x.png */; };
 		08453B8A1E1426C5001CAACB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08453B891E1426C5001CAACB /* AppDelegate.swift */; };
 		08453B8C1E1426C5001CAACB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08453B8B1E1426C5001CAACB /* ViewController.swift */; };
 		08453B8F1E1426C5001CAACB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08453B8D1E1426C5001CAACB /* Main.storyboard */; };
@@ -15,13 +16,13 @@
 		0849C3701E15256D00031FF1 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0849C36F1E15256D00031FF1 /* HelpViewController.swift */; };
 		0849C3731E155E7800031FF1 /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0849C3721E155E7800031FF1 /* OptionsViewController.swift */; };
 		0849C3751E18151E00031FF1 /* code.png in Resources */ = {isa = PBXBuildFile; fileRef = 0849C3741E18151E00031FF1 /* code.png */; };
-		08CBE5191E22CB6100C91B02 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08CBE5181E22CB6100C91B02 /* Default-568h@2x.png */; };
 		08CBE51D1E23FB8700C91B02 /* TextSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CBE51C1E23FB8700C91B02 /* TextSelectionViewController.swift */; };
 		08EB1C571E14293A00311E23 /* PasteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EB1C561E14293A00311E23 /* PasteView.swift */; };
 		77E07E471E6C85C08E23F3C8 /* Pods_PasteBin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E72A0797AC270D9771EB4A8 /* Pods_PasteBin.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		080880461E2841D800D22074 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		08453B861E1426C5001CAACB /* PasteBin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PasteBin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08453B891E1426C5001CAACB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		08453B8B1E1426C5001CAACB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -32,7 +33,6 @@
 		0849C36F1E15256D00031FF1 /* HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		0849C3721E155E7800031FF1 /* OptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
 		0849C3741E18151E00031FF1 /* code.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = code.png; path = ../../../../Desktop/code.png; sourceTree = "<group>"; };
-		08CBE5181E22CB6100C91B02 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		08CBE51C1E23FB8700C91B02 /* TextSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextSelectionViewController.swift; sourceTree = "<group>"; };
 		08EB1C561E14293A00311E23 /* PasteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasteView.swift; sourceTree = "<group>"; };
 		4E72A0797AC270D9771EB4A8 /* Pods_PasteBin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PasteBin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -55,7 +55,7 @@
 		08453B7D1E1426C4001CAACB = {
 			isa = PBXGroup;
 			children = (
-				08CBE5181E22CB6100C91B02 /* Default-568h@2x.png */,
+				080880461E2841D800D22074 /* Default-568h@2x.png */,
 				08453B881E1426C5001CAACB /* PasteBin */,
 				08453B871E1426C5001CAACB /* Products */,
 				8D706E845AEFDA62CB0345C7 /* Pods */,
@@ -180,8 +180,8 @@
 				0849C3751E18151E00031FF1 /* code.png in Resources */,
 				08453B941E1426C5001CAACB /* LaunchScreen.storyboard in Resources */,
 				08453B911E1426C5001CAACB /* Assets.xcassets in Resources */,
-				08CBE5191E22CB6100C91B02 /* Default-568h@2x.png in Resources */,
 				08453B8F1E1426C5001CAACB /* Main.storyboard in Resources */,
+				080880471E2841D800D22074 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,6 +369,7 @@
 			baseConfigurationReference = 5380EFA9631E62426C24166D /* Pods-PasteBin.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = XD92VBX7GT;
 				INFOPLIST_FILE = PasteBin/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -384,6 +385,7 @@
 			baseConfigurationReference = 7D4F8CD64B66790F0F833899 /* Pods-PasteBin.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = XD92VBX7GT;
 				INFOPLIST_FILE = PasteBin/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
