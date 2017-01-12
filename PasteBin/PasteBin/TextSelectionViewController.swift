@@ -45,6 +45,7 @@ class TextSelectionViewController: UITableViewController {
         if let cell = tableView.cellForRow(at: indexPath) {
             cell.accessoryType = .checkmark;
         }
+        //Bad Code Alert! I should be saving it as a local variable and then dynamically changing it/setting it to unchecked. But this gets around manual edits to the plist on jailbroken systems 😎
         for i in 0 ..< 251 {
             if(i == indexPath.item){
                 continue;
