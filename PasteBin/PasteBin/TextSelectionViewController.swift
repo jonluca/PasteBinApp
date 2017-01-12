@@ -45,6 +45,15 @@ class TextSelectionViewController: UITableViewController {
         if let cell = tableView.cellForRow(at: indexPath) {
             cell.accessoryType = .checkmark;
         }
+        for i in 0 ..< 251 {
+            if(i == indexPath.item){
+                continue;
+            }
+            let indPath = IndexPath(row: i, section: 0)
+            if let cell = tableView.cellForRow(at: indPath) {
+                cell.accessoryType = .none;
+            }
+        }
         
         let defaults = UserDefaults.standard
         defaults.set(indexPath.item, forKey: "selectedText");
