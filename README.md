@@ -10,7 +10,15 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 ## Notes
 
-Current build passes all tests. Only remaining feature to implement is text format selection in the options view.
+Current build passes all tests. 
+
+##Features
+🔘Save API Settings
+🔘Implement quick paste with default settins
+🔘iOS icon for all sizes
+🔘Change title, syntax
+⚪️Save list of paste pastes
+⚪️Syntax Highlighting
 
 ## Credits
 
