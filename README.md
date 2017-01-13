@@ -13,17 +13,17 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 Current build passes all tests. 
 
 ##Features
-🔘Save API Settings
+- [x] Save API Settings
 
-🔘Implement quick paste with default settings
+- [x] Implement quick paste with default settings
 
-🔘iOS icon for all sizes
+- [x] iOS icon for all sizes
 
-🔘Change title, syntax
+- [x] Change title, syntax
 
-⚪️Save list of paste 
+- [] Save list of paste 
 
-⚪️Syntax Highlighting
+- [] Syntax Highlighting
 
 ## Credits
 
