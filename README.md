@@ -21,7 +21,7 @@ Current build passes all tests.
 
 - [x] Change title, syntax
 
-- [ ] Save list of paste 
+- [ ] Locally save list of prior pastes 
 
 - [ ] Syntax Highlighting
 
