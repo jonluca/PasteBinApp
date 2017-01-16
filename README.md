@@ -2,7 +2,7 @@
 
 ## Screenshot
 
-<img src='https://i.imgur.com/W57qPfv.png' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://i.imgur.com/W57qPfv.png' title='Video Walkthrough' width='450' alt='Video Walkthrough' />
 
 
 ## Video Walkthrough
