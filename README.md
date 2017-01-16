@@ -1,8 +1,13 @@
 # PasteBinApp
 
+## Screenshot
+
+<img src='https://i.imgur.com/W57qPfv.png' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+
 ## Video Walkthrough
 
-Here's a walkthrough of implemented user stories:
+Here's a walkthrough of a simple paste:
 
 <img src='http://i.imgur.com/4ToHECz.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
