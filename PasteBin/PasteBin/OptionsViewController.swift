@@ -43,15 +43,15 @@ class OptionsViewController: UITableViewController {
     }
     //Twitter
     @IBAction func twitterHandle(_ sender: Any) {
-        UIApplication.shared.openURL(URL(string: "http://www.twitter.com/jonlucadecaro")!)
+        UIApplication.shared.open(URL(string: "http://www.twitter.com/jonlucadecaro")!, options: [:], completionHandler: nil);
     }
     //Donate
     @IBAction func donate(_ sender: Any) {
-        UIApplication.shared.openURL(URL(string: "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TV28RGXB52DUA")!)
+        UIApplication.shared.open(URL(string: "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TV28RGXB52DUA")!, options: [:], completionHandler: nil)
     }
     //Pastebin
     @IBAction func pastebin(_ sender: Any) {
-        UIApplication.shared.openURL(URL(string: "http://www.pastebin.com")!)
+        UIApplication.shared.open(URL(string: "http://www.pastebin.com")!, options: [:], completionHandler: nil);
     }
     
     override func viewDidLoad() {
