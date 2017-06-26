@@ -17,7 +17,7 @@ GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
 Current build passes all tests. 
 
-##Features
+## Features
 - [x] Save API Settings
 
 - [x] Implement quick paste with default settings
