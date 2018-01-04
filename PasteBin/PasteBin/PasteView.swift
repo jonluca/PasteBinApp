@@ -148,7 +148,7 @@ class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelega
                         print("statusCode should be 200, but is \(httpStatus.statusCode)")
                         print("response = \(response)")
                         var message = "Unknown error - HTTP Code" + String(httpStatus.statusCode)
-                        if httpStatus.statusCode == 403{
+                        if httpStatus.statusCode == 403 {
                             message = "Error 403 - PasteBin not allowed from this IP!"
                         }
                         let alertController = UIAlertController(title: "Error!", message: message, preferredStyle: .alert)

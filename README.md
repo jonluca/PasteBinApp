@@ -1,4 +1,9 @@
-# PasteBinApp
+# PasteBin Mobile
+
+
+## App Store
+
+[PasteBin Mobile is live on the AppStore here](https://itunes.apple.com/WebObjects/MZStore.woa/wa/viewSoftware?id=1246981062&mt=8)
 
 ## Screenshot
 
