@@ -23,7 +23,6 @@
 
 /* Begin PBXFileReference section */
 		080880461E2841D800D22074 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		08453B861E1426C5001CAACB /* PasteBin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PasteBin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08453B891E1426C5001CAACB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		08453B8B1E1426C5001CAACB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		08453B8E1E1426C5001CAACB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -32,7 +31,8 @@
 		08453B951E1426C5001CAACB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0849C36F1E15256D00031FF1 /* HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		0849C3721E155E7800031FF1 /* OptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
-		0849C3741E18151E00031FF1 /* code.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = code.png; path = ../../../../../Desktop/code.png; sourceTree = "<group>"; };
+		0849C3741E18151E00031FF1 /* code.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = code.png; path = ../code.png; sourceTree = "<group>"; };
+		08B1A2A61FFDF51E00B9B508 /* PasteBin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PasteBin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		08CBE51C1E23FB8700C91B02 /* TextSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextSelectionViewController.swift; sourceTree = "<group>"; };
 		08EB1C561E14293A00311E23 /* PasteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasteView.swift; sourceTree = "<group>"; };
 		4E72A0797AC270D9771EB4A8 /* Pods_PasteBin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PasteBin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -57,18 +57,10 @@
 			children = (
 				080880461E2841D800D22074 /* Default-568h@2x.png */,
 				08453B881E1426C5001CAACB /* PasteBin */,
-				08453B871E1426C5001CAACB /* Products */,
 				8D706E845AEFDA62CB0345C7 /* Pods */,
 				84A1158263166637D30E6234 /* Frameworks */,
+				08B1A2A61FFDF51E00B9B508 /* PasteBin.app */,
 			);
-			sourceTree = "<group>";
-		};
-		08453B871E1426C5001CAACB /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				08453B861E1426C5001CAACB /* PasteBin.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		08453B881E1426C5001CAACB /* PasteBin */ = {
@@ -134,7 +126,7 @@
 			);
 			name = PasteBin;
 			productName = PasteBin;
-			productReference = 08453B861E1426C5001CAACB /* PasteBin.app */;
+			productReference = 08B1A2A61FFDF51E00B9B508 /* PasteBin.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -163,7 +155,7 @@
 				Base,
 			);
 			mainGroup = 08453B7D1E1426C4001CAACB;
-			productRefGroup = 08453B871E1426C5001CAACB /* Products */;
+			productRefGroup = 08453B7D1E1426C4001CAACB;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (

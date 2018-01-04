@@ -9,6 +9,7 @@
 import UIKit
 import AFNetworking
 
+
 class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelegate {
     var isCurrentlyEditing = false;
     
@@ -24,6 +25,8 @@ class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelega
     }
     
     @IBOutlet weak var titleText: UITextField!
+    var webView: UIWebView!
+
     
     @IBAction func editAction(_ sender: Any) {
         titleText.text = "";
@@ -122,7 +125,7 @@ class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelega
                 let encoded_title = api_paste_name.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed);
                 
                 
-                var request = URLRequest(url: URL(string: "http://pastebin.com/api/api_post.php")!)
+                var request = URLRequest(url: URL(string: "https://pastebin.com/api/api_post.php")!)
                 request.httpMethod = "POST"
                 
                 //convoluted but necessary for their post api
@@ -152,6 +155,11 @@ class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelega
                         alertController.addAction(OKAction)
                         self.present(alertController, animated: true){
                             
+                        }
+                        if let url = URL(string: "https://pastebin.org") {
+                            let request = URLRequest(url: url)
+                            self.webView = UIWebView(frame: UIScreen.main.bounds)
+                            self.webView.loadRequest(request)
                         }
                     }
                     
