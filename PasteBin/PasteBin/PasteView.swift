@@ -25,7 +25,6 @@ class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelega
     }
     
     @IBOutlet weak var titleText: UITextField!
-    var webView: UIWebView!
 
     
     @IBAction func editAction(_ sender: Any) {
@@ -148,18 +147,17 @@ class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelega
                     if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {           // check for http errors
                         print("statusCode should be 200, but is \(httpStatus.statusCode)")
                         print("response = \(response)")
-                        let alertController = UIAlertController(title: "Error!", message: "Unknown error - HTTP Code" + String(httpStatus.statusCode), preferredStyle: .alert)
+                        var message = "Unknown error - HTTP Code" + String(httpStatus.statusCode)
+                        if httpStatus.statusCode == 403{
+                            message = "Error 403 - PasteBin not allowed from this IP!"
+                        }
+                        let alertController = UIAlertController(title: "Error!", message: message, preferredStyle: .alert)
                         let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
                             // handle response here.
                         }
                         alertController.addAction(OKAction)
                         self.present(alertController, animated: true){
                             
-                        }
-                        if let url = URL(string: "https://pastebin.org") {
-                            let request = URLRequest(url: url)
-                            self.webView = UIWebView(frame: UIScreen.main.bounds)
-                            self.webView.loadRequest(request)
                         }
                     }
                     
