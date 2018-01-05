@@ -21,10 +21,6 @@ class OptionsViewController: UITableViewController {
             defaults.set(false, forKey: "SwitchState")
         }
         if(quickPasteTitle.text != nil){
-        }
-        
-        //        defaults.set(, forKey: "textType")
-        if(quickPasteTitle.text != nil){
             defaults.set(quickPasteTitle.text, forKey: "quickPasteTitle");
         }
         self.dismiss(animated: true, completion: {});
