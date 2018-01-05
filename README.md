@@ -1,5 +1,6 @@
 # PasteBin Mobile
 
+PasteBin Mobile is an app to quickly upload text or code to http://pastebin.com!
 
 ## App Store
 
