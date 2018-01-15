@@ -156,13 +156,13 @@ class ViewController: UIViewController {
                     let task = URLSession.shared.dataTask(with: request) { data, response, error in
                         guard let data = data, error == nil else {
                             //if not connected to internet
-                            print("error=\(error)")
+                            print("error=\(String(describing: error))")
                             return
                         }
                         
                         if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {           // check for http errors
                             print("statusCode should be 200, but is \(httpStatus.statusCode)")
-                            print("response = \(response)")
+                            print("response = \(String(describing: response))")
                             let alertController = UIAlertController(title: "Error!", message: "Unknown error - HTTP Code" + String(httpStatus.statusCode), preferredStyle: .alert)
                             let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
                                 // handle response here.
@@ -176,7 +176,7 @@ class ViewController: UIViewController {
                         let responseString = String(data: data, encoding: .utf8)
                         self.result = responseString!;
                         //Get response
-                        print("responseString = \(responseString)")
+                        print("responseString = \(String(describing: responseString))")
                         UIPasteboard.general.string = responseString;
                         let alertController = UIAlertController(title: "Success!", message: responseString! + "\nSuccesfully copied to clipboard!", preferredStyle: .alert)
                         let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in

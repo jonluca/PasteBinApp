@@ -64,7 +64,7 @@ class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelega
             submitButton.title = "Submit";
         }
     }
-    func edit(){
+    @objc func edit(){
         isCurrentlyEditing = true;
         submitButton.isEnabled = false;
         submitButton.title = nil;
@@ -140,13 +140,13 @@ class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelega
                 let task = URLSession.shared.dataTask(with: request) { data, response, error in
                     guard let data = data, error == nil else {
                         //if not connected to internet
-                        print("error=\(error)")
+                        print("error=\(String(describing: error))")
                         return
                     }
                     
                     if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {           // check for http errors
                         print("statusCode should be 200, but is \(httpStatus.statusCode)")
-                        print("response = \(response)")
+                        print("response = \(String(describing: response))")
                         var message = "Unknown error - HTTP Code" + String(httpStatus.statusCode)
                         if httpStatus.statusCode == 403 {
                             message = "Error 403 - PasteBin not allowed from this IP!"
@@ -162,7 +162,6 @@ class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelega
                     }
                     
                     let responseString = String(data: data, encoding: .utf8)
-                    print("responseString = \(responseString)")
                     UIPasteboard.general.string = responseString;
                     let alertController = UIAlertController(title: "Success!", message: responseString! + "\nSuccesfully copied to clipboard!", preferredStyle: .alert)
                     let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
