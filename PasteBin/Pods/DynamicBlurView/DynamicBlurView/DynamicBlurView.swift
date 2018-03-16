@@ -322,7 +322,7 @@ open class DynamicBlurView: UIView {
         }
     }
     
-    func displayDidRefresh(_ displayLink: CADisplayLink) {
+    @objc func displayDidRefresh(_ displayLink: CADisplayLink) {
         display(blurLayer)
     }
 }

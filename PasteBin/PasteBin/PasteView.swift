@@ -12,6 +12,8 @@ import AFNetworking
 
 class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelegate {
     var isCurrentlyEditing = false;
+    // Previous pastes array
+    var savedList: [String] = []
     
     var languages = ["4cs", "6502acme", "6502kickass", "6502tasm", "abap", "actionscript", "actionscript3", "ada", "aimms", "algol68", "apache", "applescript", "apt_sources", "arm", "asm", "asp", "asymptote", "autoconf", "autohotkey", "autoit", "avisynth", "awk", "bascomavr", "bash", "basic4gl", "dos", "bibtex", "blitzbasic", "b3d", "bmx", "bnf", "boo", "bf", "c", "c_winapi", "c_mac", "cil", "csharp", "cpp", "cpp-winapi", "cpp-qt", "c_loadrunner", "caddcl", "cadlisp", "cfdg", "chaiscript", "chapel", "clojure", "klonec", "klonecpp", "cmake", "cobol", "coffeescript", "cfm", "css", "cuesheet", "d", "dart", "dcl", "dcpu16", "dcs", "delphi", "oxygene", "diff", "div", "dot", "e", "ezt", "ecmascript", "eiffel", "email", "epc", "erlang", "euphoria", "fsharp", "falcon", "filemaker", "fo", "f1", "fortran", "freebasic", "freeswitch", "gambas", "gml", "gdb", "genero", "genie", "gettext", "go", "groovy", "gwbasic", "haskell", "haxe", "hicest", "hq9plus", "html4strict", "html5", "icon", "idl", "ini", "inno", "intercal", "io", "ispfpanel", "j", "java", "java5", "javascript", "jcl", "jquery", "json", "julia", "kixtart", "latex", "ldif", "lb", "lsl2", "lisp", "llvm", "locobasic", "logtalk", "lolcode", "lotusformulas", "lotusscript", "lscript", "lua", "m68k", "magiksf", "make", "mapbasic", "markdown", "matlab", "mirc", "mmix", "modula2", "modula3", "68000devpac", "mpasm", "mxml", "mysql", "nagios", "netrexx", "newlisp", "nginx", "nimrod", "text", "nsis", "oberon2", "objeck", "objc", "ocaml-brief", "ocaml", "octave", "oorexx", "pf", "glsl", "oobas", "oracle11", "oracle8", "oz", "parasail", "parigp", "pascal", "pawn", "pcre", "per", "perl", "perl6", "php", "php-brief", "pic16", "pike", "pixelbender", "pli", "plsql", "postgresql", "postscript", "povray", "powershell", "powerbuilder", "proftpd", "progress", "prolog", "properties", "providex", "puppet", "purebasic", "pycon", "python", "pys60", "q", "qbasic", "qml", "rsplus", "racket", "rails", "rbs", "rebol", "reg", "rexx", "robots", "rpmspec", "ruby", "gnuplot", "rust", "sas", "scala", "scheme", "scilab", "scl", "sdlbasic", "smalltalk", "smarty", "spark", "sparql", "sqf", "sql", "standardml", "stonescript", "sclang", "swift", "systemverilog", "tsql", "tcl", "teraterm", "thinbasic", "typoscript", "unicon", "uscript", "upc", "urbi", "vala", "vbnet", "vbscript", "vedit", "verilog", "vhdl", "vim", "visualprolog", "vb", "visualfoxpro", "whitespace", "whois", "winbatch", "xbasic", "xml", "xorg_conf", "xpp", "yaml", "z80", "zxbasic"];
     
@@ -22,6 +24,11 @@ class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelega
         textView.delegate = self;
         textView.addGestureRecognizer(tapOutTextField);
         view.addGestureRecognizer(tapOutTextField)
+        
+        // print("Documents folder is \(documentsDirectory())\nData file path is \(dataFilePath())")
+        // Load previous pastes to savedList array
+        loadSavedListItems()
+        print("Saved list: \(savedList)")
     }
     
     @IBOutlet weak var titleText: UITextField!
@@ -163,6 +170,11 @@ class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelega
                     
                     let responseString = String(data: data, encoding: .utf8)
                     UIPasteboard.general.string = responseString;
+                    
+                    // Adding the link to the savedList array and then saving to drive
+                    self.savedList.append(responseString!)
+                    self.saveSavedListItems()
+                    
                     let alertController = UIAlertController(title: "Success!", message: responseString! + "\nSuccesfully copied to clipboard!", preferredStyle: .alert)
                     let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
                         // handle response here.
@@ -185,6 +197,45 @@ class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelega
                 }
             }
         }
+    }
+    
+    // Save and load file/items/list methodologies...
+    func documentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory,
+                                             in: .userDomainMask)
+        return paths[0]
+    }
+    
+    func dataFilePath() -> URL {
+        
+        return documentsDirectory().appendingPathComponent("SavedList.plist")
+        
+    }
+    
+    func saveSavedListItems() {
+        
+        let encoder = PropertyListEncoder()
+        
+        do {
+            let data = try encoder.encode(savedList)
+            try data.write(to: dataFilePath(), options: Data.WritingOptions.atomic)
+        } catch {
+            print("Error encoding item array!")
+        }
+    }
+    
+    func loadSavedListItems() {
+        
+        let path = dataFilePath()
+        if let data = try? Data(contentsOf: path) {
+            let decoder = PropertyListDecoder()
+            do {
+                savedList = try decoder.decode([String].self, from: data)
+            } catch {
+                print("Error decoding item array!")
+            }
+        }
+        
     }
     
     override func didReceiveMemoryWarning() {

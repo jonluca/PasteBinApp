@@ -19,6 +19,7 @@
 		08CBE51D1E23FB8700C91B02 /* TextSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CBE51C1E23FB8700C91B02 /* TextSelectionViewController.swift */; };
 		08EB1C571E14293A00311E23 /* PasteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08EB1C561E14293A00311E23 /* PasteView.swift */; };
 		77E07E471E6C85C08E23F3C8 /* Pods_PasteBin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E72A0797AC270D9771EB4A8 /* Pods_PasteBin.framework */; };
+		AF4B0E72205905CE00564749 /* PreviousPastesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4B0E71205905CE00564749 /* PreviousPastesViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		4E72A0797AC270D9771EB4A8 /* Pods_PasteBin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PasteBin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5380EFA9631E62426C24166D /* Pods-PasteBin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PasteBin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PasteBin/Pods-PasteBin.debug.xcconfig"; sourceTree = "<group>"; };
 		7D4F8CD64B66790F0F833899 /* Pods-PasteBin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PasteBin.release.xcconfig"; path = "Pods/Target Support Files/Pods-PasteBin/Pods-PasteBin.release.xcconfig"; sourceTree = "<group>"; };
+		AF4B0E71205905CE00564749 /* PreviousPastesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousPastesViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 				0849C36F1E15256D00031FF1 /* HelpViewController.swift */,
 				08EB1C561E14293A00311E23 /* PasteView.swift */,
 				0849C3721E155E7800031FF1 /* OptionsViewController.swift */,
+				AF4B0E71205905CE00564749 /* PreviousPastesViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 				08EB1C571E14293A00311E23 /* PasteView.swift in Sources */,
 				08453B8C1E1426C5001CAACB /* ViewController.swift in Sources */,
 				08453B8A1E1426C5001CAACB /* AppDelegate.swift in Sources */,
+				AF4B0E72205905CE00564749 /* PreviousPastesViewController.swift in Sources */,
 				0849C3701E15256D00031FF1 /* HelpViewController.swift in Sources */,
 				08CBE51D1E23FB8700C91B02 /* TextSelectionViewController.swift in Sources */,
 				0849C3731E155E7800031FF1 /* OptionsViewController.swift in Sources */,
