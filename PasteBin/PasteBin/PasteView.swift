@@ -12,6 +12,7 @@ import AFNetworking
 
 class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelegate {
     var isCurrentlyEditing = false;
+    
     // Previous pastes array
     var savedList: [String] = []
     
