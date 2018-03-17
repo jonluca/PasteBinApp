@@ -50,7 +50,6 @@ class ViewController: UIViewController {
         
         // Load previous pastes to savedList array
         loadSavedListItems()
-        print("Saved list: \(savedList)")
         
     }
     
@@ -228,7 +227,6 @@ class ViewController: UIViewController {
     }
     
     func saveSavedListItems() {
-        
         let encoder = PropertyListEncoder()
         
         do {
@@ -240,7 +238,6 @@ class ViewController: UIViewController {
     }
     
     func loadSavedListItems() {
-        
         let path = dataFilePath()
         if let data = try? Data(contentsOf: path) {
             let decoder = PropertyListDecoder()

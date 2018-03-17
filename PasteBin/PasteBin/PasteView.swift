@@ -26,10 +26,9 @@ class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelega
         textView.addGestureRecognizer(tapOutTextField);
         view.addGestureRecognizer(tapOutTextField)
         
-        // print("Documents folder is \(documentsDirectory())\nData file path is \(dataFilePath())")
         // Load previous pastes to savedList array
         loadSavedListItems()
-        print("Saved list: \(savedList)")
+        
     }
     
     @IBOutlet weak var titleText: UITextField!
@@ -176,7 +175,7 @@ class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelega
                     self.savedList.append(responseString!)
                     self.saveSavedListItems()
                     
-                    let alertController = UIAlertController(title: "Success!", message: responseString! + "\nSuccesfully copied to clipboard!", preferredStyle: .alert)
+                    let alertController = UIAlertController(title: "Success!", message: responseString! + "\nSuccessfully copied to clipboard!", preferredStyle: .alert)
                     let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
                         // handle response here.
                         self.textView.text = responseString;

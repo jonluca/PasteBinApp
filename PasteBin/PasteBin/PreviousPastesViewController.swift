@@ -18,18 +18,22 @@ class PreviousPastesViewController: UITableViewController {
         
         // Load previous pastes to savedList array
         loadSavedListItems()
+        
     }
     
     @IBAction func donePress(_ sender: Any) {
+        
         self.dismiss(animated: true) {}
+        
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         return savedList.count
+        
     }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "PreviousPasteCell", for: indexPath)
         
         cell.textLabel?.text = savedList[indexPath.item]
@@ -39,19 +43,29 @@ class PreviousPastesViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        if let cell = tableView.cellForRow(at: indexPath) {
+        if tableView.cellForRow(at: indexPath) != nil {
             
-            // let item = savedList[indexPath.row]
+            let item = savedList[indexPath.row]
+            UIPasteboard.general.string = item
+            
+            // Alert pop-up borrowed from PasteView.swift
+            let alertController = UIAlertController(title: "Success!", message: item + "\nSuccessfully copied to clipboard!", preferredStyle: .alert)
+            let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
+            }
+            alertController.addAction(OKAction)
+            self.present(alertController, animated: true){}
+            
+            tableView.deselectRow(at: indexPath, animated: true) // to stop greying persisting
             
         }
     }
     
     // Load file/items/list methodologies...
     func documentsDirectory() -> URL {
-        let paths = FileManager.default.urls(for: .documentDirectory,
-                                             in: .userDomainMask)
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+        
         return paths[0]
+        
     }
     
     func dataFilePath() -> URL {
@@ -60,21 +74,9 @@ class PreviousPastesViewController: UITableViewController {
         
     }
     
-//    func saveSavedListItems() {
-//
-//        let encoder = PropertyListEncoder()
-//
-//        do {
-//            let data = try encoder.encode(savedList)
-//            try data.write(to: dataFilePath(), options: Data.WritingOptions.atomic)
-//        } catch {
-//            print("Error encoding item array!")
-//        }
-//    }
-    
     func loadSavedListItems() {
-        
         let path = dataFilePath()
+        
         if let data = try? Data(contentsOf: path) {
             let decoder = PropertyListDecoder()
             do {
