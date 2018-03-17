@@ -97,8 +97,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quick Paste Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VTB-UL-Btb">
-                                                    <rect key="frame" x="20" y="15" width="129" height="15"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Paste Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VTB-UL-Btb">
+                                                    <rect key="frame" x="20" y="15" width="80" height="15"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -137,13 +137,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="JonLuca De Caro" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4cf-pK-f7N">
-                                                    <rect key="frame" x="8" y="11" width="132" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M79-HF-5Xy">
                                                     <rect key="frame" x="283" y="4" width="123" height="33"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -152,11 +145,20 @@
                                                         <action selector="twitterHandle:" destination="g67-IV-A3s" eventType="touchUpInside" id="WuD-CB-Mmp"/>
                                                     </connections>
                                                 </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="JonLuca De Caro" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4cf-pK-f7N">
+                                                    <rect key="frame" x="20" y="11" width="132" height="22"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="M79-HF-5Xy" secondAttribute="trailing" constant="8" id="0hg-sP-wyc"/>
-                                                <constraint firstItem="M79-HF-5Xy" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Pe9-K7-pB3" secondAttribute="leading" constant="20" symbolic="YES" id="N2Q-hh-aRS"/>
-                                                <constraint firstItem="M79-HF-5Xy" firstAttribute="top" secondItem="Pe9-K7-pB3" secondAttribute="top" constant="4" id="q3p-mk-Lx4"/>
+                                                <constraint firstItem="M79-HF-5Xy" firstAttribute="top" secondItem="Pe9-K7-pB3" secondAttribute="top" constant="4" id="2lT-Vg-FTJ"/>
+                                                <constraint firstItem="4cf-pK-f7N" firstAttribute="bottom" secondItem="Pe9-K7-pB3" secondAttribute="bottomMargin" id="FmY-Ej-EiU"/>
+                                                <constraint firstItem="4cf-pK-f7N" firstAttribute="top" secondItem="Pe9-K7-pB3" secondAttribute="topMargin" id="nVZ-dN-tbR"/>
+                                                <constraint firstAttribute="bottom" secondItem="M79-HF-5Xy" secondAttribute="bottom" constant="6.6699999999999999" id="p2s-xz-6bk"/>
+                                                <constraint firstAttribute="trailing" secondItem="M79-HF-5Xy" secondAttribute="trailing" constant="8" id="rOy-Je-u1V"/>
+                                                <constraint firstItem="4cf-pK-f7N" firstAttribute="leading" secondItem="Pe9-K7-pB3" secondAttribute="leadingMargin" id="xrd-XF-G0F"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -168,13 +170,13 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pastebin.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yNg-rc-a02">
-                                                    <rect key="frame" x="20" y="11" width="104" height="21"/>
+                                                    <rect key="frame" x="20" y="11" width="104" height="22"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x44-Ac-PAb">
-                                                    <rect key="frame" x="214" y="7" width="192" height="33"/>
+                                                    <rect key="frame" x="215" y="6" width="192" height="33"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <state key="normal" title="http://www.pastebin.com"/>
                                                     <connections>
@@ -184,12 +186,12 @@
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="yNg-rc-a02" secondAttribute="trailingMargin" id="2cj-ib-RvM"/>
-                                                <constraint firstAttribute="trailing" secondItem="x44-Ac-PAb" secondAttribute="trailing" constant="8" id="dTU-sD-xdG"/>
-                                                <constraint firstItem="x44-Ac-PAb" firstAttribute="top" secondItem="j8l-of-bPk" secondAttribute="topMargin" constant="-4" id="dUp-15-9gb"/>
-                                                <constraint firstItem="x44-Ac-PAb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="j8l-of-bPk" secondAttribute="leading" constant="20" symbolic="YES" id="eVb-Rr-9Zb"/>
-                                                <constraint firstItem="yNg-rc-a02" firstAttribute="leading" secondItem="j8l-of-bPk" secondAttribute="leadingMargin" id="gKn-9z-kCU"/>
-                                                <constraint firstItem="yNg-rc-a02" firstAttribute="centerY" secondItem="j8l-of-bPk" secondAttribute="centerY" id="rEH-io-u9V"/>
+                                                <constraint firstAttribute="bottom" secondItem="x44-Ac-PAb" secondAttribute="bottom" constant="4.6699999999999999" id="0ZR-N1-VNu"/>
+                                                <constraint firstItem="yNg-rc-a02" firstAttribute="leading" secondItem="j8l-of-bPk" secondAttribute="leadingMargin" id="8KK-Cb-ieQ"/>
+                                                <constraint firstItem="yNg-rc-a02" firstAttribute="top" secondItem="j8l-of-bPk" secondAttribute="topMargin" id="EVt-fl-Ksf"/>
+                                                <constraint firstItem="x44-Ac-PAb" firstAttribute="top" secondItem="j8l-of-bPk" secondAttribute="top" constant="6" id="GEL-SC-ydM"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="yNg-rc-a02" secondAttribute="bottom" id="dK1-S1-l9j"/>
+                                                <constraint firstAttribute="trailing" secondItem="x44-Ac-PAb" secondAttribute="trailing" constant="7" id="eUk-7y-HP2"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -362,7 +364,7 @@
                                 </items>
                             </navigationBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cuc-OM-Ywf">
-                                <rect key="frame" x="20" y="683" width="109" height="60.333333333333371"/>
+                                <rect key="frame" x="20" y="683.33333333333337" width="109" height="60.333333333333371"/>
                                 <state key="normal" title="Previous Pastes">
                                     <color key="titleColor" red="0.61571669579999999" green="0.611685276" blue="0.6196620464" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
@@ -417,7 +419,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yHT-uW-2D8">
                                 <rect key="frame" x="10" y="64" width="394" height="664"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Pastebin App is meant to be a lightweight, portable application to quickly share text.  Select Create a Paste to use the editor, and modify your upload.   Quick Paste and Submit will take whatever is currently in your clipboard, upload it to pastebin, and copy the link to your clipboard (please note - it will overwrite whatever is in your clipboard)</string>
+                                <mutableString key="text">Pastebin App is meant to be a lightweight, portable application to quickly share text.  Select Create a Paste to use the editor, and modify your upload.   Quick Paste and Submit will take whatever is currently in your clipboard, upload it to pastebin, and copy the link to your clipboard (please note - it will overwrite whatever is in your clipboard)</mutableString>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -533,7 +535,7 @@
                                                 <action selector="submit:" destination="hzZ-Qb-JIs" id="3wi-lN-fTJ"/>
                                             </connections>
                                         </barButtonItem>
-                                        <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="Click to Edit Title" textAlignment="center" minimumFontSize="17" id="3Gb-gu-03m">
+                                        <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="Click to Edit Title" textAlignment="center" minimumFontSize="17" id="3Gb-gu-03m">
                                             <rect key="frame" x="150.66666666666666" y="13.666666666666664" width="112.99999999999997" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <accessibility key="accessibilityConfiguration" hint="Title"/>

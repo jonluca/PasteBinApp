@@ -80,7 +80,7 @@ class ViewController: UIViewController {
         self.last = self.codeBackground.frame.origin.x;
         
         //About Information
-        let alertController = UIAlertController(title: "About", message: "© JonLuca De Caro 2017\n© pastebin.com", preferredStyle: .alert)
+        let alertController = UIAlertController(title: "About", message: "© JonLuca De Caro 2018\n© pastebin.com\n© Henrik Gustavii 2018", preferredStyle: .alert)
         let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
             // Do nothing
         }
