@@ -11,14 +11,6 @@ PasteBin Mobile is an app to quickly upload text or code to http://pastebin.com!
 <img src='https://i.imgur.com/W57qPfv.png' title='Video Walkthrough' width='370' alt='Video Walkthrough' />
 
 
-## Video Walkthrough
-
-Here's a walkthrough of a simple paste:
-
-<img src='http://i.imgur.com/4ToHECz.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
-
-GIF created with [LiceCap](http://www.cockos.com/licecap/).
-
 ## Notes
 
 Current build passes all tests. 
