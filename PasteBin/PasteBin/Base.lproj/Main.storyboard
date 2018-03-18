@@ -90,8 +90,37 @@
                                             <segue destination="kIj-d7-YPd" kind="show" id="UHS-us-iiL"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="ZBw-cr-guE">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="0QM-xE-VAZ">
                                         <rect key="frame" x="0.0" y="143.33333333333334" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0QM-xE-VAZ" id="zws-zm-ohn">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Syntax Highlighter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O0Y-zx-NTb">
+                                                    <rect key="frame" x="20" y="11" width="141" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SPl-0X-Uy2" userLabel="Syntax Switch">
+                                                    <rect key="frame" x="357" y="6" width="51" height="31"/>
+                                                    <connections>
+                                                        <action selector="syntaxChange:" destination="g67-IV-A3s" eventType="valueChanged" id="L9G-sD-axy"/>
+                                                    </connections>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="O0Y-zx-NTb" secondAttribute="trailingMargin" id="73F-H2-G5p"/>
+                                                <constraint firstItem="O0Y-zx-NTb" firstAttribute="centerY" secondItem="SPl-0X-Uy2" secondAttribute="centerY" id="Jim-Ir-Gjy"/>
+                                                <constraint firstItem="O0Y-zx-NTb" firstAttribute="leading" secondItem="zws-zm-ohn" secondAttribute="leadingMargin" id="aLr-fw-Jyo"/>
+                                                <constraint firstItem="O0Y-zx-NTb" firstAttribute="centerY" secondItem="zws-zm-ohn" secondAttribute="centerY" id="bTd-Cb-lIS"/>
+                                                <constraint firstAttribute="trailing" secondItem="SPl-0X-Uy2" secondAttribute="trailing" constant="8" id="qCK-np-dEm"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="ZBw-cr-guE">
+                                        <rect key="frame" x="0.0" y="187.33333333333334" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZBw-cr-guE" id="aDI-rc-JP0">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
@@ -131,7 +160,7 @@
                             <tableViewSection headerTitle="About" id="3A0-Uv-7qe">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="mWH-c7-lrg">
-                                        <rect key="frame" x="0.0" y="243.33333333333334" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="287.33333333333337" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mWH-c7-lrg" id="Pe9-K7-pB3">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
@@ -163,7 +192,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="2Ss-LX-8Wt">
-                                        <rect key="frame" x="0.0" y="287.33333333333337" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="331.33333333333337" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2Ss-LX-8Wt" id="j8l-of-bPk">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
@@ -200,7 +229,7 @@
                             <tableViewSection headerTitle="Donate" id="8Bf-V6-Hmi">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="NcL-sv-WLH">
-                                        <rect key="frame" x="0.0" y="387.33333333333337" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="431.33333333333337" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NcL-sv-WLH" id="Xnx-IO-Bjm">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
@@ -248,6 +277,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="quickPasteTitle" destination="LnY-YB-4R0" id="1Ta-Lc-KXm"/>
+                        <outlet property="syntaxSwitch" destination="SPl-0X-Uy2" id="Dt2-cB-vbP"/>
                         <outlet property="textLabel" destination="XeF-tm-6po" id="Zdh-d0-kTc"/>
                         <outlet property="unlistedSwitch" destination="FFC-9n-v5z" id="bcV-yA-kd7"/>
                     </connections>
@@ -364,7 +394,7 @@
                                 </items>
                             </navigationBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cuc-OM-Ywf">
-                                <rect key="frame" x="20" y="683.33333333333337" width="109" height="60.333333333333371"/>
+                                <rect key="frame" x="20" y="683.66666666666663" width="109" height="60.333333333333371"/>
                                 <state key="normal" title="Previous Pastes">
                                     <color key="titleColor" red="0.61571669579999999" green="0.611685276" blue="0.6196620464" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
@@ -419,7 +449,7 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yHT-uW-2D8">
                                 <rect key="frame" x="10" y="64" width="394" height="664"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <mutableString key="text">Pastebin App is meant to be a lightweight, portable application to quickly share text.  Select Create a Paste to use the editor, and modify your upload.   Quick Paste and Submit will take whatever is currently in your clipboard, upload it to pastebin, and copy the link to your clipboard (please note - it will overwrite whatever is in your clipboard)</mutableString>
+                                <string key="text">Pastebin App is meant to be a lightweight, portable application to quickly share text.  Select Create a Paste to use the editor, and modify your upload.   Quick Paste and Submit will take whatever is currently in your clipboard, upload it to pastebin, and copy the link to your clipboard (please note - it will overwrite whatever is in your clipboard)</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
