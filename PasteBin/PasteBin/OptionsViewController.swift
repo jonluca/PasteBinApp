@@ -23,6 +23,16 @@ class OptionsViewController: UITableViewController {
         if(quickPasteTitle.text != nil){
             defaults.set(quickPasteTitle.text, forKey: "quickPasteTitle");
         }
+        
+        if syntaxSwitch.isOn {
+            defaults.set(true, forKey: "SyntaxState")
+        } else {
+            defaults.set(false, forKey: "SyntaxState")
+        }
+        if(quickPasteTitle.text != nil){
+            defaults.set(quickPasteTitle.text, forKey: "quickPasteTitle");
+        }
+        
         self.dismiss(animated: true, completion: {});
     }
     @IBOutlet weak var unlistedSwitch: UISwitch!
@@ -38,6 +48,17 @@ class OptionsViewController: UITableViewController {
             defaults.set(false, forKey: "SwitchState")
         }
     }
+    
+    @IBAction func syntaxChange(_ sender: Any) {
+        let defaults = UserDefaults.standard
+        
+        if syntaxSwitch.isOn {
+            defaults.set(true, forKey: "SyntaxState")
+        } else {
+            defaults.set(false, forKey: "SyntaxState")
+        }
+    }
+    
     //Twitter
     @IBAction func twitterHandle(_ sender: Any) {
         UIApplication.shared.open(URL(string: "http://www.twitter.com/jonlucadecaro")!, options: [:], completionHandler: nil);
@@ -65,6 +86,10 @@ class OptionsViewController: UITableViewController {
             textLabel.text = "None";
             defaults.set(145, forKey: "selectedText");
         }
+        //Set Syntax highlighter
+        if (defaults.object(forKey: "SyntaxState") != nil) {
+            syntaxSwitch.isOn = defaults.bool(forKey: "SyntaxState")
+        }
         //Set quickpaste title
         if(quickPasteTitle.text != nil){
             quickPasteTitle.text = defaults.string(forKey: "quickPasteTitle");
@@ -84,6 +109,9 @@ class OptionsViewController: UITableViewController {
         }else{
             textLabel.text = "None";
             defaults.set(145, forKey: "selectedText");
+        }
+        if (defaults.object(forKey: "SyntaxState") != nil) {
+            syntaxSwitch.isOn = defaults.bool(forKey: "SyntaxState")
         }
     }
 }

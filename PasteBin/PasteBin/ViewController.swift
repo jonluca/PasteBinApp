@@ -40,6 +40,9 @@ class ViewController: UIViewController {
         if (defaults.object(forKey: "selectedText") == nil) {
             defaults.set(145, forKey: "selectedText");
         }
+        if (defaults.object(forKey: "SyntaxState") == nil) {
+            defaults.set(true, forKey: "SyntaxState")
+        }
         
         //TODO - Make an array in save file, populate into options view with title "Previous Pastes" and save all response strings into it
         

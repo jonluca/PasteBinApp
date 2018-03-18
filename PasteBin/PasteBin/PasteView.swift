@@ -76,9 +76,15 @@ class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelega
             submitButton.isEnabled = true;
             submitButton.title = "Submit";
             
-            // Converts pasted/typed text into highlighted syntax
-            let code = textView.text
-            textView.attributedText = highlightr?.highlight(code!)
+            // Converts pasted/typed text into highlighted syntax if selected in options menu
+            let defaults = UserDefaults.standard
+            
+            if (defaults.object(forKey: "SyntaxState") != nil) {
+                if defaults.bool(forKey: "SyntaxState") == true {
+                    let code = textView.text
+                    textView.attributedText = highlightr?.highlight(code!)
+                }
+            }
         }
     }
     @objc func edit(){
