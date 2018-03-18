@@ -26,6 +26,7 @@ class OptionsViewController: UITableViewController {
         self.dismiss(animated: true, completion: {});
     }
     @IBOutlet weak var unlistedSwitch: UISwitch!
+    @IBOutlet weak var syntaxSwitch: UISwitch!
     
     @IBOutlet weak var quickPasteTitle: UITextField!
     @IBAction func unlistedChange(_ sender: Any) {
