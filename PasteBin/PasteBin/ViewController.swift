@@ -8,7 +8,6 @@
 
 import UIKit
 import AFNetworking
-import DynamicBlurView
 
 class ViewController: UIViewController {
     
