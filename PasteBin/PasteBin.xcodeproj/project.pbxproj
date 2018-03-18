@@ -33,7 +33,7 @@
 		0849C36F1E15256D00031FF1 /* HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		0849C3721E155E7800031FF1 /* OptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
 		0849C3741E18151E00031FF1 /* code.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = code.png; path = ../code.png; sourceTree = "<group>"; };
-		08B1A2A61FFDF51E00B9B508 /* PasteBin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PasteBin.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		08B1A2A61FFDF51E00B9B508 /* PasteBin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; name = PasteBin.app; path = "/Users/jonlucadecaro/Documents/Other/PasteBinApp/PasteBin/build/Debug-iphoneos/PasteBin.app"; sourceTree = "<absolute>"; };
 		08CBE51C1E23FB8700C91B02 /* TextSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextSelectionViewController.swift; sourceTree = "<group>"; };
 		08EB1C561E14293A00311E23 /* PasteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasteView.swift; sourceTree = "<group>"; };
 		4E72A0797AC270D9771EB4A8 /* Pods_PasteBin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PasteBin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,7 +61,6 @@
 				08453B881E1426C5001CAACB /* PasteBin */,
 				8D706E845AEFDA62CB0345C7 /* Pods */,
 				84A1158263166637D30E6234 /* Frameworks */,
-				08B1A2A61FFDF51E00B9B508 /* PasteBin.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -192,13 +191,11 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-PasteBin/Pods-PasteBin-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
-				"${BUILT_PRODUCTS_DIR}/DynamicBlurView/DynamicBlurView.framework",
 				"${BUILT_PRODUCTS_DIR}/Highlightr/Highlightr.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DynamicBlurView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Highlightr.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
