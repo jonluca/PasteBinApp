@@ -8,7 +8,7 @@ PasteBin Mobile is an app to quickly upload text or code to http://pastebin.com!
 
 ## Screenshot
 
-<img src='https://i.imgur.com/W57qPfv.png' title='Video Walkthrough' width='370' alt='Video Walkthrough' />
+<img src='https://i.imgur.com/dJg21TF.png' title='Screenshot' width='370' alt='Screenshot' />
 
 
 ## Notes
@@ -24,15 +24,16 @@ Current build passes all tests.
 
 - [x] Change title, syntax
 
-- [ ] Locally save list of prior pastes 
+- [x] Locally save list of prior pastes 
 
-- [ ] Syntax Highlighting
+- [x] Syntax Highlighting
 
 ## Credits
 
 List an 3rd party libraries, icons, graphics, or other assets you used in your app.
 
 - [AFNetworking](https://github.com/AFNetworking/AFNetworking) - networking task library
+- [Highlightr](https://github.com/raspu/Highlightr) - syntax highlighting library
 
 ## License
 
