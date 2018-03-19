@@ -33,7 +33,10 @@ class OptionsViewController: UITableViewController {
             defaults.set(quickPasteTitle.text, forKey: "quickPasteTitle");
         }
         
-        self.dismiss(animated: true, completion: {});
+        // Transition to main view in order to reset background scrolling
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil);
+        let vC : ViewController = mainStoryboard.instantiateViewController(withIdentifier: "mainView") as! ViewController;
+        self.present(vC, animated: false, completion: nil)
     }
     @IBOutlet weak var unlistedSwitch: UISwitch!
     @IBOutlet weak var syntaxSwitch: UISwitch!
