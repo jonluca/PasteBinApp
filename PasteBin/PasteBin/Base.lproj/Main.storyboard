@@ -565,7 +565,7 @@
                                                 <action selector="submit:" destination="hzZ-Qb-JIs" id="3wi-lN-fTJ"/>
                                             </connections>
                                         </barButtonItem>
-                                        <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="Click to Edit Title" textAlignment="center" minimumFontSize="17" id="3Gb-gu-03m">
+                                        <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="Click to Edit Title" textAlignment="center" minimumFontSize="17" id="3Gb-gu-03m">
                                             <rect key="frame" x="131" y="13.5" width="113" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <accessibility key="accessibilityConfiguration" hint="Title"/>
@@ -607,6 +607,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iWo-1Z-8b6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="803" y="136"/>
+        </scene>
+        <!--SyntaxSelectViewController-->
+        <scene sceneID="nme-oa-OgN">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SyntaxSelectViewController" id="ab0-1e-LzS" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y7t-YM-kNf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1583" y="12"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="VvC-GU-lYu">
