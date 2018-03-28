@@ -95,13 +95,10 @@ class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelega
                     let code = textView.text
                     if syntaxHighlightr == "default" {
                         textView.attributedText = highlightr?.highlight(code!)
-                        print("Default code")
                     } else if syntaxHighlightr == "none" {
                         textView.attributedText = NSAttributedString(string: code!)
-                        print("NONE!!")
                     } else {
                         textView.attributedText = highlightr?.highlight(code!, as: syntaxHighlightr)
-                        print("Syntaxed code")
                     }
 
                 }
