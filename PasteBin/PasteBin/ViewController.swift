@@ -52,7 +52,7 @@ class ViewController: UIViewController {
         
         // Load previous pastes to savedList array
         loadSavedListItems()
-        
+
     }
     
     //Hide top bar

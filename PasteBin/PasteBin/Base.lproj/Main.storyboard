@@ -344,11 +344,13 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ldC-xO-kaa" secondAttribute="height" multiplier="9:5" id="blM-MG-DEk"/>
                                 </constraints>
-                                <state key="normal" title="Options">
+                                <state key="normal" title="Help">
                                     <color key="titleColor" red="0.61571669578552246" green="0.61168527603149414" blue="0.61966204643249512" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
-                                    <segue destination="S5L-tu-tXC" kind="presentation" id="hYJ-1R-SSw"/>
+                                    <segue destination="Ikl-lD-v4I" kind="popoverPresentation" popoverAnchorView="ldC-xO-kaa" id="kI5-6C-QsN">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7iR-Lc-zGM">
@@ -375,31 +377,29 @@
                                 <rect key="frame" x="0.0" y="20" width="374.5" height="44"/>
                                 <items>
                                     <navigationItem id="3aN-Xi-Mtx">
-                                        <barButtonItem key="leftBarButtonItem" title="About" id="rvR-gi-DiJ">
+                                        <barButtonItem key="leftBarButtonItem" title="Previous Pastes" id="rvR-gi-DiJ">
                                             <color key="tintColor" red="0.61571669578552246" green="0.61168527603149414" blue="0.61966204643249512" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <connections>
-                                                <action selector="about:" destination="BYZ-38-t0r" id="fw4-hd-YAd"/>
+                                                <segue destination="cGl-B3-Eau" kind="show" id="HMZ-lA-GD7"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Help" id="ppJ-ui-rag">
+                                        <barButtonItem key="rightBarButtonItem" title="Options" id="ppJ-ui-rag">
                                             <color key="tintColor" red="0.61571669578552246" green="0.61168527603149414" blue="0.61966204643249512" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <connections>
-                                                <action selector="helpButton:" destination="BYZ-38-t0r" id="adm-fB-fwC"/>
-                                                <segue destination="Ikl-lD-v4I" kind="popoverPresentation" popoverAnchorBarButtonItem="ppJ-ui-rag" id="VMJ-Xu-9C3">
-                                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                                </segue>
+                                                <segue destination="S5L-tu-tXC" kind="presentation" id="d73-K1-68w"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cuc-OM-Ywf">
-                                <rect key="frame" x="16" y="613.5" width="109" height="61"/>
-                                <state key="normal" title="Previous Pastes">
+                                <rect key="frame" x="16" y="629.5" width="54" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="About">
                                     <color key="titleColor" red="0.61571669579999999" green="0.611685276" blue="0.6196620464" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
-                                    <segue destination="cGl-B3-Eau" kind="show" id="OSF-9E-K7L"/>
+                                    <action selector="about:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tiZ-jX-QZk"/>
                                 </connections>
                             </button>
                         </subviews>
