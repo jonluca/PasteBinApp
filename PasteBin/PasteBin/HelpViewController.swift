@@ -20,11 +20,11 @@ class HelpViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
     @IBAction func done(_ sender: Any) {
         // Transition to main view in order to reset background scrolling
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil);
-        let vC : ViewController = mainStoryboard.instantiateViewController(withIdentifier: "mainView") as! ViewController;
+        let vC: ViewController = mainStoryboard.instantiateViewController(withIdentifier: "mainView") as! ViewController;
         self.present(vC, animated: false, completion: nil)
     }
 }
