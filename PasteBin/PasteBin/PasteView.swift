@@ -20,18 +20,15 @@ class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelega
     var submitButtonState: Bool = true
 
     let highlightr = Highlightr()
-    var syntaxLanguage: String = "Syntax"
-    var syntaxLanguageHighlightr: String = "Syntax"
+    var syntaxIndex: Int = 0
+    var syntaxPastebin: String = "Syntax"
+    var syntaxHighlightr: String = ""
     
     var languages = ["4CS", "6502 ACME Cross Assembler", "6502 Kick Assembler", "6502 TASM/64TASS", "ABAP", "ActionScript", "ActionScript 3", "Ada", "AIMMS", "ALGOL 68", "Apache Log", "AppleScript", "APT Sources", "ARM", "ASM (NASM)", "ASP", "Asymptote", "autoconf", "Autohotkey", "AutoIt", "Avisynth", "Awk", "BASCOM AVR", "Bash", "Basic4GL", "Batch", "BibTeX", "Blitz Basic", "Blitz3D", "BlitzMax", "BNF", "BOO", "BrainFuck", "C", "C (WinAPI)", "C for Macs", "C Intermediate Language", "C#", "C++", "C++ (WinAPI)", "C++ (with Qt extensions)", "C: Loadrunner", "CAD DCL", "CAD Lisp", "CFDG", "ChaiScript", "Chapel", "Clojure", "Clone C", "Clone C++", "CMake", "COBOL", "CoffeeScript", "ColdFusion", "CSS", "Cuesheet", "D", "Dart", "DCL", "DCPU-16", "DCS", "Delphi", "Delphi Prism (Oxygene)", "Diff", "DIV", "DOT", "E", "Easytrieve", "ECMAScript", "Eiffel", "Email", "EPC", "Erlang", "Euphoria", "F#", "Falcon", "Filemaker", "FO Language", "Formula One", "Fortran", "FreeBasic", "FreeSWITCH", "GAMBAS", "Game Maker", "GDB", "Genero", "Genie", "GetText", "Go", "Groovy", "GwBasic", "Haskell", "Haxe", "HicEst", "HQ9 Plus", "HTML", "HTML 5", "Icon", "IDL", "INI file", "Inno Script", "INTERCAL", "IO", "ISPF Panel Definition", "J", "Java", "Java 5", "JavaScript", "JCL", "jQuery", "JSON", "Julia", "KiXtart", "Latex", "LDIF", "Liberty BASIC", "Linden Scripting", "Lisp", "LLVM", "Loco Basic", "Logtalk", "LOL Code", "Lotus Formulas", "Lotus Script", "LScript", "Lua", "M68000 Assembler", "MagikSF", "Make", "MapBasic", "Markdown", "MatLab", "mIRC", "MIX Assembler", "Modula 2", "Modula 3", "Motorola 68000 HiSoft Dev", "MPASM", "MXML", "MySQL", "Nagios", "NetRexx", "newLISP", "Nginx", "Nimrod", "None", "NullSoft Installer", "Oberon 2", "Objeck Programming Langua", "Objective C", "OCalm Brief", "OCaml", "Octave", "Open Object Rexx", "OpenBSD PACKET FILTER", "OpenGL Shading", "Openoffice BASIC", "Oracle 11", "Oracle 8", "Oz", "ParaSail", "PARI/GP", "Pascal", "Pawn", "PCRE", "Per", "Perl", "Perl 6", "PHP", "PHP Brief", "Pic 16", "Pike", "Pixel Bender", "PL/I", "PL/SQL", "PostgreSQL", "PostScript", "POV-Ray", "Power Shell", "PowerBuilder", "ProFTPd", "Progress", "Prolog", "Properties", "ProvideX", "Puppet", "PureBasic", "PyCon", "Python", "Python for S60", "q/kdb+", "QBasic", "QML", "R", "Racket", "Rails", "RBScript", "REBOL", "REG", "Rexx", "Robots", "RPM Spec", "Ruby", "Ruby Gnuplot", "Rust", "SAS", "Scala", "Scheme", "Scilab", "SCL", "SdlBasic", "Smalltalk", "Smarty", "SPARK", "SPARQL", "SQF", "SQL", "StandardML", "StoneScript", "SuperCollider", "Swift", "SystemVerilog", "T-SQL", "TCL", "Tera Term", "thinBasic", "TypoScript", "Unicon", "UnrealScript", "UPC", "Urbi", "Vala", "VB.NET", "VBScript", "Vedit", "VeriLog", "VHDL", "VIM", "Visual Pro Log", "VisualBasic", "VisualFoxPro", "WhiteSpace", "WHOIS", "Winbatch", "XBasic", "XML", "Xorg Config", "XPP", "YAML", "Z80 Assembler", "ZXBasic"]
     
-//    var languages: [String: String] = ["Java": "java", "Swift": "swift", "JavaScript": "javascript", "c#": "nil"]
-    
-//    var highlightrLanguages: [String] = []
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        //Don't judge for the following code - fairly redudant but works
+        //Don't judge for the following code - fairly redundant but works
         let tapOutTextField: UITapGestureRecognizer = UITapGestureRecognizer(target: textView, action: #selector(edit));
         textView.delegate = self;
         textView.addGestureRecognizer(tapOutTextField);
@@ -45,10 +42,9 @@ class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelega
         
         // Picks up the default syntax/language that was set in options menu/view
         let defaults = UserDefaults.standard
-        syntaxLanguage = languages[defaults.integer(forKey: "selectedText")]
-        
-//        highlightrLanguages = (highlightr?.supportedLanguages())!
-//        print(highlightrLanguages)
+        syntaxIndex = defaults.integer(forKey: "selectedText")
+        syntaxPastebin = languages[defaults.integer(forKey: "selectedText")]
+        syntaxHighlightr = dictPastebinHighlightr[syntaxPastebin]!
         
     }
     
@@ -97,8 +93,17 @@ class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelega
             if (defaults.object(forKey: "SyntaxState") != nil) {
                 if defaults.bool(forKey: "SyntaxState") == true {
                     let code = textView.text
-                    textView.attributedText = highlightr?.highlight(code!, as: syntaxLanguage)
-//                    textView.attributedText = highlightr?.highlight(code!, as: syntaxLanguageHighlightr)
+                    if syntaxHighlightr == "default" {
+                        textView.attributedText = highlightr?.highlight(code!)
+                        print("Default code")
+                    } else if syntaxHighlightr == "none" {
+                        textView.attributedText = NSAttributedString(string: code!)
+                        print("NONE!!")
+                    } else {
+                        textView.attributedText = highlightr?.highlight(code!, as: syntaxHighlightr)
+                        print("Syntaxed code")
+                    }
+
                 }
             }
         }
@@ -106,7 +111,7 @@ class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelega
     @objc func edit(){
         isCurrentlyEditing = true
         submitButtonState = false
-        submitButton.title = syntaxLanguage
+        submitButton.title = syntaxPastebin
         
         doneButton.title = "Done"
         
@@ -242,13 +247,16 @@ class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelega
         
         let sb = UIStoryboard(name: "SyntaxSelectViewController", bundle: nil)
         let popup = sb.instantiateInitialViewController()! as! SyntaxSelectViewController
+        popup.syntax = syntaxPastebin
+        popup.syntaxIndex = syntaxIndex
         present(popup, animated: true)
         
         // Callback closure to fetch data from popup
-        popup.onSave = { (data) in
-            self.syntaxLanguage = data
-            self.syntaxLanguageHighlightr = data
-            self.submitButton.title = data
+        popup.onSave = { (data, index) in
+            self.syntaxHighlightr = self.dictPastebinHighlightr[data]!
+            self.syntaxIndex = index
+            self.syntaxPastebin = data
+            self.submitButton.title = self.syntaxPastebin
         }
         
     }
@@ -303,7 +311,7 @@ class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelega
     func textViewDidChange(_ textView: UITextView) {
         isCurrentlyEditing = true
         submitButtonState = false
-        submitButton.title = syntaxLanguage
+        submitButton.title = syntaxPastebin
         
         doneButton.title = "Done"
     }
@@ -336,4 +344,259 @@ class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelega
         let needsConnection = (flags.rawValue & UInt32(kSCNetworkFlagsConnectionRequired)) != 0
         return (isReachable && !needsConnection)
     }
+    
+    let dictPastebinHighlightr = [
+        "4CS": "default",
+        "6502 ACME Cross Assembler": "default",
+        "6502 Kick Assembler": "default",
+        "6502 TASM/64TASS": "default",
+        "ABAP": "default",
+        "ActionScript": "actionscript",
+        "ActionScript 3": "actionscript",
+        "Ada": "ada",
+        "AIMMS": "default",
+        "ALGOL 68": "default",
+        "Apache Log": "apache",
+        "AppleScript": "applescript",
+        "APT Sources": "default",
+        "ARM": "armasm",
+        "ASM (NASM)": "armasm",
+        "ASP": "default",
+        "Asymptote": "default",
+        "autoconf": "default",
+        "Autohotkey": "autohotkey",
+        "AutoIt": "autoit",
+        "Avisynth": "default",
+        "Awk": "awk",
+        "BASCOM AVR": "default",
+        "Bash": "bash",
+        "Basic4GL": "basic",
+        "Batch": "default",
+        "BibTeX": "default",
+        "Blitz Basic": "basic",
+        "Blitz3D": "default",
+        "BlitzMax": "default",
+        "BNF": "bnf",
+        "BOO": "default",
+        "BrainFuck": "brainfuck",
+        "C": "cpp",
+        "C (WinAPI)": "cpp",
+        "C for Macs": "cpp",
+        "C Intermediate Language": "cpp",
+        "C#": "cpp",
+        "C++": "cpp",
+        "C++ (WinAPI)": "cpp",
+        "C++ (with Qt extensions)": "cpp",
+        "C: Loadrunner": "cpp",
+        "CAD DCL": "default",
+        "CAD Lisp": "lisp",
+        "CFDG": "default",
+        "ChaiScript": "default",
+        "Chapel": "default",
+        "Clojure": "clojure",
+        "Clone C": "cpp",
+        "Clone C++": "cpp",
+        "CMake": "cmake",
+        "COBOL": "default",
+        "CoffeeScript": "coffeescript",
+        "ColdFusion": "default",
+        "CSS": "css",
+        "Cuesheet": "default",
+        "D": "d",
+        "Dart": "dart",
+        "DCL": "default",
+        "DCPU-16": "default",
+        "DCS": "default",
+        "Delphi": "delphi",
+        "Delphi Prism (Oxygene)": "delphi",
+        "Diff": "diff",
+        "DIV": "default",
+        "DOT": "default",
+        "E": "default",
+        "Easytrieve": "default",
+        "ECMAScript": "javascript",
+        "Eiffel": "default",
+        "Email": "default",
+        "EPC": "default",
+        "Erlang": "erlang",
+        "Euphoria": "default",
+        "F#": "fsharp",
+        "Falcon": "default",
+        "Filemaker": "default",
+        "FO Language": "default",
+        "Formula One": "default",
+        "Fortran": "fortran",
+        "FreeBasic": "default",
+        "FreeSWITCH": "default",
+        "GAMBAS": "default",
+        "Game Maker": "default",
+        "GDB": "default",
+        "Genero": "default",
+        "Genie": "default",
+        "GetText": "default",
+        "Go": "go",
+        "Groovy": "groovy",
+        "GwBasic": "default",
+        "Haskell": "haskell",
+        "Haxe": "haxe",
+        "HicEst": "default",
+        "HQ9 Plus": "default",
+        "HTML": "htmlbars",
+        "HTML 5": "htmlbars",
+        "Icon": "default",
+        "IDL": "default",
+        "INI file": "ini",
+        "Inno Script": "default",
+        "INTERCAL": "default",
+        "IO": "default",
+        "ISPF Panel Definition": "default",
+        "J": "default",
+        "Java": "java",
+        "Java 5": "java",
+        "JavaScript": "javascript",
+        "JCL": "default",
+        "jQuery": "javascript",
+        "JSON": "json",
+        "Julia": "julia",
+        "KiXtart": "default",
+        "Latex": "default",
+        "LDIF": "ldif",
+        "Liberty BASIC": "basic",
+        "Linden Scripting": "default",
+        "Lisp": "lisp",
+        "LLVM": "llvm",
+        "Loco Basic": "basic",
+        "Logtalk": "default",
+        "LOL Code": "default",
+        "Lotus Formulas": "default",
+        "Lotus Script": "default",
+        "LScript": "livescript",
+        "Lua": "lua",
+        "M68000 Assembler": "default",
+        "MagikSF": "default",
+        "Make": "makefile",
+        "MapBasic": "default",
+        "Markdown": "markdown",
+        "MatLab": "matlab",
+        "mIRC": "default",
+        "MIX Assembler": "default",
+        "Modula 2": "default",
+        "Modula 3": "default",
+        "Motorola 68000 HiSoft Dev": "default",
+        "MPASM": "mipsasm",
+        "MXML": "default",
+        "MySQL": "sql",
+        "Nagios": "default",
+        "NetRexx": "default",
+        "newLISP": "default",
+        "Nginx": "nginx",
+        "Nimrod": "nimrod",
+        "None": "none",
+        "NullSoft Installer": "default",
+        "Oberon 2": "default",
+        "Objeck Programming Langua": "default",
+        "Objective C": "objectivec",
+        "OCalm Brief": "ocaml",
+        "OCaml": "ocaml",
+        "Octave": "default",
+        "Open Object Rexx": "default",
+        "OpenBSD PACKET FILTER": "default",
+        "OpenGL Shading": "default",
+        "Openoffice BASIC": "default",
+        "Oracle 11": "default",
+        "Oracle 8": "default",
+        "Oz": "default",
+        "ParaSail": "default",
+        "PARI/GP": "default",
+        "Pascal": "default",
+        "Pawn": "default",
+        "PCRE": "default",
+        "Per": "default",
+        "Perl": "perl",
+        "Perl 6": "perl",
+        "PHP": "php",
+        "PHP Brief": "php",
+        "Pic 16": "default",
+        "Pike": "default",
+        "Pixel Bender": "default",
+        "PL/I": "default",
+        "PL/SQL": "default",
+        "PostgreSQL": "default",
+        "PostScript": "default",
+        "POV-Ray": "default",
+        "Power Shell": "powershell",
+        "PowerBuilder": "default",
+        "ProFTPd": "default",
+        "Progress": "default",
+        "Prolog": "prolog",
+        "Properties": "default",
+        "ProvideX": "default",
+        "Puppet": "puppet",
+        "PureBasic": "purebasic",
+        "PyCon": "python",
+        "Python": "python",
+        "Python for S60": "python",
+        "q/kdb+": "q",
+        "QBasic": "default",
+        "QML": "qml",
+        "R": "r",
+        "Racket": "default",
+        "Rails": "ruby",
+        "RBScript": "default",
+        "REBOL": "default",
+        "REG": "default",
+        "Rexx": "default",
+        "Robots": "default",
+        "RPM Spec": "default",
+        "Ruby": "ruby",
+        "Ruby Gnuplot": "ruby",
+        "Rust": "rust",
+        "SAS": "default",
+        "Scala": "scala",
+        "Scheme": "scheme",
+        "Scilab": "scilab",
+        "SCL": "default",
+        "SdlBasic": "default",
+        "Smalltalk": "smalltalk",
+        "Smarty": "default",
+        "SPARK": "default",
+        "SPARQL": "default",
+        "SQF": "sqf",
+        "SQL": "sql",
+        "StandardML": "default",
+        "StoneScript": "default",
+        "SuperCollider": "default",
+        "Swift": "swift",
+        "SystemVerilog": "default",
+        "T-SQL": "sql",
+        "TCL": "tcl",
+        "Tera Term": "default",
+        "thinBasic": "default",
+        "TypoScript": "default",
+        "Unicon": "default",
+        "UnrealScript": "default",
+        "UPC": "default",
+        "Urbi": "default",
+        "Vala": "vala",
+        "VB.NET": "vbnet",
+        "VBScript": "vbscript",
+        "Vedit": "default",
+        "VeriLog": "verilog",
+        "VHDL": "vhdl",
+        "VIM": "vim",
+        "Visual Pro Log": "default",
+        "VisualBasic": "default",
+        "VisualFoxPro": "default",
+        "WhiteSpace": "default",
+        "WHOIS": "default",
+        "Winbatch": "default",
+        "XBasic": "default",
+        "XML": "xml",
+        "Xorg Config": "default",
+        "XPP": "default",
+        "YAML": "yaml",
+        "Z80 Assembler": "default",
+        "ZXBasic": "default",
+        ]
+    
 }

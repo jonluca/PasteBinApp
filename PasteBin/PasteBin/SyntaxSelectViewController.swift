@@ -1,9 +1,9 @@
 //
 //  SyntaxSelectViewController.swift
-//  ReusablePopups
+//  PasteBin
 //
 //  Created by Henrik Gustavii on 22/03/2018.
-//  Copyright © 2018 Aecasorg. All rights reserved.
+//  Copyright © 2018 JonLuca De Caro. All rights reserved.
 //
 
 import UIKit
@@ -17,31 +17,28 @@ class SyntaxSelectViewController: UIViewController {
     @IBOutlet weak var syntaxPicker: UIPickerView!
     @IBOutlet weak var saveButton: UIButton!
     var syntax: String = ""
-    
-    let highlightr = Highlightr()
-    var highlightrLanguages: [String] = []
+    var syntaxIndex: Int = 0
     
     // Function type that can be accessed from Callback VC (PasteView.swift)
-    var onSave: ((_ data: String) -> ())?
+    var onSave: ((_ data: String, _ index: Int) -> ())?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         syntaxPicker.delegate = self
         syntaxPicker.dataSource = self
-        
-        highlightrLanguages = (highlightr?.supportedLanguages())!
+        titleLabel.text = syntax
+        syntaxPicker.selectRow(syntaxIndex, inComponent: 0, animated: true)
 
     }
 
     @IBAction func saveDate_TouchUpInside(_ sender: UIButton) {
         
-        onSave?(syntax)
+        onSave?(syntax, syntaxIndex)
         
         dismiss(animated: true)
         
     }
-    
     
 }
 
@@ -51,16 +48,17 @@ extension SyntaxSelectViewController: UIPickerViewDelegate, UIPickerViewDataSour
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return highlightrLanguages.count
+        return languages.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return highlightrLanguages[row]
+        return languages[row]
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        titleLabel.text = highlightrLanguages[row]
-        syntax = highlightrLanguages[row]
+        titleLabel.text = languages[row]
+        syntax = languages[row]
+        syntaxIndex = row
     }
     
     
