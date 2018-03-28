@@ -22,6 +22,9 @@ class HelpViewController: UIViewController {
     }
     
     @IBAction func done(_ sender: Any) {
-        self.dismiss(animated: true, completion: {});
+        // Transition to main view in order to reset background scrolling
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil);
+        let vC : ViewController = mainStoryboard.instantiateViewController(withIdentifier: "mainView") as! ViewController;
+        self.present(vC, animated: false, completion: nil)
     }
 }

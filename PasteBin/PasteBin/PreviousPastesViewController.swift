@@ -23,7 +23,10 @@ class PreviousPastesViewController: UITableViewController {
     
     @IBAction func donePress(_ sender: Any) {
         
-        self.dismiss(animated: true) {}
+        // Transition to main view in order to reset background scrolling
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil);
+        let vC : ViewController = mainStoryboard.instantiateViewController(withIdentifier: "mainView") as! ViewController;
+        self.present(vC, animated: false, completion: nil)
         
     }
     
