@@ -44,17 +44,21 @@ class ViewController: UIViewController {
             defaults.set(true, forKey: "SyntaxState")
         }
 
-        //Get screen size for animated background
-        let bounds = UIScreen.main.bounds;
-        self.width = bounds.size.width;
-        backgroundInfinite()
-
         // Load previous pastes to savedList array
         loadSavedListItems()
         
         // Lets the background animation resume after app has been in background
         NotificationCenter.default.addObserver(self, selector: #selector(backgroundInfinite), name: Notification.Name.UIApplicationWillEnterForeground, object: nil)
 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        //Get screen size for animated background
+        let bounds = UIScreen.main.bounds;
+        self.width = bounds.size.width;
+        backgroundInfinite()
     }
 
     //Hide top bar
@@ -260,11 +264,6 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        backgroundInfinite()
     }
 
     //credit to http://stackoverflow.com/questions/39558868/check-internet-connection-ios-10
