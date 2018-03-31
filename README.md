@@ -30,7 +30,7 @@ Current build passes all tests.
 
 ## Credits
 
-List an 3rd party libraries, icons, graphics, or other assets you used in your app.
+3rd party libraries, icons, graphics, or other assets used.
 
 - [AFNetworking](https://github.com/AFNetworking/AFNetworking) - networking task library
 - [Highlightr](https://github.com/raspu/Highlightr) - syntax highlighting library

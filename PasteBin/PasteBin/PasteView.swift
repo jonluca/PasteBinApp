@@ -10,7 +10,6 @@ import UIKit
 import AFNetworking
 import Highlightr
 
-
 class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelegate {
     var isCurrentlyEditing = false;
 
@@ -29,7 +28,7 @@ class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         //Don't judge for the following code - fairly redundant but works
-        let tapOutTextField: UITapGestureRecognizer = UITapGestureRecognizer(target: textView, action: #selector(edit));
+        let tapOutTextField: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(edit));
         textView.delegate = self;
         textView.addGestureRecognizer(tapOutTextField);
         view.addGestureRecognizer(tapOutTextField)
@@ -56,9 +55,9 @@ class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelega
     }
 
     @IBOutlet weak var submitButton: UIBarButtonItem!
-    @IBOutlet weak var doneButton: UIBarButtonItem!
+    @IBOutlet weak var backButton: UIBarButtonItem!
 
-    @IBAction func done(_ sender: Any) {
+    @IBAction func backButtonAction(_ sender: Any) {
         if (!isCurrentlyEditing) {
             if (textView.text?.isEmpty)! {
                 let mainStoryboard = UIStoryboard(name: "Main", bundle: nil);
@@ -83,40 +82,31 @@ class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelega
             }
 
         } else {
-            isCurrentlyEditing = false;
-            doneButton.title = "Back";
-            view.endEditing(true);
-            submitButtonState = true;
-            submitButton.title = "Submit";
-
-            // Converts pasted/typed text into highlighted syntax if selected in options menu
-            let defaults = UserDefaults.standard
-
-            if (defaults.object(forKey: "SyntaxState") != nil && defaults.bool(forKey: "SyntaxState") == true) {
-                let code = textView.text
-                if syntaxHighlightr == "default" {
-                    textView.attributedText = highlightr?.highlight(code!)
-                } else if syntaxHighlightr == "none" {
-                    textView.attributedText = NSAttributedString(string: code!)
-                } else {
-                    textView.attributedText = highlightr?.highlight(code!, as: syntaxHighlightr)
-                }
-            }
+            // Pops up syntax selector popup if in Editing State
+            selectSyntax()
+            
         }
     }
 
     @objc func edit() {
         isCurrentlyEditing = true
         submitButtonState = false
-        submitButton.title = syntaxPastebin
+        
+        let defaults = UserDefaults.standard
+        if (defaults.bool(forKey: "SyntaxState") == true) {
+            backButton.title = syntaxPastebin
+        } else {
+            backButton.isEnabled = false
+            backButton.title = "Syntax Off"
+        }
 
-        doneButton.title = "Done"
+        submitButton.title = "Done"
 
     }
 
     @IBOutlet weak var textView: UITextView!
 
-    @IBAction func submit(_ sender: Any) {
+    @IBAction func submitButtonAction(_ sender: AnyObject!) {
         if submitButtonState {
             let text = textView.text;
             if (text?.isEmpty)! {
@@ -236,10 +226,29 @@ class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelega
                 }
             }
         } else {
-            // Pops up syntax selector popup if in Editing State
-            selectSyntax()
+            isCurrentlyEditing = false;
+            backButton.title = "Back";
+            view.endEditing(true);
+            backButton.isEnabled = true
+            submitButtonState = true;
+            submitButton.title = "Submit";
+            
+            // Converts pasted/typed text into highlighted syntax if selected in options menu
+            let defaults = UserDefaults.standard
+            
+            if (defaults.object(forKey: "SyntaxState") != nil && defaults.bool(forKey: "SyntaxState") == true) {
+                let code = textView.text
+                if syntaxHighlightr == "default" {
+                    textView.attributedText = highlightr?.highlight(code!)
+                } else if syntaxHighlightr == "none" {
+                    textView.attributedText = NSAttributedString(string: code!)
+                } else {
+                    textView.attributedText = highlightr?.highlight(code!, as: syntaxHighlightr)
+                }
+            }
         }
     }
+    
 
     // Syntax picker method with segue via code
     func selectSyntax() {
@@ -255,7 +264,7 @@ class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelega
             self.syntaxHighlightr = self.langMap[data]!
             self.syntaxIndex = index
             self.syntaxPastebin = data
-            self.submitButton.title = self.syntaxPastebin
+            self.backButton.title = self.syntaxPastebin
         }
 
     }
@@ -311,9 +320,16 @@ class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelega
     func textViewDidChange(_ textView: UITextView) {
         isCurrentlyEditing = true
         submitButtonState = false
-        submitButton.title = syntaxPastebin
+        
+        let defaults = UserDefaults.standard
+        if (defaults.bool(forKey: "SyntaxState") == true) {
+            backButton.title = syntaxPastebin
+        } else {
+            backButton.isEnabled = false
+            backButton.title = "Syntax Off"
+        }
 
-        doneButton.title = "Done"
+        submitButton.title = "Done"
     }
 
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {

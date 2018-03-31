@@ -51,6 +51,9 @@ class ViewController: UIViewController {
 
         // Load previous pastes to savedList array
         loadSavedListItems()
+        
+        // Lets the background animation resume after app has been in background
+        NotificationCenter.default.addObserver(self, selector: #selector(backgroundInfinite), name: Notification.Name.UIApplicationWillEnterForeground, object: nil)
 
     }
 
@@ -64,7 +67,7 @@ class ViewController: UIViewController {
         self.last = self.codeBackground.frame.origin.x;
     }
 
-    func backgroundInfinite() {
+    @objc func backgroundInfinite() {
 
         self.codeBackground.frame.origin.x = self.last;
 
@@ -260,7 +263,8 @@ class ViewController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
-        backgroundInfinite();
+        super.viewWillAppear(animated)
+        backgroundInfinite()
     }
 
     //credit to http://stackoverflow.com/questions/39558868/check-internet-connection-ios-10
@@ -285,4 +289,3 @@ class ViewController: UIViewController {
     }
 
 }
-
