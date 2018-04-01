@@ -44,14 +44,21 @@ class ViewController: UIViewController {
             defaults.set(true, forKey: "SyntaxState")
         }
 
+        // Load previous pastes to savedList array
+        loadSavedListItems()
+        
+        // Lets the background animation resume after app has been in background
+        NotificationCenter.default.addObserver(self, selector: #selector(backgroundInfinite), name: Notification.Name.UIApplicationWillEnterForeground, object: nil)
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         //Get screen size for animated background
         let bounds = UIScreen.main.bounds;
         self.width = bounds.size.width;
         backgroundInfinite()
-
-        // Load previous pastes to savedList array
-        loadSavedListItems()
-
     }
 
     //Hide top bar
@@ -64,7 +71,7 @@ class ViewController: UIViewController {
         self.last = self.codeBackground.frame.origin.x;
     }
 
-    func backgroundInfinite() {
+    @objc func backgroundInfinite() {
 
         self.codeBackground.frame.origin.x = self.last;
 
@@ -259,10 +266,6 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        backgroundInfinite();
-    }
-
     //credit to http://stackoverflow.com/questions/39558868/check-internet-connection-ios-10
     func isInternetAvailable() -> Bool {
         var zeroAddress = sockaddr_in()
@@ -285,4 +288,3 @@ class ViewController: UIViewController {
     }
 
 }
-
