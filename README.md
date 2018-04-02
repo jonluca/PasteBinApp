@@ -34,6 +34,7 @@ Current build passes all tests.
 
 - [AFNetworking](https://github.com/AFNetworking/AFNetworking) - networking task library
 - [Highlightr](https://github.com/raspu/Highlightr) - syntax highlighting library
+- [SearchTextField](https://github.com/apasccon/SearchTextField)
 
 ## License
 
