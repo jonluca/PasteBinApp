@@ -34,7 +34,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <state key="normal" title="Save Syntax"/>
                                         <connections>
-                                            <action selector="saveDate_TouchUpInside:" destination="Db7-h6-lO3" eventType="touchUpInside" id="uQY-70-Qkd"/>
+                                            <action selector="saveSyntax_TouchUpInside:" destination="Db7-h6-lO3" eventType="touchUpInside" id="uQY-70-Qkd"/>
                                         </connections>
                                     </button>
                                     <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8AI-lD-j3l">

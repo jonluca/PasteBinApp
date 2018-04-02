@@ -49,7 +49,8 @@ class SyntaxSelectViewController: UIViewController {
         }
     }
 
-    @IBAction func saveDate_TouchUpInside(_ sender: UIButton) {
+    // Sends syntax choice to pasteview and dismisses popup
+    @IBAction func saveSyntax_TouchUpInside(_ sender: UIButton) {
         
         onSave?(syntax, syntaxIndex)
         
