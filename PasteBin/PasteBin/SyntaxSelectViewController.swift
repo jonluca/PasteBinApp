@@ -8,6 +8,7 @@
 
 import UIKit
 import Highlightr
+import SearchTextField
 
 class SyntaxSelectViewController: UIViewController {
 
@@ -16,6 +17,8 @@ class SyntaxSelectViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var syntaxPicker: UIPickerView!
     @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var searchSyntaxTextField: SearchTextField!
+    
     var syntax: String = ""
     var syntaxIndex: Int = 0
 
@@ -29,19 +32,38 @@ class SyntaxSelectViewController: UIViewController {
         syntaxPicker.dataSource = self
         titleLabel.text = syntax
         syntaxPicker.selectRow(syntaxIndex, inComponent: 0, animated: true)
-
+        
+        // SearchTextField settings
+        searchSyntaxTextField.filterStrings(languages)
+        
+        // Handles what happens when user picks an item
+        searchSyntaxTextField.itemSelectionHandler = { item, itemPosition in
+            let item = item[itemPosition]
+            self.searchSyntaxTextField.text = item.title
+            self.syntax = item.title
+            
+            if self.languages.contains(self.syntax) {
+                self.syntaxIndex = self.languages.index(of: self.syntax)!
+                self.syntaxPicker.selectRow(self.syntaxIndex, inComponent: 0, animated: true)
+            }
+        }
     }
 
-    @IBAction func saveDate_TouchUpInside(_ sender: UIButton) {
-
+    // Sends syntax choice to pasteview and dismisses popup
+    @IBAction func saveSyntax_TouchUpInside(_ sender: UIButton) {
+        
         onSave?(syntax, syntaxIndex)
-
+        
         dismiss(animated: true)
-
     }
 
+    // Makes keyboard disappear by touching outside popup keyboard
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
 }
 
+// UIPickerView setup
 extension SyntaxSelectViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -60,5 +82,4 @@ extension SyntaxSelectViewController: UIPickerViewDelegate, UIPickerViewDataSour
         syntax = languages[row]
         syntaxIndex = row
     }
-    
 }

@@ -15,15 +15,18 @@ PODS:
   - AFNetworking/UIKit (3.2.0):
     - AFNetworking/NSURLSession
   - Highlightr (2.0.0)
+  - SearchTextField (1.2.0)
 
 DEPENDENCIES:
   - AFNetworking
   - Highlightr (~> 2.0)
+  - SearchTextField
 
 SPEC CHECKSUMS:
   AFNetworking: 8ac6017b94ea105479f7776e5288e48ae9c59bb4
   Highlightr: e68a91ed9067ef0a787b920dd9becbd9935c2b79
+  SearchTextField: a5bb7e4c33affadb115afdbe8100d84ef10a8024
 
-PODFILE CHECKSUM: 464b99040a5b3e31df0240ffb082b8c551726feb
+PODFILE CHECKSUM: df025333d225b1bfc27c8e3254e1a7570e54f0e9
 
 COCOAPODS: 1.4.0

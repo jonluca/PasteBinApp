@@ -8,5 +8,6 @@ target 'PasteBin' do
   # Pods for PasteBin
   pod 'AFNetworking'
   pod 'Highlightr', '~> 2.0'
+  pod 'SearchTextField'
 
 end
