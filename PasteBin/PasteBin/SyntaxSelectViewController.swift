@@ -50,13 +50,16 @@ class SyntaxSelectViewController: UIViewController {
     }
 
     @IBAction func saveDate_TouchUpInside(_ sender: UIButton) {
-
+        
         onSave?(syntax, syntaxIndex)
-
+        
         dismiss(animated: true)
-
     }
 
+    // Makes keyboard disappear by touching outside popup keyboard
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
 }
 
 // UIPickerView setup
@@ -78,10 +81,4 @@ extension SyntaxSelectViewController: UIPickerViewDelegate, UIPickerViewDataSour
         syntax = languages[row]
         syntaxIndex = row
     }
-    
-    // Makes keyboard disappear by touching outside popup keyboard
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.view.endEditing(true)
-    }
-    
 }
