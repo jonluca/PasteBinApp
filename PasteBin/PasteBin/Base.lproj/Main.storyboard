@@ -305,12 +305,24 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="zRq-Jr-qrQ">
-                        <barButtonItem key="leftBarButtonItem" systemItem="done" id="5zf-bS-3fw">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="4aW-VM-qVq">
+                            <textField key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Syntax search" textAlignment="natural" minimumFontSize="17" id="j2V-gh-CbR" customClass="SearchTextField" customModule="SearchTextField">
+                                <rect key="frame" x="16" y="7" width="113" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="5zf-bS-3fw">
                             <connections>
                                 <action selector="donePress:" destination="94F-S0-tPI" id="tzX-s6-B5U"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="searchSyntaxTextField" destination="j2V-gh-CbR" id="OwC-lZ-kEy"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0RN-T1-7K6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -560,7 +572,7 @@
                                                 <action selector="backButtonAction:" destination="hzZ-Qb-JIs" id="Ct9-KP-q5u"/>
                                             </connections>
                                         </barButtonItem>
-                                        <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="Click to Edit Title" textAlignment="center" minimumFontSize="17" id="3Gb-gu-03m">
+                                        <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="Click to Edit Title" textAlignment="center" minimumFontSize="17" id="3Gb-gu-03m">
                                             <rect key="frame" x="131" y="13.5" width="113" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <accessibility key="accessibilityConfiguration" hint="Title"/>

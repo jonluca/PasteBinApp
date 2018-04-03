@@ -39,7 +39,7 @@ class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelega
         // Sets the theme of syntax highlighter. Could be made a choice in the future in Options menu.
         highlightr?.setTheme(to: "github-gist")
 
-        // Picks up the default syntax/language that was set in options menu/view
+        // Picks up the user default syntax/language that was set in options menu/view
         let defaults = UserDefaults.standard
         syntaxIndex = defaults.integer(forKey: "selectedText")
         syntaxPastebin = languages[defaults.integer(forKey: "selectedText")]
@@ -170,7 +170,7 @@ class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelega
                     postString += api_paste_expire_date;
                     postString += api_paste_format;
                     postString += api_dev_key + encoded_text;
-
+//                    print(postString)
                     request.httpBody = postString.data(using: .utf8)
                     let task = URLSession.shared.dataTask(with: request) { data, response, error in
                         guard let data = data, error == nil else {
