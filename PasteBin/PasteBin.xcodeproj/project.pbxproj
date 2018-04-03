@@ -36,6 +36,7 @@
 		0849C36F1E15256D00031FF1 /* HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		0849C3721E155E7800031FF1 /* OptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
 		0849C3741E18151E00031FF1 /* code.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = code.png; path = ../code.png; sourceTree = "<group>"; };
+		088ED556207402420069790F /* PasteBin.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PasteBin.entitlements; sourceTree = "<group>"; };
 		08CBE51C1E23FB8700C91B02 /* TextSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextSelectionViewController.swift; sourceTree = "<group>"; };
 		08EB1C561E14293A00311E23 /* PasteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasteView.swift; sourceTree = "<group>"; };
 		4E72A0797AC270D9771EB4A8 /* Pods_PasteBin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PasteBin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,6 +73,7 @@
 		08453B881E1426C5001CAACB /* PasteBin */ = {
 			isa = PBXGroup;
 			children = (
+				088ED556207402420069790F /* PasteBin.entitlements */,
 				0849C3741E18151E00031FF1 /* code.png */,
 				0849C3711E155E6200031FF1 /* ViewControllers */,
 				08453B891E1426C5001CAACB /* AppDelegate.swift */,
@@ -153,6 +155,14 @@
 						DevelopmentTeam = F35YQQ5672;
 						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 0;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -398,6 +408,7 @@
 			baseConfigurationReference = 5380EFA9631E62426C24166D /* Pods-PasteBin.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PasteBin/PasteBin.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = F35YQQ5672;
 				INFOPLIST_FILE = PasteBin/Info.plist;
@@ -415,6 +426,7 @@
 			baseConfigurationReference = 7D4F8CD64B66790F0F833899 /* Pods-PasteBin.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PasteBin/PasteBin.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = F35YQQ5672;
 				INFOPLIST_FILE = PasteBin/Info.plist;
