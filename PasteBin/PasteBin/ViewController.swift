@@ -45,7 +45,7 @@ class ViewController: UIViewController {
         }
 
         // Load previous pastes to savedList array
-        loadSavedListItems()
+        savedList = PastebinHelper().loadSavedListItems()
         
         // Lets the background animation resume after app has been in background
         NotificationCenter.default.addObserver(self, selector: #selector(backgroundInfinite), name: Notification.Name.UIApplicationWillEnterForeground, object: nil)
@@ -118,7 +118,7 @@ class ViewController: UIViewController {
                 }
             } else {
                 //Make sure internet is available
-                if (isInternetAvailable()) {
+                if (PastebinHelper().isInternetAvailable()) {
 
                     let defaults = UserDefaults.standard
 
@@ -198,7 +198,7 @@ class ViewController: UIViewController {
 
                         // Adding the link to the savedList array and then saving to drive
                         self.savedList.append(responseString!)
-                        self.saveSavedListItems()
+                        PastebinHelper().saveSavedListItems(savedList: self.savedList)
 
                         let alertController = UIAlertController(title: "Success!", message: responseString! + "\nSuccesfully copied to clipboard!", preferredStyle: .alert)
                         let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
@@ -223,68 +223,5 @@ class ViewController: UIViewController {
             }
         }
     }
-
-    // Save and load file/items/list methodologies...
-    func documentsDirectory() -> URL {
-        let paths = FileManager.default.urls(for: .documentDirectory,
-                in: .userDomainMask)
-        return paths[0]
-    }
-
-    func dataFilePath() -> URL {
-
-        return documentsDirectory().appendingPathComponent("SavedList.plist")
-
-    }
-
-    func saveSavedListItems() {
-        let encoder = PropertyListEncoder()
-
-        do {
-            let data = try encoder.encode(savedList)
-            try data.write(to: dataFilePath(), options: Data.WritingOptions.atomic)
-        } catch {
-            print("Error encoding item array!")
-        }
-    }
-
-    func loadSavedListItems() {
-        let path = dataFilePath()
-        if let data = try? Data(contentsOf: path) {
-            let decoder = PropertyListDecoder()
-            do {
-                savedList = try decoder.decode([String].self, from: data)
-            } catch {
-                print("Error decoding item array!")
-            }
-        }
-
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-    //credit to http://stackoverflow.com/questions/39558868/check-internet-connection-ios-10
-    func isInternetAvailable() -> Bool {
-        var zeroAddress = sockaddr_in()
-        zeroAddress.sin_len = UInt8(MemoryLayout.size(ofValue: zeroAddress))
-        zeroAddress.sin_family = sa_family_t(AF_INET)
-
-        let defaultRouteReachability = withUnsafePointer(to: &zeroAddress) {
-            $0.withMemoryRebound(to: sockaddr.self, capacity: 1) { zeroSockAddress in
-                SCNetworkReachabilityCreateWithAddress(nil, zeroSockAddress)
-            }
-        }
-
-        var flags = SCNetworkReachabilityFlags()
-        if !SCNetworkReachabilityGetFlags(defaultRouteReachability!, &flags) {
-            return false
-        }
-        let isReachable = (flags.rawValue & UInt32(kSCNetworkFlagsReachable)) != 0
-        let needsConnection = (flags.rawValue & UInt32(kSCNetworkFlagsConnectionRequired)) != 0
-        return (isReachable && !needsConnection)
-    }
-
+    
 }

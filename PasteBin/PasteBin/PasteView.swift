@@ -36,7 +36,7 @@ class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelega
         view.addGestureRecognizer(tapOutTextField)
 
         // Load previous pastes to savedList array
-        loadSavedListItems()
+        savedList = PastebinHelper().loadSavedListItems()
 
         // Sets the theme of syntax highlighter. Could be made a choice in the future in Options menu.
         highlightr?.setTheme(to: "github-gist")
@@ -44,7 +44,7 @@ class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelega
         // Picks up the user default syntax/language that was set in options menu/view
         let defaults = UserDefaults.standard
         syntaxIndex = defaults.integer(forKey: "selectedText")
-        syntaxPastebin = languages[defaults.integer(forKey: "selectedText")]
+        syntaxPastebin = languages[syntaxIndex]
         syntaxHighlightr = highlightrSyntax[syntaxPastebin]!
 
     }
@@ -121,7 +121,7 @@ class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelega
 
                 }
             } else {
-                if (isInternetAvailable()) {
+                if (PastebinHelper().isInternetAvailable()) {
 
                     let defaults = UserDefaults.standard
 
@@ -148,7 +148,7 @@ class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelega
                     var api_paste_format = "&api_paste_format=";
 
                     if (defaults.object(forKey: "selectedText") != nil) {
-                        api_paste_format += languages[defaults.integer(forKey: "selectedText")]
+                        api_paste_format += postLanguage[languages[syntaxIndex]]!
                     } else {
                         api_paste_format += "text";
                     }
@@ -172,7 +172,7 @@ class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelega
                     postString += api_paste_expire_date;
                     postString += api_paste_format;
                     postString += api_dev_key + encoded_text;
-//                    print(postString)
+                    print(postString)
                     request.httpBody = postString.data(using: .utf8)
                     let task = URLSession.shared.dataTask(with: request) { data, response, error in
                         guard let data = data, error == nil else {
@@ -203,7 +203,7 @@ class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelega
 
                         // Adding the link to the savedList array and then saving to drive
                         self.savedList.append(responseString!)
-                        self.saveSavedListItems()
+                        PastebinHelper().saveSavedListItems(savedList: self.savedList)
 
                         let alertController = UIAlertController(title: "Success!", message: responseString! + "\nSuccessfully copied to clipboard!", preferredStyle: .alert)
                         let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
@@ -271,49 +271,44 @@ class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelega
 
     }
 
-    // Save and load file/items/list methodologies...
-    func documentsDirectory() -> URL {
-        let paths = FileManager.default.urls(for: .documentDirectory,
-                in: .userDomainMask)
-        return paths[0]
-    }
-
-    func dataFilePath() -> URL {
-
-        return documentsDirectory().appendingPathComponent("SavedList.plist")
-
-    }
-
-    func saveSavedListItems() {
-
-        let encoder = PropertyListEncoder()
-
-        do {
-            let data = try encoder.encode(savedList)
-            try data.write(to: dataFilePath(), options: Data.WritingOptions.atomic)
-        } catch {
-            print("Error encoding item array!")
-        }
-    }
-
-    func loadSavedListItems() {
-
-        let path = dataFilePath()
-        if let data = try? Data(contentsOf: path) {
-            let decoder = PropertyListDecoder()
-            do {
-                savedList = try decoder.decode([String].self, from: data)
-            } catch {
-                print("Error decoding item array!")
-            }
-        }
-
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+//    // Save and load file/items/list methodologies...
+//    func documentsDirectory() -> URL {
+//        let paths = FileManager.default.urls(for: .documentDirectory,
+//                in: .userDomainMask)
+//        return paths[0]
+//    }
+//
+//    func dataFilePath() -> URL {
+//
+//        return documentsDirectory().appendingPathComponent("SavedList.plist")
+//
+//    }
+//
+//    func saveSavedListItems() {
+//
+//        let encoder = PropertyListEncoder()
+//
+//        do {
+//            let data = try encoder.encode(savedList)
+//            try data.write(to: dataFilePath(), options: Data.WritingOptions.atomic)
+//        } catch {
+//            print("Error encoding item array!")
+//        }
+//    }
+//
+//    func loadSavedListItems() {
+//
+//        let path = dataFilePath()
+//        if let data = try? Data(contentsOf: path) {
+//            let decoder = PropertyListDecoder()
+//            do {
+//                savedList = try decoder.decode([String].self, from: data)
+//            } catch {
+//                print("Error decoding item array!")
+//            }
+//        }
+//
+//    }
 
     func textViewDidBeginEditing(_ textView: UITextView) {
         edit();
@@ -337,29 +332,6 @@ class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelega
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
 
         return true
-    }
-
-
-    //credit to http://stackoverflow.com/questions/39558868/check-internet-connection-ios-10
-    //Simple check if internet is available
-    func isInternetAvailable() -> Bool {
-        var zeroAddress = sockaddr_in()
-        zeroAddress.sin_len = UInt8(MemoryLayout.size(ofValue: zeroAddress))
-        zeroAddress.sin_family = sa_family_t(AF_INET)
-
-        let defaultRouteReachability = withUnsafePointer(to: &zeroAddress) {
-            $0.withMemoryRebound(to: sockaddr.self, capacity: 1) { zeroSockAddress in
-                SCNetworkReachabilityCreateWithAddress(nil, zeroSockAddress)
-            }
-        }
-
-        var flags = SCNetworkReachabilityFlags()
-        if !SCNetworkReachabilityGetFlags(defaultRouteReachability!, &flags) {
-            return false
-        }
-        let isReachable = (flags.rawValue & UInt32(kSCNetworkFlagsReachable)) != 0
-        let needsConnection = (flags.rawValue & UInt32(kSCNetworkFlagsConnectionRequired)) != 0
-        return (isReachable && !needsConnection)
     }
 
 }

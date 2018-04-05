@@ -17,7 +17,7 @@ class PreviousPastesViewController: UITableViewController {
         super.viewDidLoad()
 
         // Load previous pastes to savedList array
-        loadSavedListItems()
+        savedList = PastebinHelper().loadSavedListItems()
 
     }
 
@@ -62,34 +62,6 @@ class PreviousPastesViewController: UITableViewController {
             tableView.deselectRow(at: indexPath, animated: true) // to stop greying persisting
 
         }
-    }
-
-    // Load file/items/list methodologies...
-    func documentsDirectory() -> URL {
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-
-        return paths[0]
-
-    }
-
-    func dataFilePath() -> URL {
-
-        return documentsDirectory().appendingPathComponent("SavedList.plist")
-
-    }
-
-    func loadSavedListItems() {
-        let path = dataFilePath()
-
-        if let data = try? Data(contentsOf: path) {
-            let decoder = PropertyListDecoder()
-            do {
-                savedList = try decoder.decode([String].self, from: data)
-            } catch {
-                print("Error decoding item array!")
-            }
-        }
-
     }
 
 }
