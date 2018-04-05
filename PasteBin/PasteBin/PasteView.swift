@@ -86,7 +86,6 @@ class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelega
         } else {
             // Pops up syntax selector popup if in Editing State
             selectSyntax()
-            
         }
     }
 
@@ -172,7 +171,7 @@ class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelega
                     postString += api_paste_expire_date;
                     postString += api_paste_format;
                     postString += api_dev_key + encoded_text;
-                    print(postString)
+                    
                     request.httpBody = postString.data(using: .utf8)
                     let task = URLSession.shared.dataTask(with: request) { data, response, error in
                         guard let data = data, error == nil else {
@@ -270,45 +269,6 @@ class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelega
         }
 
     }
-
-//    // Save and load file/items/list methodologies...
-//    func documentsDirectory() -> URL {
-//        let paths = FileManager.default.urls(for: .documentDirectory,
-//                in: .userDomainMask)
-//        return paths[0]
-//    }
-//
-//    func dataFilePath() -> URL {
-//
-//        return documentsDirectory().appendingPathComponent("SavedList.plist")
-//
-//    }
-//
-//    func saveSavedListItems() {
-//
-//        let encoder = PropertyListEncoder()
-//
-//        do {
-//            let data = try encoder.encode(savedList)
-//            try data.write(to: dataFilePath(), options: Data.WritingOptions.atomic)
-//        } catch {
-//            print("Error encoding item array!")
-//        }
-//    }
-//
-//    func loadSavedListItems() {
-//
-//        let path = dataFilePath()
-//        if let data = try? Data(contentsOf: path) {
-//            let decoder = PropertyListDecoder()
-//            do {
-//                savedList = try decoder.decode([String].self, from: data)
-//            } catch {
-//                print("Error decoding item array!")
-//            }
-//        }
-//
-//    }
 
     func textViewDidBeginEditing(_ textView: UITextView) {
         edit();
