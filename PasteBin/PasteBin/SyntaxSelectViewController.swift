@@ -35,6 +35,7 @@ class SyntaxSelectViewController: UIViewController {
         
         // SearchTextField settings
         searchSyntaxTextField.filterStrings(languages)
+        searchSyntaxTextField.theme.bgColor = UIColor (red: 1, green: 1, blue: 1, alpha: 0.95)
         
         // Handles what happens when user picks an item
         searchSyntaxTextField.itemSelectionHandler = { item, itemPosition in
@@ -45,6 +46,7 @@ class SyntaxSelectViewController: UIViewController {
             if self.languages.contains(self.syntax) {
                 self.syntaxIndex = self.languages.index(of: self.syntax)!
                 self.syntaxPicker.selectRow(self.syntaxIndex, inComponent: 0, animated: true)
+                self.titleLabel.text = self.languages[self.syntaxIndex]
             }
         }
     }

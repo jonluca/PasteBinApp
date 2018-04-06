@@ -32,6 +32,7 @@ class TextSelectionViewController: UITableViewController {
         
         // SearchTextField settings
         searchSyntaxTextField.filterStrings(languages)
+        searchSyntaxTextField.theme.bgColor = UIColor (red: 1, green: 1, blue: 1, alpha: 0.95)
 
         // Handles what happens when user picks an item
         searchSyntaxTextField.itemSelectionHandler = { item, itemPosition in
