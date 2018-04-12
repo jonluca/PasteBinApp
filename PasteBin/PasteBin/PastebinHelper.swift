@@ -12,17 +12,7 @@ import AFNetworking
 class PastebinHelper {
     
     // Save and load file/items/list methodologies...
-    func documentsDirectory() -> URL {
-        let paths = FileManager.default.urls(for: .documentDirectory,
-                                             in: .userDomainMask)
-        return paths[0]
-    }
-    
-    func dataFilePath() -> URL {
-        
-        return documentsDirectory().appendingPathComponent("SavedList.plist")
-        
-    }
+    let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("SavedList.plist")
     
     func saveSavedListItems(savedList: [String]) {
         
@@ -30,7 +20,7 @@ class PastebinHelper {
         
         do {
             let data = try encoder.encode(savedList)
-            try data.write(to: dataFilePath(), options: Data.WritingOptions.atomic)
+            try data.write(to: dataFilePath!, options: Data.WritingOptions.atomic)
         } catch {
             print("Error encoding item array!")
         }
@@ -38,8 +28,7 @@ class PastebinHelper {
     
     func loadSavedListItems() -> [String] {
         var savedList: [String] = []
-        let path = dataFilePath()
-        if let data = try? Data(contentsOf: path) {
+        if let data = try? Data(contentsOf: dataFilePath!) {
             let decoder = PropertyListDecoder()
             do {
                 savedList = try decoder.decode([String].self, from: data)
