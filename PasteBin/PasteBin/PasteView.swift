@@ -120,112 +120,14 @@ class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelega
 
                 }
             } else {
-                if (PastebinHelper().isInternetAvailable()) {
-
-                    let defaults = UserDefaults.standard
-
-                    let api_dev_key = "&api_dev_key=" + "71788ef035e5bf63bbbd11945bd8441c";
-                    var api_paste_private = "&api_paste_private=";
-
-                    if (defaults.bool(forKey: "SwitchState")) {
-                        api_paste_private += "1";
-                        // 0=public 1=unlisted 2=private
-                    } else {
-                        api_paste_private += "0";
-                    }
-
-                    var api_paste_name = "&api_paste_name=";
-                    // name or title of your paste
-                    if (titleText.text?.isEmpty)! {
-                        api_paste_name += "Created with Pastebin App";
-                    } else {
-                        api_paste_name += titleText.text!;
-                    }
-
-                    let api_paste_expire_date = "&api_paste_expire_date=" + "N";
-
-                    var api_paste_format = "&api_paste_format=";
-
-                    if (defaults.object(forKey: "selectedText") != nil) {
-                        api_paste_format += postLanguage[languages[syntaxIndex]]!
-                    } else {
-                        api_paste_format += "text";
-                    }
-
-
-                    let api_user_key = "&api_user_key=" + "";
-                    // if an invalid api_user_key or no key is used, the paste will be create as a guest
-                    let encoded_text = "&api_paste_code=" + (text?.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed))!;
-
-                    let encoded_title = api_paste_name.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed);
-
-
-                    var request = URLRequest(url: URL(string: "https://pastebin.com/api/api_post.php")!)
-                    request.httpMethod = "POST"
-
-                    //convoluted but necessary for their post api
-                    var postString = "api_option=paste";
-                    postString += api_user_key;
-                    postString += api_paste_private;
-                    postString += encoded_title!;
-                    postString += api_paste_expire_date;
-                    postString += api_paste_format;
-                    postString += api_dev_key + encoded_text;
-                    
-                    request.httpBody = postString.data(using: .utf8)
-                    let task = URLSession.shared.dataTask(with: request) { data, response, error in
-                        guard let data = data, error == nil else {
-                            //if not connected to internet
-                            print("error=\(String(describing: error))")
-                            return
-                        }
-
-                        if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {           // check for http errors
-                            print("statusCode should be 200, but is \(httpStatus.statusCode)")
-                            print("response = \(String(describing: response))")
-                            var message = "Unknown error - HTTP Code" + String(httpStatus.statusCode)
-                            if httpStatus.statusCode == 403 {
-                                message = "Error 403 - PasteBin not allowed from this IP!"
-                            }
-                            let alertController = UIAlertController(title: "Error!", message: message, preferredStyle: .alert)
-                            let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
-                                // handle response here.
-                            }
-                            alertController.addAction(OKAction)
-                            self.present(alertController, animated: true) {
-
-                            }
-                        }
-
-                        let responseString = String(data: data, encoding: .utf8)
-                        UIPasteboard.general.string = responseString;
-
-                        // Adding the link to the savedList array and then saving to drive
-                        self.savedList.append(responseString!)
-                        PastebinHelper().saveSavedListItems(savedList: self.savedList)
-
-                        let alertController = UIAlertController(title: "Success!", message: responseString! + "\nSuccessfully copied to clipboard!", preferredStyle: .alert)
-                        let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
-                            // handle response here.
-                            self.textView.text = responseString;
-                        }
-                        alertController.addAction(OKAction)
-                        self.present(alertController, animated: true) {
-
-                        }
-                    }
-                    task.resume()
-                } else {
-                    let alertController = UIAlertController(title: "Error!", message: "Not connected to the internet!", preferredStyle: .alert)
-                    let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
-                        // handle response here.
-                    }
-                    alertController.addAction(OKAction)
-                    self.present(alertController, animated: true) {
-
-                    }
-                }
+                
+                let defaults = UserDefaults.standard
+                let postSyntax = (defaults.object(forKey: "selectedText") != nil) ? postLanguage[languages[syntaxIndex]] : "text"
+                
+                PastebinHelper().postToPastebin(text: text!, savedList: savedList, syntax: postSyntax!, titleText: titleText.text!)
+                
             }
+            
         } else {
             isCurrentlyEditing = false;
             backButton.title = "Back";
