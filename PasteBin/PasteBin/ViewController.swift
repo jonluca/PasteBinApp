@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     var savedList: [String] = []
 
     @IBOutlet weak var create: UIButton!
+    @IBOutlet weak var quickSubmit: UIButton!
 
     @IBAction func createPaste(_ sender: Any) {
         self.last = self.codeBackground.frame.origin.x;
@@ -59,6 +60,7 @@ class ViewController: UIViewController {
         let bounds = UIScreen.main.bounds;
         self.width = bounds.size.width;
         backgroundInfinite()
+        
     }
 
     //Hide top bar
@@ -123,5 +125,35 @@ class ViewController: UIViewController {
             }
         }
     }
+}
+
+extension UIView {
     
+    @IBInspectable var cornerRadius: CGFloat {
+        get {
+            return layer.cornerRadius
+        }
+        set {
+            layer.cornerRadius = newValue
+            layer.masksToBounds = newValue > 0
+        }
+    }
+    
+    @IBInspectable var borderWidth: CGFloat {
+        get {
+            return layer.borderWidth
+        }
+        set {
+            layer.borderWidth = newValue
+        }
+    }
+    
+    @IBInspectable var borderColor: UIColor? {
+        get {
+            return UIColor(cgColor: layer.borderColor!)
+        }
+        set {
+            layer.borderColor = newValue?.cgColor
+        }
+    }
 }

@@ -360,21 +360,45 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7iR-Lc-zGM">
-                                <rect key="frame" x="53" y="304" width="269" height="59"/>
+                                <rect key="frame" x="62" y="310" width="252" height="47"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="40"/>
-                                <state key="normal" title="Create A Paste">
-                                    <color key="titleColor" red="0.68332784660172363" green="0.67982360123453522" blue="0.68683209196891193" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                                <state key="normal" title="Create Paste">
+                                    <color key="titleColor" red="0.68235294117647061" green="0.67843137254901964" blue="0.68627450980392157" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.69999999999999996"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.68235294120000001" green="0.67843137249999996" blue="0.68627450980000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="createPaste:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QCq-9v-rKZ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XTG-OU-6Nb">
-                                <rect key="frame" x="94" y="371" width="187" height="32"/>
+                                <rect key="frame" x="98" y="382" width="180" height="24"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                <state key="normal" title="Quick Paste And Submit">
-                                    <color key="titleColor" red="0.48002347797927458" green="0.48002347797927458" blue="0.48002347797927458" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <inset key="contentEdgeInsets" minX="7" minY="2" maxX="7" maxY="2"/>
+                                <state key="normal" title="Quick Paste + Submit">
+                                    <color key="titleColor" red="0.47843137254901957" green="0.47843137254901957" blue="0.47843137254901957" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.47843137250000001" green="0.47843137250000001" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.69999999999999996"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="quickSubmit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XGB-aM-0dJ"/>
                                 </connections>
@@ -423,7 +447,7 @@
                             <constraint firstItem="ldC-xO-kaa" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="aQn-JG-Scx"/>
                             <constraint firstItem="E5I-c2-mpj" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="aTq-2L-coW"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ldC-xO-kaa" secondAttribute="bottom" constant="8" symbolic="YES" id="g1x-wX-NcW"/>
-                            <constraint firstItem="XTG-OU-6Nb" firstAttribute="top" secondItem="7iR-Lc-zGM" secondAttribute="bottom" constant="8" id="h97-b8-bmP"/>
+                            <constraint firstItem="XTG-OU-6Nb" firstAttribute="top" secondItem="7iR-Lc-zGM" secondAttribute="bottom" constant="25" id="h97-b8-bmP"/>
                             <constraint firstItem="XTG-OU-6Nb" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qPe-As-WgR"/>
                             <constraint firstAttribute="bottomMargin" secondItem="E5I-c2-mpj" secondAttribute="bottom" constant="-76" id="qtn-zf-FjP"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ldC-xO-kaa" secondAttribute="bottom" constant="8" id="vkw-Sg-Gal"/>
@@ -434,6 +458,7 @@
                     <connections>
                         <outlet property="codeBackground" destination="E5I-c2-mpj" id="bR3-58-Fao"/>
                         <outlet property="create" destination="7iR-Lc-zGM" id="80w-dK-1iD"/>
+                        <outlet property="quickSubmit" destination="XTG-OU-6Nb" id="4WN-rq-KN5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
