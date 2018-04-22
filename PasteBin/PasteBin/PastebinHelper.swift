@@ -85,21 +85,30 @@ class PastebinHelper: UIViewController  {
                 }
 
                 responseString = String(data: data, encoding: .utf8)! // Not happy about this forced unwrap
-
-                //Get response
-                print("responseString = \(String(describing: responseString))")
-                UIPasteboard.general.string = responseString
-
+                
                 // Adding the link to the savedList array and then saving to drive
                 var savedList: [String] = originalSavedList
                 savedList.append(responseString)
                 self.saveSavedListItems(savedList: savedList)
 
-                let alertController = UIAlertController(title: "Success!", message: responseString + "\nSuccesfully copied to clipboard!", preferredStyle: .alert)
-                let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
-                    // handle response here.
+                let alertController = UIAlertController(title: "Success!", message: responseString + "\nShare link or copy to clipboard?", preferredStyle: .alert)
+                let shareAction = UIAlertAction(title: "Share", style: .default) { (action) in
+                    
+                    let itemURL = URL(string: responseString)
+                    let vc = UIActivityViewController(activityItems: [itemURL ?? "No link found"], applicationActivities: [])
+                    UIApplication.topViewController()?.present(vc, animated: true)
+                    print("responseString to share = \(String(describing: itemURL))")
+                    
                 }
-                alertController.addAction(OKAction)
+                let copyAction = UIAlertAction(title: "Copy", style: .default, handler: { (action) in
+                    
+                    UIPasteboard.general.string = responseString
+                    print("responseString to copy = \(String(describing: responseString))")
+                    
+                })
+                
+                alertController.addAction(shareAction)
+                alertController.addAction(copyAction)
                 UIApplication.topViewController()?.present(alertController, animated: true) {
 
                 }

@@ -18,6 +18,7 @@ class PreviousPastesViewController: UITableViewController {
 
         // Load previous pastes to savedList array
         savedList = PastebinHelper().loadSavedListItems()
+        savedList = savedList.reversed()
 
     }
 
@@ -38,8 +39,6 @@ class PreviousPastesViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PreviousPasteCell", for: indexPath)
-
-        savedList = savedList.reversed()
         
         cell.textLabel?.text = savedList[indexPath.item]
 
@@ -53,12 +52,25 @@ class PreviousPastesViewController: UITableViewController {
             let item = savedList[indexPath.row]
             UIPasteboard.general.string = item
 
-            // Alert pop-up borrowed from PasteView.swift
-            let alertController = UIAlertController(title: "Success!", message: item + "\nSuccessfully copied to clipboard!", preferredStyle: .alert)
-            let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
+            // Alert pop-up copied from PastebinHelper.swift
+            let alertController = UIAlertController(title: "", message: "Share link or copy to clipboard?", preferredStyle: .alert)
+            let shareAction = UIAlertAction(title: "Share", style: .default) { (action) in
+                
+                let itemURL = URL(string: item) // NSURL(string: item)
+                let vc = UIActivityViewController(activityItems: [itemURL ?? "No link found", item], applicationActivities: [])
+                UIApplication.topViewController()?.present(vc, animated: true)
+                print("responseString to share = \(String(describing: item))")
+                
             }
-            alertController.addAction(OKAction)
+            let copyAction = UIAlertAction(title: "Copy", style: .default, handler: { (action) in
+                UIPasteboard.general.string = item
+                print("responseString to copy = \(String(describing: item))")
+            })
+            
+            alertController.addAction(shareAction)
+            alertController.addAction(copyAction)
             self.present(alertController, animated: true) {
+                
             }
 
             tableView.deselectRow(at: indexPath, animated: true) // to stop greying persisting
