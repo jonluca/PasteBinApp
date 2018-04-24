@@ -64,13 +64,13 @@ class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelega
             if (textView.text?.isEmpty)! {
                 let mainStoryboard = UIStoryboard(name: "Main", bundle: nil);
                 let vC: ViewController = mainStoryboard.instantiateViewController(withIdentifier: "mainView") as! ViewController;
-                self.present(vC, animated: false, completion: nil);
+                self.present(vC, animated: true, completion: nil);
             } else {
                 let alertController = UIAlertController(title: "Are you sure?", message: "You'll lose all text currently in the editor", preferredStyle: .alert)
                 let OKAction = UIAlertAction(title: "Yes", style: .default) { (action) in
                     let mainStoryboard = UIStoryboard(name: "Main", bundle: nil);
                     let vC: ViewController = mainStoryboard.instantiateViewController(withIdentifier: "mainView") as! ViewController;
-                    self.present(vC, animated: false, completion: nil);
+                    self.present(vC, animated: true, completion: nil);
                 }
                 alertController.addAction(OKAction)
                 let NoActions = UIAlertAction(title: "Cancel", style: .default) { (action) in
