@@ -58,7 +58,13 @@ class SyntaxSelectViewController: UIViewController {
         
         dismiss(animated: true)
     }
-
+    
+    @IBAction func backPress(_ sender: UIButton) {
+        
+        dismiss(animated: true)
+        
+    }
+    
     // Makes keyboard disappear by touching outside popup keyboard
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
