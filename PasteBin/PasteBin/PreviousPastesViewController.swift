@@ -21,6 +21,10 @@ class PreviousPastesViewController: UITableViewController {
         savedList = savedList.reversed()
 
     }
+    
+    override func willMove(toParentViewController parent: UIViewController?) {
+        dismiss(animated: true, completion: nil)
+    }
 
     @IBAction func donePress(_ sender: Any) {
 

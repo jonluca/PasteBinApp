@@ -111,7 +111,7 @@ class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelega
         if submitButtonState {
             let text = textView.text;
             if (text?.isEmpty)! {
-                let alertController = UIAlertController(title: "Error!", message: "Text cannot be empty!", preferredStyle: .alert)
+                let alertController = UIAlertController(title: "Oops!", message: "Text cannot be empty!", preferredStyle: .alert)
                 let OKAction = UIAlertAction(title: "OK", style: .default) { (action) in
                     // handle response here.
                 }

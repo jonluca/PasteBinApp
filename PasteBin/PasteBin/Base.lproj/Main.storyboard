@@ -13,7 +13,7 @@
         <!--Options-->
         <scene sceneID="RNH-RD-mwm">
             <objects>
-                <tableViewController id="g67-IV-A3s" customClass="OptionsViewController" customModule="PasteBin" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController modalTransitionStyle="crossDissolve" id="g67-IV-A3s" customClass="OptionsViewController" customModule="PasteBin" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" dataMode="static" style="grouped" separatorStyle="default" sectionIndexMinimumDisplayRowCount="1" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="72z-Ja-tP3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -330,7 +330,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="mainView" id="BYZ-38-t0r" customClass="ViewController" customModule="PasteBin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mainView" modalTransitionStyle="crossDissolve" id="BYZ-38-t0r" customClass="ViewController" customModule="PasteBin" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -354,9 +354,7 @@
                                     <color key="titleColor" red="0.61571669578552246" green="0.61168527603149414" blue="0.61966204643249512" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Ikl-lD-v4I" kind="popoverPresentation" popoverAnchorView="ldC-xO-kaa" id="kI5-6C-QsN">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
+                                    <segue destination="Ikl-lD-v4I" kind="presentation" modalTransitionStyle="crossDissolve" id="kI5-6C-QsN"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7iR-Lc-zGM">
@@ -371,10 +369,13 @@
                                         <real key="value" value="15"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="0.69999999999999996"/>
+                                        <real key="value" value="-0.29999999999999999"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
                                         <color key="value" red="0.68235294120000001" green="0.67843137249999996" blue="0.68627450980000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundColour">
+                                        <color key="value" red="0.68235294117647061" green="0.67843137254901964" blue="0.68627450980392157" alpha="0.1525042808219178" colorSpace="custom" customColorSpace="displayP3"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
@@ -396,7 +397,10 @@
                                         <color key="value" red="0.47843137250000001" green="0.47843137250000001" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
-                                        <real key="value" value="0.69999999999999996"/>
+                                        <real key="value" value="-0.29999999999999999"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="backgroundColour">
+                                        <color key="value" red="0.68235294117647061" green="0.67843137254901964" blue="0.68627450980392157" alpha="0.099502354452054798" colorSpace="custom" customColorSpace="displayP3"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
@@ -410,7 +414,7 @@
                                         <barButtonItem key="leftBarButtonItem" title="Previous Pastes" id="rvR-gi-DiJ">
                                             <color key="tintColor" red="0.61571669578552246" green="0.61168527603149414" blue="0.61966204643249512" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <connections>
-                                                <segue destination="cGl-B3-Eau" kind="show" id="HMZ-lA-GD7"/>
+                                                <segue destination="cGl-B3-Eau" kind="presentation" modalTransitionStyle="crossDissolve" id="HMZ-lA-GD7"/>
                                             </connections>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Options" id="ppJ-ui-rag">
@@ -468,7 +472,7 @@
         <!--Help View Controller-->
         <scene sceneID="RQL-s4-863">
             <objects>
-                <viewController id="Ikl-lD-v4I" customClass="HelpViewController" customModule="PasteBin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="crossDissolve" id="Ikl-lD-v4I" customClass="HelpViewController" customModule="PasteBin" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ymG-Yf-kqM"/>
                         <viewControllerLayoutGuide type="bottom" id="rrY-C1-nL4"/>
@@ -519,7 +523,7 @@
         <!--Previous Pastes-->
         <scene sceneID="8oM-tI-1Ak">
             <objects>
-                <tableViewController id="G9a-iS-3Io" customClass="PreviousPastesViewController" customModule="PasteBin" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController modalTransitionStyle="crossDissolve" id="G9a-iS-3Io" customClass="PreviousPastesViewController" customModule="PasteBin" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="7pO-AL-0JD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -570,7 +574,7 @@
         <!--Paste View-->
         <scene sceneID="Oog-fG-vHP">
             <objects>
-                <viewController storyboardIdentifier="pasteVC" id="hzZ-Qb-JIs" customClass="PasteView" customModule="PasteBin" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="pasteVC" modalTransitionStyle="crossDissolve" id="hzZ-Qb-JIs" customClass="PasteView" customModule="PasteBin" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bwF-P1-LC9"/>
                         <viewControllerLayoutGuide type="bottom" id="Di9-jy-Fl4"/>
@@ -596,7 +600,7 @@
                                                 <action selector="backButtonAction:" destination="hzZ-Qb-JIs" id="Ct9-KP-q5u"/>
                                             </connections>
                                         </barButtonItem>
-                                        <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="Click to Edit Title" textAlignment="center" minimumFontSize="17" id="3Gb-gu-03m">
+                                        <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="Click to Edit Title" textAlignment="center" minimumFontSize="17" id="3Gb-gu-03m">
                                             <rect key="frame" x="131" y="13.5" width="113" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <accessibility key="accessibilityConfiguration" hint="Title"/>

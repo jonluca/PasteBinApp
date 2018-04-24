@@ -23,7 +23,7 @@ class ViewController: UIViewController {
         //Show main paste view
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil);
         let pasteViewController: PasteView = mainStoryboard.instantiateViewController(withIdentifier: "pasteVC") as! PasteView;
-        self.present(pasteViewController, animated: false, completion: nil);
+        self.present(pasteViewController, animated: true, completion: nil);
     }
 
     @IBOutlet weak var codeBackground: UIImageView!
@@ -154,6 +154,15 @@ extension UIView {
         }
         set {
             layer.borderColor = newValue?.cgColor
+        }
+    }
+    
+    @IBInspectable var backgroundColour: UIColor? {
+        get {
+            return UIColor(cgColor: layer.backgroundColor!)
+        }
+        set {
+            layer.backgroundColor = newValue?.cgColor
         }
     }
 }
