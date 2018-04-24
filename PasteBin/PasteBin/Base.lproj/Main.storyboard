@@ -375,7 +375,7 @@
                                         <color key="value" red="0.68235294120000001" green="0.67843137249999996" blue="0.68627450980000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="backgroundColour">
-                                        <color key="value" red="0.68235294117647061" green="0.67843137254901964" blue="0.68627450980392157" alpha="0.1525042808219178" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="value" red="0.68235294117647061" green="0.67843137254901964" blue="0.68627450980392157" alpha="0.092626284246575347" colorSpace="custom" customColorSpace="displayP3"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
@@ -400,7 +400,7 @@
                                         <real key="value" value="-0.29999999999999999"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="backgroundColour">
-                                        <color key="value" red="0.68235294117647061" green="0.67843137254901964" blue="0.68627450980392157" alpha="0.099502354452054798" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <color key="value" red="0.68235294117647061" green="0.67843137254901964" blue="0.68627450980392157" alpha="0.053135702054794523" colorSpace="custom" customColorSpace="displayP3"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
