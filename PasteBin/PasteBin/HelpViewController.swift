@@ -13,7 +13,12 @@ class HelpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+    
+    
+    @IBAction func buttonBack(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func done(_ sender: Any) {
         // Transition to main view in order to reset background scrolling
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil);

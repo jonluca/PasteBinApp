@@ -21,8 +21,11 @@
 		77E07E471E6C85C08E23F3C8 /* Pods_PasteBin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E72A0797AC270D9771EB4A8 /* Pods_PasteBin.framework */; };
 		AF1D5D712074AA1B00C397A8 /* SyntaxLibraries.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1D5D702074AA1A00C397A8 /* SyntaxLibraries.swift */; };
 		AF1D5D7320752FC300C397A8 /* PastebinHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1D5D7220752FC300C397A8 /* PastebinHelper.swift */; };
+		AF42003220A962990099B316 /* SignPainter-HouseScript.otf in Resources */ = {isa = PBXBuildFile; fileRef = AF42003120A962980099B316 /* SignPainter-HouseScript.otf */; };
+		AF42E8E020A831C000F94E8B /* Segoe_UI.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AF42E8DF20A831BE00F94E8B /* Segoe_UI.ttf */; };
 		AF4B0E72205905CE00564749 /* PreviousPastesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4B0E71205905CE00564749 /* PreviousPastesViewController.swift */; };
 		AF4C67972063A482003EF09C /* SyntaxSelectViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF4C67952063A196003EF09C /* SyntaxSelectViewController.storyboard */; };
+		AFE4F2F520ADB506009A6F92 /* Toolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE4F2F420ADB506009A6F92 /* Toolbar.swift */; };
 		CC81D8DDB92B74FC44610C8D /* SyntaxSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC81D0900A18D20A8C8ADF3E /* SyntaxSelectViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,7 +40,7 @@
 		0845F85B205EF7A1000C9BF3 /* PasteBin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PasteBin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0849C36F1E15256D00031FF1 /* HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		0849C3721E155E7800031FF1 /* OptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
-		0849C3741E18151E00031FF1 /* code.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = code.png; path = ../code.png; sourceTree = "<group>"; };
+		0849C3741E18151E00031FF1 /* code.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = code.png; sourceTree = "<group>"; };
 		08CBE51C1E23FB8700C91B02 /* TextSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextSelectionViewController.swift; sourceTree = "<group>"; };
 		08EB1C561E14293A00311E23 /* PasteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PasteView.swift; sourceTree = "<group>"; };
 		4E72A0797AC270D9771EB4A8 /* Pods_PasteBin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PasteBin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -45,8 +48,11 @@
 		7D4F8CD64B66790F0F833899 /* Pods-PasteBin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PasteBin.release.xcconfig"; path = "Pods/Target Support Files/Pods-PasteBin/Pods-PasteBin.release.xcconfig"; sourceTree = "<group>"; };
 		AF1D5D702074AA1A00C397A8 /* SyntaxLibraries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyntaxLibraries.swift; sourceTree = "<group>"; };
 		AF1D5D7220752FC300C397A8 /* PastebinHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastebinHelper.swift; sourceTree = "<group>"; };
+		AF42003120A962980099B316 /* SignPainter-HouseScript.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SignPainter-HouseScript.otf"; sourceTree = "<group>"; };
+		AF42E8DF20A831BE00F94E8B /* Segoe_UI.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Segoe_UI.ttf; sourceTree = "<group>"; };
 		AF4B0E71205905CE00564749 /* PreviousPastesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousPastesViewController.swift; sourceTree = "<group>"; };
 		AF4C67952063A196003EF09C /* SyntaxSelectViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SyntaxSelectViewController.storyboard; sourceTree = "<group>"; };
+		AFE4F2F420ADB506009A6F92 /* Toolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toolbar.swift; sourceTree = "<group>"; };
 		CC81D0900A18D20A8C8ADF3E /* SyntaxSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyntaxSelectViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -76,7 +82,7 @@
 		08453B881E1426C5001CAACB /* PasteBin */ = {
 			isa = PBXGroup;
 			children = (
-				0849C3741E18151E00031FF1 /* code.png */,
+				AF0C478620B00A3500F378E9 /* Supporting Files */,
 				0849C3711E155E6200031FF1 /* ViewControllers */,
 				08453B891E1426C5001CAACB /* AppDelegate.swift */,
 				08453B8D1E1426C5001CAACB /* Main.storyboard */,
@@ -84,6 +90,7 @@
 				08453B901E1426C5001CAACB /* Assets.xcassets */,
 				08453B921E1426C5001CAACB /* LaunchScreen.storyboard */,
 				08453B951E1426C5001CAACB /* Info.plist */,
+				AF42E8DE20A8317D00F94E8B /* Fonts */,
 			);
 			path = PasteBin;
 			sourceTree = "<group>";
@@ -100,6 +107,7 @@
 				CC81D0900A18D20A8C8ADF3E /* SyntaxSelectViewController.swift */,
 				AF1D5D702074AA1A00C397A8 /* SyntaxLibraries.swift */,
 				AF1D5D7220752FC300C397A8 /* PastebinHelper.swift */,
+				AFE4F2F420ADB506009A6F92 /* Toolbar.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -119,6 +127,23 @@
 				7D4F8CD64B66790F0F833899 /* Pods-PasteBin.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		AF0C478620B00A3500F378E9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0849C3741E18151E00031FF1 /* code.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AF42E8DE20A8317D00F94E8B /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				AF42003120A962980099B316 /* SignPainter-HouseScript.otf */,
+				AF42E8DF20A831BE00F94E8B /* Segoe_UI.ttf */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -186,7 +211,9 @@
 			files = (
 				AF4C67972063A482003EF09C /* SyntaxSelectViewController.storyboard in Resources */,
 				0849C3751E18151E00031FF1 /* code.png in Resources */,
+				AF42E8E020A831C000F94E8B /* Segoe_UI.ttf in Resources */,
 				08453B941E1426C5001CAACB /* LaunchScreen.storyboard in Resources */,
+				AF42003220A962990099B316 /* SignPainter-HouseScript.otf in Resources */,
 				08453B911E1426C5001CAACB /* Assets.xcassets in Resources */,
 				08453B8F1E1426C5001CAACB /* Main.storyboard in Resources */,
 				080880471E2841D800D22074 /* Default-568h@2x.png in Resources */,
@@ -259,6 +286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				08EB1C571E14293A00311E23 /* PasteView.swift in Sources */,
+				AFE4F2F520ADB506009A6F92 /* Toolbar.swift in Sources */,
 				08453B8C1E1426C5001CAACB /* ViewController.swift in Sources */,
 				08453B8A1E1426C5001CAACB /* AppDelegate.swift in Sources */,
 				AF4B0E72205905CE00564749 /* PreviousPastesViewController.swift in Sources */,

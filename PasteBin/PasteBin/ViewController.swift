@@ -50,6 +50,7 @@ class ViewController: UIViewController {
         
         // Lets the background animation resume after app has been in background
         NotificationCenter.default.addObserver(self, selector: #selector(backgroundInfinite), name: Notification.Name.UIApplicationWillEnterForeground, object: nil)
+        
 
     }
     
@@ -127,6 +128,20 @@ class ViewController: UIViewController {
     }
 }
 
+extension UITabBar {
+    
+    override open func sizeThatFits(_ size: CGSize) -> CGSize {
+        super.sizeThatFits(size)
+        guard let window = UIApplication.shared.keyWindow else {
+            return super.sizeThatFits(size)
+        }
+        var sizeThatFits = super.sizeThatFits(size)
+        sizeThatFits.height = window.safeAreaInsets.bottom + 40
+        return sizeThatFits
+    }
+}
+
+// Extension to enable button background editing
 //extension UIView {
 //    
 //    @IBInspectable var cornerRadius: CGFloat {
