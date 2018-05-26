@@ -39,7 +39,7 @@ class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelega
         savedList = PastebinHelper().loadSavedListItems()
 
         // Sets the theme of syntax highlighter. Could be made a choice in the future in Options menu.
-        highlightr?.setTheme(to: "github-gist")
+        highlightr?.setTheme(to: "atom-one-dark")
 
         // Picks up the user default syntax/language that was set in options menu/view
         let defaults = UserDefaults.standard

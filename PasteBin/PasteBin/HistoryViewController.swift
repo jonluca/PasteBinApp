@@ -1,58 +1,58 @@
 //
-//  PreviousPastesViewController.swift
+//  HistoryViewController.swift
 //  PasteBin
 //
-//  Created by Henrik Gustavii on 14/03/2018.
+//  Created by Henrik Gustavii on 25/05/2018.
 //  Copyright © 2018 JonLuca De Caro. All rights reserved.
 //
 
 import UIKit
 
-class PreviousPastesViewController: UITableViewController {
+class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     // Previous pastes array
     var savedList: [String] = []
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Load previous pastes to savedList array
         savedList = PastebinHelper().loadSavedListItems()
         savedList = savedList.reversed()
-
+        
     }
-
+    
     @IBAction func donePress(_ sender: Any) {
-
+        
         // Transition to main view in order to reset background scrolling
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil);
         let vC: ViewController = mainStoryboard.instantiateViewController(withIdentifier: "mainView") as! ViewController;
         self.present(vC, animated: true, completion: nil)
-
+        
     }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         return savedList.count
-
+        
     }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PreviousPasteCell", for: indexPath)
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryCell", for: indexPath)
         
         cell.textLabel?.text = savedList[indexPath.item]
         cell.textLabel?.textColor = UIColor.white
-
+        
         return cell
-
+        
     }
-
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView.cellForRow(at: indexPath) != nil {
-
+            
             let item = savedList[indexPath.row]
             UIPasteboard.general.string = item
-
+            
             // Alert pop-up copied from PastebinHelper.swift
             let alertController = UIAlertController(title: "", message: "Share link or copy to clipboard?", preferredStyle: .alert)
             let shareAction = UIAlertAction(title: "Share", style: .default) { (action) in
@@ -73,9 +73,9 @@ class PreviousPastesViewController: UITableViewController {
             self.present(alertController, animated: true) {
                 
             }
-
+            
             tableView.deselectRow(at: indexPath, animated: true) // to stop greying persisting
-
+            
         }
     }
 

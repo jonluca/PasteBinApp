@@ -26,6 +26,8 @@
 		AF4B0E72205905CE00564749 /* PreviousPastesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF4B0E71205905CE00564749 /* PreviousPastesViewController.swift */; };
 		AF4C67972063A482003EF09C /* SyntaxSelectViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF4C67952063A196003EF09C /* SyntaxSelectViewController.storyboard */; };
 		AFE4F2F520ADB506009A6F92 /* Toolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE4F2F420ADB506009A6F92 /* Toolbar.swift */; };
+		AFEDDBD320B7E0BA00F1BE89 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEDDBD220B7E0BA00F1BE89 /* HistoryViewController.swift */; };
+		AFEDDBD520B9485600F1BE89 /* NewOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEDDBD420B9485600F1BE89 /* NewOptionsViewController.swift */; };
 		CC81D8DDB92B74FC44610C8D /* SyntaxSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC81D0900A18D20A8C8ADF3E /* SyntaxSelectViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +55,8 @@
 		AF4B0E71205905CE00564749 /* PreviousPastesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviousPastesViewController.swift; sourceTree = "<group>"; };
 		AF4C67952063A196003EF09C /* SyntaxSelectViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SyntaxSelectViewController.storyboard; sourceTree = "<group>"; };
 		AFE4F2F420ADB506009A6F92 /* Toolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toolbar.swift; sourceTree = "<group>"; };
+		AFEDDBD220B7E0BA00F1BE89 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		AFEDDBD420B9485600F1BE89 /* NewOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewOptionsViewController.swift; sourceTree = "<group>"; };
 		CC81D0900A18D20A8C8ADF3E /* SyntaxSelectViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SyntaxSelectViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -108,6 +112,8 @@
 				AF1D5D702074AA1A00C397A8 /* SyntaxLibraries.swift */,
 				AF1D5D7220752FC300C397A8 /* PastebinHelper.swift */,
 				AFE4F2F420ADB506009A6F92 /* Toolbar.swift */,
+				AFEDDBD220B7E0BA00F1BE89 /* HistoryViewController.swift */,
+				AFEDDBD420B9485600F1BE89 /* NewOptionsViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -285,9 +291,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFEDDBD520B9485600F1BE89 /* NewOptionsViewController.swift in Sources */,
 				08EB1C571E14293A00311E23 /* PasteView.swift in Sources */,
 				AFE4F2F520ADB506009A6F92 /* Toolbar.swift in Sources */,
 				08453B8C1E1426C5001CAACB /* ViewController.swift in Sources */,
+				AFEDDBD320B7E0BA00F1BE89 /* HistoryViewController.swift in Sources */,
 				08453B8A1E1426C5001CAACB /* AppDelegate.swift in Sources */,
 				AF4B0E72205905CE00564749 /* PreviousPastesViewController.swift in Sources */,
 				0849C3701E15256D00031FF1 /* HelpViewController.swift in Sources */,
