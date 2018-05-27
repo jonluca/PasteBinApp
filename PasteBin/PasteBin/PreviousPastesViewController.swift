@@ -12,6 +12,8 @@ class PreviousPastesViewController: UITableViewController {
 
     // Previous pastes array
     var savedList: [String] = []
+    
+    var previousStoryboardIsMainView = false
 
     override func viewDidLoad() {
         super.viewDidLoad()

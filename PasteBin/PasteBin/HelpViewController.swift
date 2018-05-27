@@ -14,15 +14,30 @@ class HelpViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    var previousStoryboardIsMainView = false
     
     @IBAction func buttonBack(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        if previousStoryboardIsMainView {
+            // Transition to main view in order to reset background scrolling
+            let mainStoryboard = UIStoryboard(name: "Main", bundle: nil);
+            let vC: ViewController = mainStoryboard.instantiateViewController(withIdentifier: "mainView") as! ViewController
+            self.present(vC, animated: true, completion: nil)
+        } else {
+            dismiss(animated: true, completion: nil)
+        }
     }
     
     @IBAction func done(_ sender: Any) {
-        // Transition to main view in order to reset background scrolling
-        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil);
-        let vC: ViewController = mainStoryboard.instantiateViewController(withIdentifier: "mainView") as! ViewController;
-        self.present(vC, animated: true, completion: nil)
+        
+        if previousStoryboardIsMainView {
+            // Transition to main view in order to reset background scrolling
+            let mainStoryboard = UIStoryboard(name: "Main", bundle: nil);
+            let vC: ViewController = mainStoryboard.instantiateViewController(withIdentifier: "mainView") as! ViewController
+            self.present(vC, animated: true, completion: nil)
+        } else {
+            dismiss(animated: true, completion: nil)
+        }
+        
+        
     }
 }

@@ -11,8 +11,10 @@ import AFNetworking
 import Highlightr
 
 class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelegate {
-    var isCurrentlyEditing = false;
+    var isCurrentlyEditing = false
 
+    var previousStoryboardIsMainView = false
+    
     // Previous pastes array
     var savedList: [String] = []
 

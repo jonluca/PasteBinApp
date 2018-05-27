@@ -16,6 +16,8 @@ class NewOptionsViewController: UIViewController {
     
     @IBOutlet weak var quickPasteTitle: UITextField!
     
+    var previousStoryboardIsMainView = false
+    
     let languages = SyntaxLibraries().languages
     
     @IBAction func save(_ sender: Any) {
@@ -77,6 +79,17 @@ class NewOptionsViewController: UIViewController {
     //Pastebin
     @IBAction func pastebin(_ sender: Any) {
         UIApplication.shared.open(URL(string: "http://www.pastebin.com")!, options: [:], completionHandler: nil);
+    }
+    
+    @IBAction func buttonBack(_ sender: Any) {
+        if previousStoryboardIsMainView {
+            // Transition to main view in order to reset background scrolling
+            let mainStoryboard = UIStoryboard(name: "Main", bundle: nil);
+            let vC: ViewController = mainStoryboard.instantiateViewController(withIdentifier: "mainView") as! ViewController
+            self.present(vC, animated: true, completion: nil)
+        } else {
+            dismiss(animated: true, completion: nil)
+        }
     }
     
     override func viewDidLoad() {

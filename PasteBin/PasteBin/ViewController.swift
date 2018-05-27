@@ -13,6 +13,8 @@ class ViewController: UIViewController {
 
     // Previous pastes array
     var savedList: [String] = []
+    
+    let storyboardID = "mainView"
 
     @IBOutlet weak var create: UIButton!
     @IBOutlet weak var quickSubmit: UIButton!
@@ -22,7 +24,7 @@ class ViewController: UIViewController {
 
         //Show main paste view
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil);
-        let pasteViewController: PasteView = mainStoryboard.instantiateViewController(withIdentifier: "pasteVC") as! PasteView;
+        let pasteViewController: PasteView = mainStoryboard.instantiateViewController(withIdentifier: "pasteVC") as! PasteView
         self.present(pasteViewController, animated: true, completion: nil);
     }
 
@@ -103,6 +105,12 @@ class ViewController: UIViewController {
 
     @IBAction func helpButton(_ sender: Any) {
         self.last = self.codeBackground.frame.origin.x;
+        
+        
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil);
+        let vC: HelpViewController = mainStoryboard.instantiateViewController(withIdentifier: "helpView") as! HelpViewController
+        vC.previousStoryboardIsMainView = true
+        self.present(vC, animated: true, completion: nil)
 
     }
 

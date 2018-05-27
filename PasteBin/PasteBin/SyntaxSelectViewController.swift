@@ -49,6 +49,9 @@ class SyntaxSelectViewController: UIViewController {
                 self.titleLabel.text = self.languages[self.syntaxIndex]
             }
         }
+        
+        syntaxPicker.setValue(UIColor.white, forKey: "textColor")
+//        syntaxPicker.performSelector("setHighlightsToday:", withObject:UIColor.white)
     }
 
     // Sends syntax choice to pasteview and dismisses popup

@@ -13,6 +13,8 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     // Previous pastes array
     var savedList: [String] = []
     
+    var previousStoryboardIsMainView = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,6 +31,17 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         let vC: ViewController = mainStoryboard.instantiateViewController(withIdentifier: "mainView") as! ViewController;
         self.present(vC, animated: true, completion: nil)
         
+    }
+    
+    @IBAction func buttonBack(_ sender: Any) {
+        if previousStoryboardIsMainView {
+            // Transition to main view in order to reset background scrolling
+            let mainStoryboard = UIStoryboard(name: "Main", bundle: nil);
+            let vC: ViewController = mainStoryboard.instantiateViewController(withIdentifier: "mainView") as! ViewController
+            self.present(vC, animated: true, completion: nil)
+        } else {
+            dismiss(animated: true, completion: nil)
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

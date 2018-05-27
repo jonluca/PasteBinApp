@@ -12,6 +12,8 @@ class OptionsViewController: UITableViewController {
 
     @IBOutlet weak var textLabel: UILabel!
     
+    var previousStoryboardIsMainView = false
+    
     let languages = SyntaxLibraries().languages
 
     @IBAction func save(_ sender: Any) {
