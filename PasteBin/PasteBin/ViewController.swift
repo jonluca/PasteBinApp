@@ -46,6 +46,10 @@ class ViewController: UIViewController {
         if (defaults.object(forKey: "SyntaxState") == nil) {
             defaults.set(true, forKey: "SyntaxState")
         }
+        if (defaults.object(forKey: "SwitchState") == nil) {
+            defaults.set(true, forKey: "SwitchState")
+        }
+        
 
         // Load previous pastes to savedList array
         savedList = PastebinHelper().loadSavedListItems()
@@ -103,15 +107,34 @@ class ViewController: UIViewController {
         }
     }
 
-    @IBAction func helpButton(_ sender: Any) {
+    @IBAction func historyButton(_ sender: Any) {
         self.last = self.codeBackground.frame.origin.x;
         
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil);
+        let vC: HistoryViewController = mainStoryboard.instantiateViewController(withIdentifier: "historyView") as! HistoryViewController
+        vC.previousStoryboardIsMainView = true
+        self.present(vC, animated: true, completion: nil)
+        
+    }
+    
+    @IBAction func helpButton(_ sender: Any) {
+        self.last = self.codeBackground.frame.origin.x;
         
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil);
         let vC: HelpViewController = mainStoryboard.instantiateViewController(withIdentifier: "helpView") as! HelpViewController
         vC.previousStoryboardIsMainView = true
         self.present(vC, animated: true, completion: nil)
 
+    }
+    
+    @IBAction func optionsButton(_ sender: Any) {
+        self.last = self.codeBackground.frame.origin.x;
+        
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil);
+        let vC: MasterOptionsViewController = mainStoryboard.instantiateViewController(withIdentifier: "optionsView") as! MasterOptionsViewController
+        vC.previousStoryboardIsMainView = true
+        self.present(vC, animated: true, completion: nil)
+        
     }
 
     @IBAction func quickSubmit(_ sender: Any) {

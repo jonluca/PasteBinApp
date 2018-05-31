@@ -17,6 +17,7 @@ class HelpViewController: UIViewController {
     var previousStoryboardIsMainView = false
     
     @IBAction func buttonBack(_ sender: Any) {
+        
         if previousStoryboardIsMainView {
             // Transition to main view in order to reset background scrolling
             let mainStoryboard = UIStoryboard(name: "Main", bundle: nil);
@@ -25,6 +26,7 @@ class HelpViewController: UIViewController {
         } else {
             dismiss(animated: true, completion: nil)
         }
+        
     }
     
     @IBAction func done(_ sender: Any) {
@@ -37,7 +39,6 @@ class HelpViewController: UIViewController {
         } else {
             dismiss(animated: true, completion: nil)
         }
-        
-        
+    
     }
 }
