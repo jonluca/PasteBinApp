@@ -18,18 +18,9 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var create: UIButton!
     @IBOutlet weak var quickSubmit: UIButton!
-
-    @IBAction func createPaste(_ sender: Any) {
-        self.last = self.codeBackground.frame.origin.x;
-
-        //Show main paste view
-        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil);
-        let pasteViewController: PasteView = mainStoryboard.instantiateViewController(withIdentifier: "pasteVC") as! PasteView
-        self.present(pasteViewController, animated: true, completion: nil);
-    }
-
+    
     @IBOutlet weak var codeBackground: UIImageView!
-
+    
     //init view vars
     var width = CGFloat(0);
     var last = CGFloat(-1400);
@@ -90,6 +81,15 @@ class ViewController: UIViewController {
 
         }, completion: nil)
     }
+    
+    @IBAction func createPaste(_ sender: Any) {
+        self.last = self.codeBackground.frame.origin.x;
+        
+        //Show main paste view
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil);
+        let pasteViewController: PasteView = mainStoryboard.instantiateViewController(withIdentifier: "pasteVC") as! PasteView
+        self.present(pasteViewController, animated: true, completion: nil);
+    }
 
     @IBAction func about(_ sender: Any) {
 
@@ -113,6 +113,7 @@ class ViewController: UIViewController {
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil);
         let vC: HistoryViewController = mainStoryboard.instantiateViewController(withIdentifier: "historyView") as! HistoryViewController
         vC.previousStoryboardIsMainView = true
+        vC.modalTransitionStyle = .coverVertical
         self.present(vC, animated: true, completion: nil)
         
     }
@@ -123,6 +124,7 @@ class ViewController: UIViewController {
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil);
         let vC: HelpViewController = mainStoryboard.instantiateViewController(withIdentifier: "helpView") as! HelpViewController
         vC.previousStoryboardIsMainView = true
+        vC.modalTransitionStyle = .coverVertical
         self.present(vC, animated: true, completion: nil)
 
     }
@@ -133,6 +135,7 @@ class ViewController: UIViewController {
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil);
         let vC: MasterOptionsViewController = mainStoryboard.instantiateViewController(withIdentifier: "optionsView") as! MasterOptionsViewController
         vC.previousStoryboardIsMainView = true
+        vC.modalTransitionStyle = .coverVertical
         self.present(vC, animated: true, completion: nil)
         
     }

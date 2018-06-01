@@ -32,7 +32,11 @@ class TextSelectionViewController: UITableViewController {
         
         // SearchTextField settings
         searchSyntaxTextField.filterStrings(languages)
-        searchSyntaxTextField.theme.bgColor = UIColor (red: 1, green: 1, blue: 1, alpha: 0.95)
+//        searchSyntaxTextField.theme.bgColor = UIColor (red: 1, green: 1, blue: 1, alpha: 0.95)
+        searchSyntaxTextField.theme.bgColor = UIColor (red: 160/255, green: 162/255, blue: 164/255, alpha: 0.95)
+        searchSyntaxTextField.theme.fontColor = UIColor.white
+        
+//        searchSyntaxTextField.theme = SearchTextFieldTheme.darkTheme()
 
         // Handles what happens when user picks an item
         searchSyntaxTextField.itemSelectionHandler = { item, itemPosition in
@@ -63,6 +67,7 @@ class TextSelectionViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "customcell", for: indexPath as IndexPath);
         //Label it from languages and index
         cell.textLabel?.text = languages[indexPath.item];
+        cell.textLabel?.textColor = UIColor.white
 
         //Open savefile
         let defaults = UserDefaults.standard

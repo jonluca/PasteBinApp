@@ -35,7 +35,9 @@ class SyntaxSelectViewController: UIViewController {
         
         // SearchTextField settings
         searchSyntaxTextField.filterStrings(languages)
-        searchSyntaxTextField.theme.bgColor = UIColor (red: 1, green: 1, blue: 1, alpha: 0.95)
+//        searchSyntaxTextField.theme = SearchTextFieldTheme.darkTheme()
+        searchSyntaxTextField.theme.bgColor = UIColor (red: 160/255, green: 162/255, blue: 164/255, alpha: 0.95)
+        searchSyntaxTextField.theme.fontColor = UIColor.white
         
         // Handles what happens when user picks an item
         searchSyntaxTextField.itemSelectionHandler = { item, itemPosition in
@@ -49,11 +51,8 @@ class SyntaxSelectViewController: UIViewController {
                 self.titleLabel.text = self.languages[self.syntaxIndex]
             }
         }
-        
-        syntaxPicker.setValue(UIColor.white, forKey: "textColor")
-//        syntaxPicker.performSelector("setHighlightsToday:", withObject:UIColor.white)
     }
-
+    
     // Sends syntax choice to pasteview and dismisses popup
     @IBAction func saveSyntax_TouchUpInside(_ sender: UIButton) {
         
@@ -84,13 +83,16 @@ extension SyntaxSelectViewController: UIPickerViewDelegate, UIPickerViewDataSour
         return languages.count
     }
 
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return languages[row]
-    }
-
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         titleLabel.text = languages[row]
         syntax = languages[row]
         syntaxIndex = row
     }
+    
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        let titleData = languages[row]
+        let myTitle = NSAttributedString(string: titleData, attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 15), NSAttributedStringKey.foregroundColor: UIColor.white])
+        return myTitle
+    }
+    
 }
