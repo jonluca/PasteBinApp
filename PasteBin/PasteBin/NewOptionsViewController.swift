@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewOptionsViewController: UITableViewController /* UIViewController, UITableViewDelegate */ {
+class NewOptionsViewController: UITableViewController {
 
     @IBOutlet weak var textLabel: UILabel!
     @IBOutlet weak var unlistedSwitch: UISwitch!
@@ -22,14 +22,6 @@ class NewOptionsViewController: UITableViewController /* UIViewController, UITab
         super.viewDidLoad();
         let defaults = UserDefaults.standard
         //Set Unlisted
-        
-        //        let switchState = defaults.object(forKey: "SwitchState") as? Bool
-        //        if let newSwitchState = switchState {
-        //            unlistedSwitch.isOn = newSwitchState
-        //        } else {
-        //            defaults.set(true, forKey: "SwitchState")
-        //            unlistedSwitch.isOn = true
-        //        }
         if (defaults.object(forKey: "SwitchState") != nil) {
             unlistedSwitch.isOn = defaults.bool(forKey: "SwitchState")
         }

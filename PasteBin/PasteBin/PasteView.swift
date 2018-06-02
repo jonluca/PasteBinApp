@@ -15,7 +15,7 @@ class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelega
 
     var previousStoryboardIsMainView = false
     
-    // Previous pastes array
+    // Previous pastes (history) array
     var savedList: [String] = []
 
     var submitButtonState: Bool = true
@@ -29,6 +29,12 @@ class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelega
     let highlightrSyntax = SyntaxLibraries().highlightrLanguage
     let postLanguage = SyntaxLibraries().postLanguage
 
+    @IBOutlet weak var submitButton: UIBarButtonItem!
+    @IBOutlet weak var backButton: UIBarButtonItem!
+    
+    @IBOutlet weak var titleText: UITextField!
+    @IBOutlet weak var textView: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //Don't judge for the following code - fairly redundant but works
@@ -51,15 +57,9 @@ class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelega
 
     }
 
-    @IBOutlet weak var titleText: UITextField!
-
-
     @IBAction func editAction(_ sender: Any) {
         titleText.text = "";
     }
-
-    @IBOutlet weak var submitButton: UIBarButtonItem!
-    @IBOutlet weak var backButton: UIBarButtonItem!
 
     @IBAction func backButtonAction(_ sender: Any) {
         if (!isCurrentlyEditing) {
@@ -106,8 +106,6 @@ class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelega
         submitButton.title = "Done"
 
     }
-
-    @IBOutlet weak var textView: UITextView!
 
     @IBAction func submitButtonAction(_ sender: AnyObject!) {
         if submitButtonState {

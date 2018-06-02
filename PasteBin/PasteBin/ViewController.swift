@@ -162,18 +162,18 @@ class ViewController: UIViewController {
     }
 }
 
-extension UITabBar {
-    
-    override open func sizeThatFits(_ size: CGSize) -> CGSize {
-        super.sizeThatFits(size)
-        guard let window = UIApplication.shared.keyWindow else {
-            return super.sizeThatFits(size)
-        }
-        var sizeThatFits = super.sizeThatFits(size)
-        sizeThatFits.height = window.safeAreaInsets.bottom + 40
-        return sizeThatFits
-    }
-}
+//extension UITabBar {
+//    
+//    override open func sizeThatFits(_ size: CGSize) -> CGSize {
+//        super.sizeThatFits(size)
+//        guard let window = UIApplication.shared.keyWindow else {
+//            return super.sizeThatFits(size)
+//        }
+//        var sizeThatFits = super.sizeThatFits(size)
+//        sizeThatFits.height = window.safeAreaInsets.bottom + 40
+//        return sizeThatFits
+//    }
+//}
 
 // Extension to enable button background editing
 //extension UIView {
