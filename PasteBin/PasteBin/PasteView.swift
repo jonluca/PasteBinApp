@@ -35,6 +35,10 @@ class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelega
     @IBOutlet weak var titleText: UITextField!
     @IBOutlet weak var textView: UITextView!
     
+    @IBAction func selectSyntaxButton() {
+        selectSyntax()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //Don't judge for the following code - fairly redundant but works
@@ -64,15 +68,25 @@ class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelega
     @IBAction func backButtonAction(_ sender: Any) {
         if (!isCurrentlyEditing) {
             if (textView.text?.isEmpty)! {
-                let mainStoryboard = UIStoryboard(name: "Main", bundle: nil);
-                let vC: ViewController = mainStoryboard.instantiateViewController(withIdentifier: "mainView") as! ViewController;
-                self.present(vC, animated: true, completion: nil);
+                if previousStoryboardIsMainView {
+                    // Transition to main view in order to reset background scrolling
+                    let mainStoryboard = UIStoryboard(name: "Main", bundle: nil);
+                    let vC: ViewController = mainStoryboard.instantiateViewController(withIdentifier: "mainView") as! ViewController
+                    self.present(vC, animated: true, completion: nil)
+                } else {
+                    dismiss(animated: true, completion: nil)
+                }
             } else {
                 let alertController = UIAlertController(title: "Are you sure?", message: "You'll lose all text currently in the editor", preferredStyle: .alert)
                 let OKAction = UIAlertAction(title: "Yes", style: .default) { (action) in
-                    let mainStoryboard = UIStoryboard(name: "Main", bundle: nil);
-                    let vC: ViewController = mainStoryboard.instantiateViewController(withIdentifier: "mainView") as! ViewController;
-                    self.present(vC, animated: true, completion: nil);
+                    if self.previousStoryboardIsMainView {
+                        // Transition to main view in order to reset background scrolling
+                        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil);
+                        let vC: ViewController = mainStoryboard.instantiateViewController(withIdentifier: "mainView") as! ViewController
+                        self.present(vC, animated: true, completion: nil)
+                    } else {
+                        self.dismiss(animated: true, completion: nil)
+                    }
                 }
                 alertController.addAction(OKAction)
                 let NoActions = UIAlertAction(title: "Cancel", style: .default) { (action) in

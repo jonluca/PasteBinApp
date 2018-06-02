@@ -20,8 +20,6 @@
 		77E07E471E6C85C08E23F3C8 /* Pods_PasteBin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4E72A0797AC270D9771EB4A8 /* Pods_PasteBin.framework */; };
 		AF1D5D712074AA1B00C397A8 /* SyntaxLibraries.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1D5D702074AA1A00C397A8 /* SyntaxLibraries.swift */; };
 		AF1D5D7320752FC300C397A8 /* PastebinHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF1D5D7220752FC300C397A8 /* PastebinHelper.swift */; };
-		AF42003220A962990099B316 /* SignPainter-HouseScript.otf in Resources */ = {isa = PBXBuildFile; fileRef = AF42003120A962980099B316 /* SignPainter-HouseScript.otf */; };
-		AF42E8E020A831C000F94E8B /* Segoe_UI.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AF42E8DF20A831BE00F94E8B /* Segoe_UI.ttf */; };
 		AF44201620BE7F4B0065776D /* MasterOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF44201520BE7F4B0065776D /* MasterOptionsViewController.swift */; };
 		AF4C67972063A482003EF09C /* SyntaxSelectViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF4C67952063A196003EF09C /* SyntaxSelectViewController.storyboard */; };
 		AFEDDBD320B7E0BA00F1BE89 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEDDBD220B7E0BA00F1BE89 /* HistoryViewController.swift */; };
@@ -47,8 +45,6 @@
 		7D4F8CD64B66790F0F833899 /* Pods-PasteBin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PasteBin.release.xcconfig"; path = "Pods/Target Support Files/Pods-PasteBin/Pods-PasteBin.release.xcconfig"; sourceTree = "<group>"; };
 		AF1D5D702074AA1A00C397A8 /* SyntaxLibraries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyntaxLibraries.swift; sourceTree = "<group>"; };
 		AF1D5D7220752FC300C397A8 /* PastebinHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastebinHelper.swift; sourceTree = "<group>"; };
-		AF42003120A962980099B316 /* SignPainter-HouseScript.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SignPainter-HouseScript.otf"; sourceTree = "<group>"; };
-		AF42E8DF20A831BE00F94E8B /* Segoe_UI.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Segoe_UI.ttf; sourceTree = "<group>"; };
 		AF44201520BE7F4B0065776D /* MasterOptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterOptionsViewController.swift; sourceTree = "<group>"; };
 		AF4C67952063A196003EF09C /* SyntaxSelectViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SyntaxSelectViewController.storyboard; sourceTree = "<group>"; };
 		AFEDDBD220B7E0BA00F1BE89 /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
@@ -90,7 +86,6 @@
 				08453B901E1426C5001CAACB /* Assets.xcassets */,
 				08453B921E1426C5001CAACB /* LaunchScreen.storyboard */,
 				08453B951E1426C5001CAACB /* Info.plist */,
-				AF42E8DE20A8317D00F94E8B /* Fonts */,
 			);
 			path = PasteBin;
 			sourceTree = "<group>";
@@ -135,15 +130,6 @@
 				0849C3741E18151E00031FF1 /* code.png */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		AF42E8DE20A8317D00F94E8B /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-				AF42003120A962980099B316 /* SignPainter-HouseScript.otf */,
-				AF42E8DF20A831BE00F94E8B /* Segoe_UI.ttf */,
-			);
-			name = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,9 +196,7 @@
 			files = (
 				AF4C67972063A482003EF09C /* SyntaxSelectViewController.storyboard in Resources */,
 				0849C3751E18151E00031FF1 /* code.png in Resources */,
-				AF42E8E020A831C000F94E8B /* Segoe_UI.ttf in Resources */,
 				08453B941E1426C5001CAACB /* LaunchScreen.storyboard in Resources */,
-				AF42003220A962990099B316 /* SignPainter-HouseScript.otf in Resources */,
 				08453B911E1426C5001CAACB /* Assets.xcassets in Resources */,
 				08453B8F1E1426C5001CAACB /* Main.storyboard in Resources */,
 				080880471E2841D800D22074 /* Default-568h@2x.png in Resources */,
