@@ -8,7 +8,7 @@ PasteBin Mobile is an app to quickly upload text or code to http://pastebin.com!
 
 ## Screenshot
 
-<img src='https://i.imgur.com/AEnkxzM.jpg' title='PasteBin App Screenshot' width='370' alt='Screenshot' />
+<img src='https://i.imgur.com/mAdGLEF.png' title='PasteBin App Screenshot' width='370' alt='Screenshot' />
 
 
 ## Notes
