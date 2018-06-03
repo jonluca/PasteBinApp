@@ -1058,8 +1058,8 @@
                                                 <action selector="backButtonAction:" destination="hzZ-Qb-JIs" id="Ct9-KP-q5u"/>
                                             </connections>
                                         </barButtonItem>
-                                        <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Title (tap to edit)" textAlignment="center" minimumFontSize="17" id="3Gb-gu-03m">
-                                            <rect key="frame" x="131" y="13.666666666666664" width="113" height="17"/>
+                                        <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Title (tap to edit)" textAlignment="center" minimumFontSize="17" id="3Gb-gu-03m">
+                                            <rect key="frame" x="131.33333333333334" y="13.666666666666664" width="112.33333333333334" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <accessibility key="accessibilityConfiguration" hint="Title"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

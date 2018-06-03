@@ -38,6 +38,7 @@ class SyntaxSelectViewController: UIViewController {
 //        searchSyntaxTextField.theme = SearchTextFieldTheme.darkTheme()
         searchSyntaxTextField.theme.bgColor = UIColor (red: 160/255, green: 162/255, blue: 164/255, alpha: 0.95)
         searchSyntaxTextField.theme.fontColor = UIColor.white
+        searchSyntaxTextField.maxNumberOfResults = 5
         
         // Handles what happens when user picks an item
         searchSyntaxTextField.itemSelectionHandler = { item, itemPosition in
