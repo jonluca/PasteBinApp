@@ -37,6 +37,7 @@ class TextSelectionViewController: UITableViewController {
         searchSyntaxTextField.theme.fontColor = UIColor.white
 //        searchSyntaxTextField.theme = SearchTextFieldTheme.darkTheme()
         searchSyntaxTextField.maxNumberOfResults = 5
+        searchSyntaxTextField.maxResultsListHeight = 180
 
         // Handles what happens when user picks an item
         searchSyntaxTextField.itemSelectionHandler = { item, itemPosition in

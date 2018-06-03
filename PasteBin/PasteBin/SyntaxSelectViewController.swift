@@ -39,6 +39,8 @@ class SyntaxSelectViewController: UIViewController {
         searchSyntaxTextField.theme.bgColor = UIColor (red: 160/255, green: 162/255, blue: 164/255, alpha: 0.95)
         searchSyntaxTextField.theme.fontColor = UIColor.white
         searchSyntaxTextField.maxNumberOfResults = 5
+        searchSyntaxTextField.maxResultsListHeight = 180
+//        searchSyntaxTextField.highlightAttributes = [kCTBackgroundColorAttributeName: UIColor(red: 181/255, green: 130/255, blue: 79/255, alpha: 1), kCTFontAttributeName: UIFont.boldSystemFont(ofSize: 12)] as [NSAttributedStringKey : AnyObject]
         
         // Handles what happens when user picks an item
         searchSyntaxTextField.itemSelectionHandler = { item, itemPosition in
