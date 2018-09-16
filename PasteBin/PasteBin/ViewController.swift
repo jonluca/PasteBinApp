@@ -88,6 +88,7 @@ class ViewController: UIViewController {
         //Show main paste view
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil);
         let pasteViewController: PasteView = mainStoryboard.instantiateViewController(withIdentifier: "pasteVC") as! PasteView
+        pasteViewController.previousStoryboardIsMainView = true
         self.present(pasteViewController, animated: true, completion: nil);
     }
 
