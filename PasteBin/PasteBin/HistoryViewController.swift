@@ -26,10 +26,14 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBAction func donePress(_ sender: Any) {
         
-        // Transition to main view in order to reset background scrolling
-        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil);
-        let vC: ViewController = mainStoryboard.instantiateViewController(withIdentifier: "mainView") as! ViewController;
-        self.present(vC, animated: true, completion: nil)
+        if previousStoryboardIsMainView {
+            // Transition to main view in order to reset background scrolling
+            let mainStoryboard = UIStoryboard(name: "Main", bundle: nil);
+            let vC: ViewController = mainStoryboard.instantiateViewController(withIdentifier: "mainView") as! ViewController
+            self.present(vC, animated: true, completion: nil)
+        } else {
+            dismiss(animated: true, completion: nil)
+        }
         
     }
     
