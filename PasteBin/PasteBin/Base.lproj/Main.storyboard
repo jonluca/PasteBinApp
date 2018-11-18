@@ -703,7 +703,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6uX-0D-X1m">
-                                <rect key="frame" x="0.0" y="88" width="375" height="634"/>
+                                <rect key="frame" x="0.0" y="132" width="375" height="590"/>
                                 <color key="backgroundColor" red="0.1450980392" green="0.16078431369999999" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="separatorColor" red="0.1450980392" green="0.16078431369999999" blue="0.1960784314" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -866,12 +866,12 @@
                             <constraint firstItem="444-6x-qZB" firstAttribute="centerX" secondItem="a1D-gd-UmC" secondAttribute="centerX" id="4RD-gM-x8Z"/>
                             <constraint firstAttribute="bottom" secondItem="4Cl-10-JQ6" secondAttribute="bottom" id="4Tb-Jc-U6B"/>
                             <constraint firstItem="PI9-VT-jnh" firstAttribute="top" secondItem="hoo-YY-dZd" secondAttribute="top" id="APR-0z-taL"/>
+                            <constraint firstItem="6uX-0D-X1m" firstAttribute="top" secondItem="PI9-VT-jnh" secondAttribute="bottom" id="C7e-yC-qGG"/>
                             <constraint firstItem="hoo-YY-dZd" firstAttribute="trailing" secondItem="4Cl-10-JQ6" secondAttribute="trailing" id="DBC-i0-w7e"/>
                             <constraint firstItem="a1D-gd-UmC" firstAttribute="trailing" secondItem="hoo-YY-dZd" secondAttribute="trailing" id="Lua-5j-79j"/>
                             <constraint firstItem="hoo-YY-dZd" firstAttribute="bottom" secondItem="6uX-0D-X1m" secondAttribute="bottom" constant="56" id="RRG-Hr-Ccj"/>
                             <constraint firstItem="6uX-0D-X1m" firstAttribute="leading" secondItem="PI9-VT-jnh" secondAttribute="leading" id="YNv-Rg-JKW"/>
                             <constraint firstItem="444-6x-qZB" firstAttribute="centerY" secondItem="a1D-gd-UmC" secondAttribute="top" id="YcS-EC-SsK"/>
-                            <constraint firstItem="6uX-0D-X1m" firstAttribute="top" secondItem="PI9-VT-jnh" secondAttribute="top" id="dxa-eJ-Y4w"/>
                             <constraint firstItem="a1D-gd-UmC" firstAttribute="bottom" secondItem="hoo-YY-dZd" secondAttribute="bottom" id="hcV-IX-Nh9"/>
                             <constraint firstItem="4Cl-10-JQ6" firstAttribute="leading" secondItem="hoo-YY-dZd" secondAttribute="leading" id="im1-xv-KwJ"/>
                             <constraint firstItem="PI9-VT-jnh" firstAttribute="leading" secondItem="cOO-ys-0qI" secondAttribute="leading" id="jiI-X3-KSr"/>
@@ -1320,9 +1320,9 @@
         <image name="code.png" width="2350" height="2154"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Cgr-ww-yx7"/>
-        <segue reference="5ut-61-5CY"/>
+        <segue reference="6Y2-qk-jnQ"/>
+        <segue reference="d7x-2o-Vfr"/>
         <segue reference="sBC-5k-gR5"/>
-        <segue reference="pBU-I4-J6O"/>
+        <segue reference="XWs-39-5LG"/>
     </inferredMetricsTieBreakers>
 </document>
