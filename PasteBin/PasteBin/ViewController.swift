@@ -46,7 +46,7 @@ class ViewController: UIViewController {
         savedList = PastebinHelper().loadSavedListItems()
         
         // Lets the background animation resume after app has been in background
-        NotificationCenter.default.addObserver(self, selector: #selector(backgroundInfinite), name: Notification.Name.UIApplicationWillEnterForeground, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(backgroundInfinite), name: UIApplication.willEnterForegroundNotification, object: nil)
         
 
     }
