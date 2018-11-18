@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.13.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2qO-Cj-zGO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2qO-Cj-zGO">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.9"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -1047,7 +1047,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" text="Enter or paste code/text here…" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ecF-dC-aYm">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="onDrag" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ecF-dC-aYm">
                                 <rect key="frame" x="0.0" y="88" width="375" height="682"/>
                                 <color key="backgroundColor" red="0.14901960784313725" green="0.16470588235294117" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <accessibility key="accessibilityConfiguration" hint="Title"/>
@@ -1238,14 +1238,6 @@
             </objects>
             <point key="canvasLocation" x="-295.19999999999999" y="1021.1822660098522"/>
         </scene>
-        <!--SyntaxSelectViewController-->
-        <scene sceneID="nme-oa-OgN">
-            <objects>
-                <viewControllerPlaceholder storyboardName="SyntaxSelectViewController" id="ab0-1e-LzS" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Y7t-YM-kNf" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2424" y="236"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="VvC-GU-lYu">
             <objects>
@@ -1329,8 +1321,8 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Cgr-ww-yx7"/>
-        <segue reference="d7x-2o-Vfr"/>
-        <segue reference="sBC-5k-gR5"/>
-        <segue reference="pBU-I4-J6O"/>
+        <segue reference="5ut-61-5CY"/>
+        <segue reference="ik7-ca-FLB"/>
+        <segue reference="Fu7-8O-ETu"/>
     </inferredMetricsTieBreakers>
 </document>

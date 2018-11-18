@@ -34,6 +34,7 @@ class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelega
     
     @IBOutlet weak var titleText: UITextField!
     @IBOutlet weak var textView: UITextView!
+    var placeholderLabel: UILabel!
     
     @IBAction func selectSyntaxButton() {
         selectSyntax()
@@ -59,6 +60,17 @@ class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelega
         syntaxPastebin = languages[syntaxIndex]
         syntaxHighlightr = highlightrSyntax[syntaxPastebin]!
 
+        // Sets a floating placeholder in the text view
+        textView.delegate = self
+        placeholderLabel = UILabel()
+        placeholderLabel.text = "Enter or paste code/text here..."
+        placeholderLabel.font = UIFont.italicSystemFont(ofSize: (textView.font?.pointSize)!)
+        placeholderLabel.sizeToFit()
+        textView.addSubview(placeholderLabel)
+        placeholderLabel.frame.origin = CGPoint(x: 5, y: (textView.font?.pointSize)! / 2)
+        placeholderLabel.textColor = UIColor.lightGray
+        placeholderLabel.isHidden = !textView.text.isEmpty
+        
     }
 
     @IBAction func editAction(_ sender: Any) {
@@ -191,6 +203,9 @@ class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelega
     }
 
     func textViewDidChange(_ textView: UITextView) {
+        
+        placeholderLabel.isHidden = !textView.text.isEmpty
+        
         isCurrentlyEditing = true
         submitButtonState = false
         
