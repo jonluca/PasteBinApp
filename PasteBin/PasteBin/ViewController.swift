@@ -135,7 +135,7 @@ class ViewController: UIViewController {
         
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil);
         let vC: MasterOptionsViewController = mainStoryboard.instantiateViewController(withIdentifier: "optionsView") as! MasterOptionsViewController
-        vC.previousStoryboardIsMainView = true
+        MasterOptionsViewController.previousStoryboardIsMainView = true
         vC.modalTransitionStyle = .coverVertical
         self.present(vC, animated: true, completion: nil)
         

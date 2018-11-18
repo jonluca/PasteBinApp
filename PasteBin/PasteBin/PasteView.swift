@@ -61,7 +61,6 @@ class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelega
         syntaxHighlightr = highlightrSyntax[syntaxPastebin]!
 
         // Sets a floating placeholder in the text view
-        textView.delegate = self
         placeholderLabel = UILabel()
         placeholderLabel.text = "Enter or paste code/text here..."
         placeholderLabel.font = UIFont.italicSystemFont(ofSize: (textView.font?.pointSize)!)

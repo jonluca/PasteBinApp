@@ -18,7 +18,7 @@ class NewOptionsViewController: UITableViewController {
     
     let languages = SyntaxLibraries().languages
     
-    var previousStoryboardIsMainView = false
+    var previousStoryboardIsMainView = MasterOptionsViewController.previousStoryboardIsMainView
     
     override func viewDidLoad() {
         super.viewDidLoad();
