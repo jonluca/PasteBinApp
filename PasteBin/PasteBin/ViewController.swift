@@ -41,10 +41,6 @@ class ViewController: UIViewController {
             defaults.set(true, forKey: "SwitchState")
         }
         
-
-        // Load previous pastes to savedList array
-        savedList = PastebinHelper().loadSavedListItems()
-        
         // Lets the background animation resume after app has been in background
         NotificationCenter.default.addObserver(self, selector: #selector(backgroundInfinite), name: UIApplication.willEnterForegroundNotification, object: nil)
         
@@ -58,6 +54,9 @@ class ViewController: UIViewController {
         let bounds = UIScreen.main.bounds;
         self.width = bounds.size.width;
         backgroundInfinite()
+        
+        // Load previous pastes to savedList array
+        savedList = PastebinHelper().loadSavedListItems()
         
     }
 
