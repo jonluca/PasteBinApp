@@ -48,9 +48,6 @@ class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelega
         textView.addGestureRecognizer(tapOutTextField);
         view.addGestureRecognizer(tapOutTextField)
 
-        // Load previous pastes to savedList array
-        savedList = PastebinHelper().loadSavedListItems()
-
         // Sets the theme of syntax highlighter. Could be made a choice in the future in Options menu.
         highlightr?.setTheme(to: "atom-one-dark")
 
@@ -69,6 +66,14 @@ class PasteView: UIViewController, UITextViewDelegate, UIGestureRecognizerDelega
         placeholderLabel.frame.origin = CGPoint(x: 5, y: (textView.font?.pointSize)! / 2)
         placeholderLabel.textColor = UIColor.lightGray
         placeholderLabel.isHidden = !textView.text.isEmpty
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        // Load previous pastes to savedList array
+        savedList = PastebinHelper().loadSavedListItems()
         
     }
 
