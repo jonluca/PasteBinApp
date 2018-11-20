@@ -42,6 +42,9 @@ class NewOptionsViewController: UITableViewController {
         if (quickPasteTitle.text != nil) {
             quickPasteTitle.text = defaults.string(forKey: "quickPasteTitle");
         }
+        
+        self.tableView.isScrollEnabled = true
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -61,6 +64,7 @@ class NewOptionsViewController: UITableViewController {
         if (defaults.object(forKey: "SyntaxState") != nil) {
             syntaxSwitch.isOn = defaults.bool(forKey: "SyntaxState")
         }
+        
     }
     
     @IBAction func save(_ sender: Any) {
