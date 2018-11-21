@@ -528,10 +528,47 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yHT-uW-2D8">
-                                <rect key="frame" x="10" y="88" width="355" height="682"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Pastebin App is meant to be a lightweight, portable application to quickly share text." textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yHT-uW-2D8">
+                                <rect key="frame" x="10" y="88" width="355" height="49"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <string key="text">Pastebin App is meant to be a lightweight, portable application to quickly share text.  Select Create a Paste (the large orange plus button) to use the editor, and modify your upload.   The Quick Paste and Submit (smaller grey plus button) will take whatever is currently in your clipboard, upload it to pastebin, and copy the link to your clipboard (please note - this will overwrite whatever is in your clipboard)</string>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="qmz-kW-hGz"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Select Create a Paste to use the editor, and modify your upload. " textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cPO-kK-nMD">
+                                <rect key="frame" x="10" y="193" width="355" height="51"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="51" id="8DH-sv-egU"/>
+                                </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconCreatePaste" translatesAutoresizingMaskIntoConstraints="NO" id="J6B-j0-UzO">
+                                <rect key="frame" x="167.66666666666666" y="145" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="bdG-Pd-JBZ"/>
+                                    <constraint firstAttribute="height" constant="40" id="z2L-Ib-QtO"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="IconQuickCreatePaste" translatesAutoresizingMaskIntoConstraints="NO" id="V5c-go-2XW">
+                                <rect key="frame" x="167.66666666666666" y="252" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="rqm-zR-lGy"/>
+                                    <constraint firstAttribute="width" constant="40" id="ssg-Lf-xUV"/>
+                                </constraints>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1o2-mu-s8e">
+                                <rect key="frame" x="10" y="301" width="355" height="86"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="86" id="tWc-bm-HBC"/>
+                                </constraints>
+                                <string key="text">The Quick Paste and Submit will take whatever is currently in your clipboard, upload it to pastebin, and copy the link to your clipboard (please note - this will overwrite whatever is in your clipboard)</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -667,23 +704,33 @@
                         </subviews>
                         <color key="backgroundColor" red="0.14901960784313725" green="0.16470588235294117" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="1o2-mu-s8e" firstAttribute="top" secondItem="V5c-go-2XW" secondAttribute="bottom" constant="9" id="0rU-dB-nPO"/>
                             <constraint firstItem="2tZ-gE-gFM" firstAttribute="trailing" secondItem="1Nk-cu-FgZ" secondAttribute="trailing" id="3Rl-aB-iND"/>
                             <constraint firstAttribute="bottom" secondItem="kev-LQ-Cfv" secondAttribute="bottom" id="3gP-DN-md2"/>
                             <constraint firstItem="Dea-BR-mgJ" firstAttribute="centerX" secondItem="2tZ-gE-gFM" secondAttribute="centerX" id="554-5a-uQf"/>
-                            <constraint firstItem="Iq6-SS-Fc8" firstAttribute="trailing" secondItem="yHT-uW-2D8" secondAttribute="trailing" constant="10" id="8RG-GU-nW9"/>
+                            <constraint firstItem="Iq6-SS-Fc8" firstAttribute="trailing" secondItem="yHT-uW-2D8" secondAttribute="trailing" constant="10" id="8x4-Ob-nyh"/>
+                            <constraint firstItem="J6B-j0-UzO" firstAttribute="top" secondItem="yHT-uW-2D8" secondAttribute="bottom" constant="8" id="BO6-HJ-asx"/>
+                            <constraint firstItem="V5c-go-2XW" firstAttribute="centerX" secondItem="a0E-N8-bSo" secondAttribute="centerX" id="ESW-Ey-jG6"/>
+                            <constraint firstItem="Iq6-SS-Fc8" firstAttribute="trailing" secondItem="cPO-kK-nMD" secondAttribute="trailing" constant="10" id="HtF-1o-xVC"/>
                             <constraint firstItem="1Nk-cu-FgZ" firstAttribute="top" secondItem="Iq6-SS-Fc8" secondAttribute="top" id="I6l-6E-2rL"/>
+                            <constraint firstItem="cPO-kK-nMD" firstAttribute="leading" secondItem="Iq6-SS-Fc8" secondAttribute="leading" constant="10" id="JFr-iA-Nmz"/>
+                            <constraint firstItem="cPO-kK-nMD" firstAttribute="top" secondItem="J6B-j0-UzO" secondAttribute="bottom" constant="8" id="KjI-th-ORn"/>
                             <constraint firstItem="1Nk-cu-FgZ" firstAttribute="leading" secondItem="Iq6-SS-Fc8" secondAttribute="leading" id="Kto-5h-s1l"/>
-                            <constraint firstItem="Iq6-SS-Fc8" firstAttribute="bottom" secondItem="yHT-uW-2D8" secondAttribute="bottom" constant="8" id="RTk-aW-vXh"/>
+                            <constraint firstItem="J6B-j0-UzO" firstAttribute="centerX" secondItem="a0E-N8-bSo" secondAttribute="centerX" id="MJw-aF-0Gb"/>
+                            <constraint firstItem="Iq6-SS-Fc8" firstAttribute="trailing" secondItem="cPO-kK-nMD" secondAttribute="trailing" constant="10" id="VAw-fo-1X9"/>
+                            <constraint firstItem="Iq6-SS-Fc8" firstAttribute="trailing" secondItem="1o2-mu-s8e" secondAttribute="trailing" constant="10" id="WG8-Ac-Dh7"/>
                             <constraint firstItem="kev-LQ-Cfv" firstAttribute="leading" secondItem="2tZ-gE-gFM" secondAttribute="leading" id="WL4-Jk-p7R"/>
-                            <constraint firstItem="Iq6-SS-Fc8" firstAttribute="bottom" secondItem="yHT-uW-2D8" secondAttribute="bottom" constant="8" id="Z6H-s3-ref"/>
                             <constraint firstItem="Iq6-SS-Fc8" firstAttribute="trailing" secondItem="1Nk-cu-FgZ" secondAttribute="trailing" id="ZRF-yx-Lqs"/>
+                            <constraint firstItem="V5c-go-2XW" firstAttribute="top" secondItem="cPO-kK-nMD" secondAttribute="bottom" constant="8" id="ZwR-4M-pZL"/>
                             <constraint firstItem="yHT-uW-2D8" firstAttribute="leading" secondItem="Iq6-SS-Fc8" secondAttribute="leading" constant="10" id="cBw-Ig-QIA"/>
                             <constraint firstItem="2tZ-gE-gFM" firstAttribute="bottom" secondItem="Iq6-SS-Fc8" secondAttribute="bottom" id="cKk-Dd-S5w"/>
+                            <constraint firstItem="J6B-j0-UzO" firstAttribute="centerX" secondItem="a0E-N8-bSo" secondAttribute="centerX" id="ch2-hA-f1k"/>
                             <constraint firstItem="2tZ-gE-gFM" firstAttribute="leading" secondItem="1Nk-cu-FgZ" secondAttribute="leading" id="ciJ-Vw-dZD"/>
                             <constraint firstItem="yHT-uW-2D8" firstAttribute="top" secondItem="1Nk-cu-FgZ" secondAttribute="bottom" id="czJ-HN-EHI"/>
+                            <constraint firstItem="1o2-mu-s8e" firstAttribute="leading" secondItem="Iq6-SS-Fc8" secondAttribute="leading" constant="10" id="iEQ-lo-ZSQ"/>
+                            <constraint firstItem="cPO-kK-nMD" firstAttribute="leading" secondItem="Iq6-SS-Fc8" secondAttribute="leading" constant="10" id="ira-0O-T3y"/>
                             <constraint firstItem="kev-LQ-Cfv" firstAttribute="top" secondItem="2tZ-gE-gFM" secondAttribute="top" id="mMt-ix-2fZ"/>
                             <constraint firstItem="Dea-BR-mgJ" firstAttribute="centerY" secondItem="2tZ-gE-gFM" secondAttribute="top" id="rm1-E3-qxb"/>
-                            <constraint firstItem="Iq6-SS-Fc8" firstAttribute="trailing" secondItem="yHT-uW-2D8" secondAttribute="trailing" constant="10" id="wuB-NK-TCi"/>
                             <constraint firstItem="2tZ-gE-gFM" firstAttribute="trailing" secondItem="kev-LQ-Cfv" secondAttribute="trailing" id="xI6-hk-NtE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Iq6-SS-Fc8"/>
@@ -691,7 +738,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="g8v-GX-2jR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="622" y="1022"/>
+            <point key="canvasLocation" x="621.60000000000002" y="1021.9211822660099"/>
         </scene>
         <!--History View Controller-->
         <scene sceneID="KXj-wU-3JS">
@@ -1319,9 +1366,9 @@
         <image name="code.png" width="2350" height="2154"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Cgr-ww-yx7"/>
+        <segue reference="QXN-PW-Fch"/>
         <segue reference="mLm-zR-9IB"/>
-        <segue reference="sBC-5k-gR5"/>
+        <segue reference="J4H-qD-M7O"/>
         <segue reference="pBU-I4-J6O"/>
     </inferredMetricsTieBreakers>
 </document>
