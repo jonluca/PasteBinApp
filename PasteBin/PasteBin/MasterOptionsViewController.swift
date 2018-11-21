@@ -10,7 +10,7 @@ import UIKit
 
 class MasterOptionsViewController: UIViewController {
 
-    var previousStoryboardIsMainView = false
+    static var previousStoryboardIsMainView = false
     
     @IBOutlet weak var optionsContainer: UITableView!
     
@@ -19,17 +19,13 @@ class MasterOptionsViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
     @IBAction func buttonBack(_ sender: Any) {
-        if previousStoryboardIsMainView {
+        if MasterOptionsViewController.previousStoryboardIsMainView {
             // Transition to main view in order to reset background scrolling
             let mainStoryboard = UIStoryboard(name: "Main", bundle: nil);
             let vC: ViewController = mainStoryboard.instantiateViewController(withIdentifier: "mainView") as! ViewController
+            vC.modalTransitionStyle = .coverVertical
             self.present(vC, animated: true, completion: nil)
         } else {
             dismiss(animated: true, completion: nil)

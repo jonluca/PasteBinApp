@@ -18,7 +18,7 @@ class NewOptionsViewController: UITableViewController {
     
     let languages = SyntaxLibraries().languages
     
-    var previousStoryboardIsMainView = false
+    var previousStoryboardIsMainView = MasterOptionsViewController.previousStoryboardIsMainView
     
     override func viewDidLoad() {
         super.viewDidLoad();
@@ -42,6 +42,9 @@ class NewOptionsViewController: UITableViewController {
         if (quickPasteTitle.text != nil) {
             quickPasteTitle.text = defaults.string(forKey: "quickPasteTitle");
         }
+        
+        self.tableView.isScrollEnabled = true
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -61,6 +64,7 @@ class NewOptionsViewController: UITableViewController {
         if (defaults.object(forKey: "SyntaxState") != nil) {
             syntaxSwitch.isOn = defaults.bool(forKey: "SyntaxState")
         }
+        
     }
     
     @IBAction func save(_ sender: Any) {
@@ -116,17 +120,22 @@ class NewOptionsViewController: UITableViewController {
     
     //Twitter
     @IBAction func twitterHandle(_ sender: Any) {
-        UIApplication.shared.open(URL(string: "http://www.twitter.com/jonlucadecaro")!, options: [:], completionHandler: nil);
+        UIApplication.shared.open(URL(string: "http://www.twitter.com/jonlucadecaro")!, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil);
     }
     
     //Donate
     @IBAction func donate(_ sender: Any) {
-        UIApplication.shared.open(URL(string: "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TV28RGXB52DUA")!, options: [:], completionHandler: nil)
+        UIApplication.shared.open(URL(string: "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=TV28RGXB52DUA")!, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil)
     }
     
     //Pastebin
     @IBAction func pastebin(_ sender: Any) {
-        UIApplication.shared.open(URL(string: "http://www.pastebin.com")!, options: [:], completionHandler: nil);
+        UIApplication.shared.open(URL(string: "http://www.pastebin.com")!, options: convertToUIApplicationOpenExternalURLOptionsKeyDictionary([:]), completionHandler: nil);
     }
 
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToUIApplicationOpenExternalURLOptionsKeyDictionary(_ input: [String: Any]) -> [UIApplication.OpenExternalURLOptionsKey: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (UIApplication.OpenExternalURLOptionsKey(rawValue: key), value)})
 }
