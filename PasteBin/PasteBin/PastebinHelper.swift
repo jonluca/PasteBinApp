@@ -31,9 +31,11 @@ class PastebinHelper: UIViewController  {
             
             // name or title of your paste
             
-            let finalTitleText: String = titleText.isEmpty ? defaults.string(forKey: "quickPasteTitle")! : ""
+            let qpTitle = defaults.string(forKey: "quickPasteTitle") ?? "Created with Pastebin Mobile"
             
-            api_paste_name += finalTitleText.isEmpty ? "Created with Pastebin Mobile" : finalTitleText
+            let finalTitleText: String = titleText.isEmpty ? qpTitle : titleText
+            
+            api_paste_name += finalTitleText
 
             let api_paste_expire_date = "&api_paste_expire_date=" + "N"
             
