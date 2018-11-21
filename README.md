@@ -13,9 +13,10 @@ PasteBin Mobile is an app to quickly upload text or code to http://pastebin.com!
 
 ## Notes
 
-Current build passes all tests. 
+Current build passes all tests. We use [SwiftFormat](https://github.com/nicklockwood/SwiftFormat) to format our swift code.
 
 ## Features
+
 - [x] Save API Settings
 
 - [x] Implement quick paste with default settings
@@ -27,6 +28,8 @@ Current build passes all tests.
 - [x] Locally save list of prior pastes 
 
 - [x] Syntax Highlighting
+
+- [ ] User profiles
 
 ## Credits
 
