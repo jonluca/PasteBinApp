@@ -8,9 +8,7 @@
 
 import Foundation
 
-
 struct SyntaxLibraries {
-    
     var languages: [String] = [
         "4CS",
         "6502 ACME Cross Assembler",
@@ -263,9 +261,9 @@ struct SyntaxLibraries {
         "XPP",
         "YAML",
         "Z80 Assembler",
-        "ZXBasic"
+        "ZXBasic",
     ]
-    
+
     let highlightrLanguage: [String: String] = [
         "4CS": "default",
         "6502 ACME Cross Assembler": "default",
@@ -520,8 +518,8 @@ struct SyntaxLibraries {
         "YAML": "yaml",
         "Z80 Assembler": "default",
         "ZXBasic": "default",
-        ]
-    
+    ]
+
     let postLanguage: [String: String] = [
         "4CS": "4cs",
         "6502 ACME Cross Assembler": "6502acme",
@@ -776,5 +774,5 @@ struct SyntaxLibraries {
         "YAML": "yaml",
         "Z80 Assembler": "z80",
         "ZXBasic": "zxbasic",
-        ]
+    ]
 }
